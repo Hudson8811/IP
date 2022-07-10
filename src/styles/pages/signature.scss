@@ -1,0 +1,130 @@
+.signature {
+	&__container {}
+	
+		&__text {
+			font-family: 'Styrene A LC Web';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			color: #000000;
+			margin-top: 40px;
+			@media (max-width: 1900px){
+				font-size: 0.842vw;
+				line-height: 1.263vw;
+				margin-top: 2.105vw;
+			}
+			span {
+				font-weight: 700;
+			}
+		}
+	
+		&__body {
+			margin-top: 85px;
+			display: flex;
+			@media (max-width: 1900px){
+				margin-top: 4.474vw;
+			}
+		}
+	
+		&__left {
+			flex: 1 1 auto;
+			&--radio {
+				.block-form__title {
+					font-family: 'Styrene A LC';
+					font-style: normal;
+					font-weight: 400;
+					font-size: 12px;
+					line-height: 14px;
+					display: flex;
+					align-items: center;
+					color: #000000;
+					@media (max-width: 1900px){
+						font-size: 0.632vw;
+						line-height: 0.737vw;
+					}
+				}
+				.block-form__input {
+					margin-top: 38px;
+					@media (max-width: 19000px){
+						margin-top: 2vw;
+					}
+				}
+			} 
+
+			&--btn {
+				width: 190px;
+				height: 48px;
+				background: #FFFFFF;
+				border: 1px solid #000000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: 52px;
+				@media (max-width: 1900px){
+					width: 10vw;
+					height: 2.526vw;
+					border: 0.053vw solid #000000;
+					margin-top: 2.737vw;
+				}
+				span {
+					font-family: 'Styrene A LC Web';
+					font-style: normal;
+					font-weight: 400;
+					font-size: 18px;
+					line-height: 26px;
+					color: #000000;
+					@media (max-width: 1900px){
+						font-size: 0.947vw;
+						line-height: 1.368vw;
+					}
+				}
+			}
+			
+			&--text {
+				width: 300px;
+				font-family: 'Styrene A LC Web';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 12px;
+				line-height: 18px;
+				color: #000000;
+				margin-top: 42px;
+				@media (max-width: 1900px){
+					width: 15.789vw;
+					font-size: 0.632vw;
+					line-height: 0.947vw;
+					margin-top: 2.211vw;
+				}
+				a {
+					color: #F04E00;
+				}
+			}
+		}
+	
+		&__right {
+			margin-left: 27px;
+			flex: 0 1 740px;
+			border: 1px solid #EDEDED;
+			@media (max-width: 1900px){
+				margin-left: 1.421vw;
+				flex: 0 1 38.947vw;
+				border: 0.053vw solid #EDEDED;
+			}
+			&--img {
+				padding: 16px 9px 89px 23px;
+				@media (max-width: 1900px){
+					padding: 0.842vw 0.474vw 4.684vw 1.211vw;
+				}
+				img {
+					width: 708px;
+					max-width: 100%;
+					height: 495px;
+					@media (max-width: 1900px){
+						width: 37.263vw;
+						height: 26.053vw;
+					}
+				}
+			}
+		}
+}

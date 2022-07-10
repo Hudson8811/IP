@@ -1,0 +1,84 @@
+.text-block {
+	h1 {
+		margin-bottom: 63px;
+		font-family: 'Source Serif Pro';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 40px;
+		color: #000000;
+		@media (max-width: 1900px){
+			margin-bottom: 3.316vw;
+			font-size: 1.684vw;
+			line-height: 2.105vw;
+		}
+	}
+
+	h2,
+	p,
+	li {
+		font-family: 'Styrene A LC Web';
+		font-style: normal;
+		font-size: 18px;
+		line-height: 26px;
+		color: #000000;
+		@media (max-width: 1900px){
+			font-size: 0.947vw;
+			line-height: 1.368vw;
+		}
+	}
+
+	h2 {
+		margin-top: 26px;
+		font-weight: 700;
+		@media (max-width: 1900px){
+			margin-top: 1.368vw;
+		}
+	}
+
+	p {
+		margin-top: 26px;
+		margin-bottom: 0;
+		font-weight: 400;
+		@media (max-width: 1900px){
+			margin-top: 1.368vw;
+		}
+	}
+
+	ul {
+		margin-top: 27px;
+		@media (max-width: 1900px){
+			margin-top: 1.421vw;
+		}
+		li {
+			padding-left: 30px;
+			font-weight: 400;
+			@media (max-width: 1900px){
+				padding-left: 1.579vw;
+			}
+			&:not(:first-child) {
+				margin-top: 18px;
+				@media (max-width: 1900px){
+					margin-top: 0.947vw;
+				}
+			}
+			position: relative;
+			&::before{
+				content:'';
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				width: 7px;
+				height: 7px;
+				border-radius: 50%;
+				background-color: #000000;
+				@media (max-width: 1900px){
+					top: 0.526vw;
+					left: 0.526vw;
+					width: 0.368vw;
+					height: 0.368vw;
+				}
+			}
+		}
+	}
+}

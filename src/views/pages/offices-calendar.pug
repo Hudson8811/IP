@@ -1,0 +1,66 @@
+extends ../layouts/default
+
+block variables
+	- const title = "IP";
+
+block content
+	.wrapper
+		include ../../blocks/modules/header/header
+
+		include ../../blocks/modules/sidebar-icons/sidebar-icons
+		.page
+			include ../../blocks/modules/menu/menu
+			.content
+				.content__container
+					.offices.offices-calendar
+						.offices__title.general-title Календарь бронирований
+						.offices__btns 
+							a(href="").offices__btn.offices__btn-map карта офиса Москва
+								.offices__btn--arrow
+							a(href="").offices__btn.offices__btn-map карта офиса Санкт-Петербург
+								.offices__btn--arrow
+							a(href="").offices__btn.offices__btn-calendar.active календарь бронирований
+						.offices-calendar__body 
+							.offices-calendar__left 
+								.offices-calendar__select.select-offices
+									.select-offices--title 
+										span Москва
+									.select-offices--content
+										input#singleSelect1.select-offices--input(type='radio' name='singleSelect')
+										label.select-offices--label(for='singleSelect1')
+										input#singleselect2.select-offices--input(type='radio' name='singleSelect' checked='')
+										label.select-offices--label(for='singleselect2') Москва
+										input#singleSelect3.select-offices--input(type='radio' name='singleSelect')
+										label.select-offices--label(for='singleSelect3') Санкт-Петербург
+
+								.offices-calendar__checkbox1
+									.radiobuttons
+										.radiobuttons__item
+											|переговорная 1
+											input(type='radio' value='1' checked='' name='nameradio1')
+										.radiobuttons__item
+											|переговорная 2
+											input(type='radio' value='2' name='nameradio1')
+										.radiobuttons__item
+											|переговорная 3
+											input(type='radio' value='3' name='nameradio1')
+
+								.offices-calendar__checkbox2
+									.radiobuttons
+										.radiobuttons__item
+											|курьер Анастасия
+											input(type='radio' value='1' checked='' name='nameradio2')
+										.radiobuttons__item
+											|водитель Борис
+											input(type='radio' value='2' name='nameradio2')
+										.radiobuttons__item
+											|водитель Александр
+											input(type='radio' value='3' name='nameradio2')
+
+								.offices-calendar__text 
+									span Пояснительный текст 
+									|Тут будет короткая инструкция-подсказка, как пользоваться календарем. Типа: нужно выборать из списка что бронируем (переговорная, курьер и тд), далее выбрать время в поле календаря и создать бронь  описав задачу (серая). После подтверждения брони секретарем бронь становится активной (голубая)
+
+
+
+		include ../../blocks/modules/footer/footer

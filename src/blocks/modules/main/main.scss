@@ -1,0 +1,105 @@
+.main {
+	padding-top: 212px;
+	padding-bottom: 102px;
+	margin-right: 535px;
+	margin-left: 30px;
+	@media (max-width: 1900px){
+		padding-top: 11.158vw;
+		padding-bottom: 5.368vw;
+		margin-right: 28.158vw;
+		margin-left: 1.579vw;
+	}
+	&__container {
+		font-family: 'Styrene A LC Web';
+		font-style: normal;
+		h1 {
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 31px;
+			color: #000000;
+			margin: 0;
+			@media (max-width: 1900px){
+				font-size: 1.263vw;
+				line-height: 1.632vw;
+			}
+		}
+		h2 {
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 20px;
+			display: flex;
+			align-items: center;
+			color: #F04E00;
+			border-bottom: 2px solid #F04E00;
+			padding-bottom: 14px;
+			margin-top: 40px;
+			@media (max-width: 1900px){
+				font-size: 0.842vw;
+				line-height: 1.053vw;
+				border-bottom: 0.105vw solid #F04E00;
+				padding-bottom: 0.737vw;
+				margin-top: 2.11vw;
+			}
+			&:nth-child(2){
+				margin-top: 50px;
+				@media (max-width: 1900px){
+					margin-top: 2.632vw;
+				}
+			}
+		}
+		p {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			color: #000000;
+			margin-top: 15px;
+			@media (max-width: 1900px) {
+				font-size: 0.842vw;
+				line-height: 1.053vw;
+				margin-top: 0.789vw;
+			}
+		}
+
+	} 
+		&__news {
+
+		} 
+		&__massages {
+			margin-top: 93px;
+			@media (max-width: 1900px){
+				margin-top: 4.895vw;
+			}
+			>div {
+				margin-top: 50px;
+				border-bottom: 2px solid #FFFFFF;
+				padding-bottom: 14px;
+				@media (max-width: 1900px){
+					margin-top: 2.632vw;
+					border-bottom: 0.105vw solid #FFFFFF;
+					padding-bottom: 0.737vw;
+				}
+				span {
+					font-size: 16px;
+					line-height: 20px;
+					display: inline-flex;
+					align-items: center;
+					color: #000000;
+					@media (max-width: 1900px) {
+						font-size: 0.842vw;
+						line-height: 1.053vw;
+					}
+					&:nth-child(1) {
+						font-weight: 700;
+					}
+			
+					&:nth-child(2) {
+						margin-left: 14px;
+						font-weight: 400;
+						@media (max-width: 1900px){
+							margin-left: 0.737vw;
+						}
+					}
+				}
+			}
+		}
+}
