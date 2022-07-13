@@ -91,7 +91,7 @@ font-family: 'Styrene A LC Web';
 			transform: translate(4px, -50%) rotate(-45deg);
 			@media (max-width: 1900px){
 							transform: translate(0.211vw, -50%) rotate(-45deg);
-				
+
 			}
 		}
 
@@ -365,7 +365,7 @@ font-family: 'Styrene A LC Web';
 			flex: 0 1 21.579vw;
 		}
 	}
-	
+
 	&--icon {}
 
 	&--input {}
@@ -385,24 +385,24 @@ font-family: 'Styrene A LC Web';
 			}
 			.select1--input {
 				display: none;
-			
+
 				&:checked+label {
 					color: #000000;
 				}
-			
+
 				&+label {
 					color: rgba($color: #000000, $alpha: 0.4);
 				}
-			
-			
+
+
 			}
 		}
 
 		&__left {}
-	
+
 		&__right {}
-	
-	
+
+
 		&__title {
 			padding-left: 38px;
 			font-family: 'Styrene A LC Web';
@@ -426,7 +426,7 @@ font-family: 'Styrene A LC Web';
 			margin-left: 0.842vw;
 		}
 	}
-	
+
 		&--btn {
 			width: 26px;
 			height: 26px;
@@ -449,9 +449,9 @@ font-family: 'Styrene A LC Web';
 				}
 			}
 		}
-	
+
 		&--btn1 {}
-	
+
 		&--btn2 {
 			margin-left: 23px;
 			@media (max-width: 1900px){
@@ -477,7 +477,7 @@ font-family: 'Styrene A LC Web';
 			margin: -1.579vw -0.789vw;
 		}
 	}
-	
+
 	&__item {
 		flex: 0 1 20%;
 		padding: 30px 15px;
@@ -485,13 +485,13 @@ font-family: 'Styrene A LC Web';
 				padding: 1.579vw 0.789vw;
 			}
 	}
-	
+
 	&__column {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 	}
-	
+
 	&__img {
 		display: block;
 		position: relative;
@@ -532,7 +532,7 @@ font-family: 'Styrene A LC Web';
 				border-bottom: 0.105vw solid #CFEDFF;
 			}
 		}
-	
+
 		&:hover {
 			span {
 				background: #CFEDFF;
@@ -652,7 +652,7 @@ font-family: 'Styrene A LC Web';
 				}
 			}
 	}
-	
+
 	&__profile {
 		border-top: 2px solid #CFEDFF;
 		width: 100%;
@@ -733,7 +733,7 @@ font-family: 'Styrene A LC Web';
 				height: 32p1.684vwx;
 			}
 		}
-	
+
 		&:nth-child(2) {
 			margin-top: 42px;
 			@media (max-width: 1900px){
@@ -772,35 +772,35 @@ font-family: 'Styrene A LC Web';
 					flex: 0 1 16.053vw;
 				}
 			}
-		
+
 			&:nth-child(2) {
 				flex: 0 1 283px;
 				@media (max-width: 1900px){
 					flex: 0 1 14.895vw;
 				}
 			}
-		
+
 			&:nth-child(3) {
 				flex: 0 1 104px;
 				@media (max-width: 1900px){
 					flex: 0 1 5.474vw;
 				}
 			}
-		
+
 			&:nth-child(4) {
 				flex: 0 1 192px;
 				@media (max-width: 1900px){
 					flex: 0 1 10.105vw;
 				}
 			}
-		
+
 			&:nth-child(5) {
 				flex: 0 1 244px;
 				@media (max-width: 1900px){
 					flex: 0 1 12.842vw;
 				}
 			}
-		
+
 			&:nth-child(6) {
 				flex: 0 1 50px;
 				@media (max-width: 1900px){
@@ -884,11 +884,11 @@ font-family: 'Styrene A LC Web';
 			padding: 4.737vw 5.789vw 5.263vw;
 		}
 	}
-	
+
 		&__row {
 			display: flex;
 		}
-	
+
 		&__img {
 			position: relative;
 			width: 410px;
@@ -906,7 +906,7 @@ font-family: 'Styrene A LC Web';
 				object-fit: cover;
 			}
 		}
-	
+
 		&__body {
 			margin-top: -10px;
 			margin-left: 76px;
@@ -915,7 +915,7 @@ font-family: 'Styrene A LC Web';
 					margin-left: 4vw;
 			}
 		}
-	
+
 		&__name {
 			font-family: 'Source Serif Pro';
 			font-style: normal;
@@ -928,7 +928,7 @@ font-family: 'Styrene A LC Web';
 				line-height: 3.158vw;
 			}
 		}
-	
+
 		&__position {
 			margin-top: 22px;
 			font-family: 'Styrene A LC Web';
@@ -943,7 +943,7 @@ font-family: 'Styrene A LC Web';
 				line-height: 1.263vw;
 			}
 		}
-	
+
 		&__city {
 			margin-top: 34px;
 			font-family: 'Styrene A LC Web';
@@ -958,7 +958,7 @@ font-family: 'Styrene A LC Web';
 				line-height: 1.263vw;
 			}
 		}
-	
+
 		&__contacts {
 			margin-top: 52px;
 			display: flex;
@@ -985,7 +985,7 @@ font-family: 'Styrene A LC Web';
 					left: 15.263vw;
 				}
 			}
-			
+
 				&--item {
 					height: 35px;
 					display: flex;
@@ -1013,7 +1013,7 @@ font-family: 'Styrene A LC Web';
 						}
 					}
 				}
-			
+
 				&--icon {
 					width: 35px;
 					height: 35px;
@@ -1026,7 +1026,7 @@ font-family: 'Styrene A LC Web';
 						height: 100%;
 					}
 				}
-			
+
 				&--right {
 					margin-left: 118px;
 					display: flex;
@@ -1083,4 +1083,19 @@ font-family: 'Styrene A LC Web';
 			height: 23.42vw;
 		}
 	} */
+}
+
+
+
+
+
+.fancy-modal-map{
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.map-container{
+	width: 100%;
+	max-width: 100%;
 }

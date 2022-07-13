@@ -31,6 +31,13 @@ const requireDir = require("require-dir"),
                 "./src/js/**/*.js"
             ]
         },
+        scriptsLibs: {
+            src: "./src/jslibs/*.{js,json}",
+            dist: "./dist/jslibs/",
+            watch: [
+                "./src/jslibs/*.{js,json}"
+            ]
+        },
         images: {
             src: [
                 "./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}",
@@ -38,6 +45,13 @@ const requireDir = require("require-dir"),
             ],
             dist: "./dist/img/",
             watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg}"
+        },
+        mapplic: {
+            src: [
+                "./src/mapplic/**/*.*",
+            ],
+            dist: "./dist/mapplic/",
+            watch: "./src/mapplic/**/*.*",
         },
         sprites: {
             src: "./src/img/svg/*.svg",
@@ -64,10 +78,10 @@ requireDir("./gulp-tasks/");
 export { paths };
 
 export const development = gulp.series("clean",
-    gulp.parallel(["views", "styles", "scripts", "images", "webp", "sprites", "fonts", "favicons"]),
+    gulp.parallel(["views", "styles", "scripts", "scriptsLibs", "images", "mapplic", "webp", "sprites", "fonts", "favicons"]),
     gulp.parallel("serve"));
 
 export const prod = gulp.series("clean",
-    gulp.parallel(["views", "styles", "scripts", "images", "webp", "sprites", "fonts", "favicons", "gzip"]));
+    gulp.parallel(["views", "styles", "scripts",  "scriptsLibs", "images",  "mapplic","webp", "sprites", "fonts", "favicons", "gzip"]));
 
 export default development;

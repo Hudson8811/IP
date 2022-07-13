@@ -114,6 +114,7 @@ h6 {
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
+			max-width: calc(100% - 20.789vw);
 			&__container {
 				flex: 1 1 auto;
 				background-color: #ffffff;
@@ -203,9 +204,9 @@ h6 {
 		background-color: #ffffff;
 		content: '';
 		border-radius: 50%;
-	
+
 		transition: all 0.3s ease 0s;
-	
+
 		transform: scale(0);
 		@media (max-width: 1900px){
 			width: 0.632vw;
@@ -281,7 +282,7 @@ h6 {
 				line-height: 1.368vw;
 			}
 			&::placeholder {
-				
+
 				color: #EDEDED;
 			}
 		}

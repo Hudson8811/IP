@@ -29,3 +29,11 @@ gulp.task("scripts", () => {
         }))
         .pipe(browsersync.stream());
 });
+gulp.task("scriptsLibs", () => {
+    return gulp.src(paths.scriptsLibs.src)
+        .pipe(gulp.dest(paths.scriptsLibs.dist))
+        .pipe(debug({
+            "title": "JS files"
+        }))
+        .pipe(browsersync.stream());
+});

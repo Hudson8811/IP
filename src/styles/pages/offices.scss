@@ -1,6 +1,6 @@
 .offices {
 	&__title {}
-	
+
 	&__btns {
 		margin-top: 21px;
 		display: flex;
@@ -9,7 +9,7 @@
 			margin-top: 1.105vw;
 		}
 	}
-	
+
 		&__btn {
 			background: #FFFFFF;
 			border: 1px solid #CFEDFF;
@@ -76,7 +76,7 @@
 				}
 			}
 		}
-	
+
 		&__info {
 			&--item {
 				width: 505px;
@@ -101,7 +101,7 @@
 						margin-top: 1.368vw;
 					}
 				}
-			
+
 			}
 
 			&--mosk {
@@ -110,7 +110,7 @@
 					margin-top: 3vw;
 				}
 			}
-			
+
 			&--pit {
 				margin-top: 80px;
 				@media (max-width: 1900px){
@@ -154,6 +154,7 @@
 }
 
 .offices-maps {
+    max-width: 100%;
 	&__img {
 		height: 745px;
 		margin: 37px -110px -103px;
@@ -166,6 +167,13 @@
 			height: 100%;
 		}
 	}
+}
+
+.offices-map-wrap{
+	display: block;
+    margin-top: 100px;
+    margin-left: -12px;
+    margin-right: -12px;
 }
 
 .offices-calendar {

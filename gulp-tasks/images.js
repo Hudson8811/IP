@@ -18,7 +18,7 @@ const argv = yargs.argv,
 
 gulp.task("images", () => {
     return gulp.src(paths.images.src)
-        .pipe(newer(paths.images.dist))  
+        .pipe(newer(paths.images.dist))
         .pipe(gulpif(production, imagemin([
             imageminGiflossy({
                 optimizationLevel: 3,
@@ -52,6 +52,15 @@ gulp.task("images", () => {
         .pipe(gulp.dest(paths.images.dist))
         .pipe(debug({
             "title": "Images"
+        }))
+        .pipe(browsersync.stream());
+});
+
+gulp.task("mapplic", () => {
+    return gulp.src(paths.mapplic.src)
+        .pipe(gulp.dest(paths.mapplic.dist))
+        .pipe(debug({
+            "title": "mapplic"
         }))
         .pipe(browsersync.stream());
 });
