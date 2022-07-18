@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -2971,6 +2973,7 @@ h6 {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background: #E1F3FD;
 }
 
 .wrapper .page {
@@ -3402,8 +3405,25 @@ h6 {
   padding-bottom: 40px;
 }
 
-.sidebar__calendar img {
+.sidebar__calendar:hover .sidebar__calendar-img {
+  background: #CFEDFF;
+}
+
+.sidebar__calendar-img {
+  min-width: 113px;
+  min-height: 113px;
+  margin-top: -20px;
   margin-right: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease 0s;
+}
+
+.sidebar__calendar-img img {
+  width: 3.526vw;
+  height: 3.789vw;
 }
 
 .sidebar__title {
@@ -4036,6 +4056,10 @@ h6 {
   margin-right: -12px;
 }
 
+.offices-calendar {
+  position: relative;
+}
+
 .offices-calendar__body {
   margin-top: 75px;
   display: flex;
@@ -4043,10 +4067,12 @@ h6 {
 
 .offices-calendar__left {
   max-width: 213px;
-}
-
-.offices-calendar__left .offices-calendar__checkbox1 {
-  margin-top: 105px;
+  /* 			.offices-calendar__checkbox1 {
+  				margin-top: 105px;
+  				@media (max-width: 1900px){
+  					margin-top: 5.526vw;
+  				}
+  			} */
 }
 
 .offices-calendar__left .offices-calendar__checkbox2 {
@@ -4072,41 +4098,45 @@ h6 {
   color: #F04E00;
 }
 
-.select-offices {
+.swiper-offices-calendar {
   position: relative;
-  width: 228px;
-  height: 34px;
+  z-index: 99;
 }
 
-.select-offices[data-state=active] .select-offices--title::before {
-  transform: translate(-4px, -50%) rotate(-45deg);
+.swiper-offices-calendar .swiper-wrapper .swiper-slide {
+  opacity: 0 !important;
+  transition: all 0.3s ease 0s !important;
+  position: relative;
+  z-index: 1;
 }
 
-.select-offices[data-state=active] .select-offices--title::after {
-  transform: translate(4px, -50%) rotate(45deg);
+.swiper-offices-calendar .swiper-wrapper .swiper-slide-active {
+  opacity: 1 !important;
+  z-index: 2;
+  transition: all 0.3s ease 0.3s !important;
 }
 
-.select-offices[data-state=active] .select-offices--content {
-  opacity: 1;
-}
-
-.select-offices[data-state=active] .select-offices--label + .select-offices--input + .select-offices--label {
-  max-height: 40px;
+.select-offices {
+  margin-top: 80px;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
 }
 
 .select-offices--title {
+  max-width: 228px;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
   padding: 0 0 0 38px;
   font-family: "Styrene A LC Web";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height, or 150% */
-  /* black */
   color: #000000;
   cursor: pointer;
 }
@@ -4129,53 +4159,473 @@ h6 {
   transform: translate(4px, -50%) rotate(-45deg);
 }
 
-.select-offices--title span {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  border-bottom: 2px solid #CFEDFF;
+.select-offices.active .select-offices--title::before {
+  transform: translate(-4px, -50%) rotate(-45deg);
+}
+
+.select-offices.active .select-offices--title::after {
+  transform: translate(4px, -50%) rotate(45deg);
+}
+
+.select-offices--span1 {
+  padding-left: 41px;
+}
+
+.select-offices--span2 {
+  padding-left: 41px;
 }
 
 .select-offices--content {
-  position: absolute;
-  top: 34px;
-  left: 0px;
+  min-width: 228px;
+  min-height: 0;
+  max-width: 228px;
+  max-height: 0;
+  background: #CFEDFF;
+  padding-left: 41px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background: #CFEDFF;
-  transition: all 0.3s ease-out;
-  opacity: 0;
-  z-index: 8;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
 }
 
-.select-offices--input {
-  display: none;
+.select-offices--content.active {
+  min-height: 96px;
+  max-height: 96px;
 }
 
-.select-offices--input:checked + label {
+.select-offices--content .swiper-pagination-bullet {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  border-radius: 0;
+  background: transparent;
+  opacity: 1;
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 162%;
+  color: #000000;
+  opacity: 0.4;
+  margin: 0 !important;
+}
+
+.select-offices--content .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.select-offices--content > *:nth-child(1)::before {
+  content: "Москва";
+}
+
+.select-offices--content > *:nth-child(2)::before {
+  content: "Санкт-Петербург";
+}
+
+.swiper {
+  overflow: visible !important;
+}
+
+.offices-calendar__right {
+  flex: 1 1 auto;
+}
+
+.offices-calendar__right .calendar__swiper-inner {
+  padding-left: 114px;
+  padding-bottom: 20px;
+  /* 		padding-right: 200px;
+  		margin-right: -200px; */
+}
+
+.calendar-slide__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #CFEDFF;
+  padding-bottom: 14px;
+}
+
+.calendar-slide__month {
+  flex: 1 1 auto;
+}
+
+.calendar-slide__month span {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
   color: #000000;
 }
 
-.select-offices--input + label {
-  color: rgba(0, 0, 0, 0.4);
+.calendar-slide__month span:nth-child(1) {
+  font-weight: 700;
 }
 
-.select-offices--input:disabled + label {
-  opacity: 0.6;
+.calendar-slide__month span:nth-child(2) {
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.calendar-slide__prev {
+  cursor: pointer;
+  margin-right: 35px;
+  position: relative;
+  transition: opacity 0.3s ease 0.3s;
+}
+
+.calendar-slide__prev.swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease 0s;
+}
+
+.calendar-slide__prev::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  width: 18px;
+  height: 7px;
+  transform: translate(-100%, -50%) rotate(180deg);
+  background: url("../img/svg/arrow2.svg") 0 0/100% 100% no-repeat;
+}
+
+.calendar-slide__next {
+  cursor: pointer;
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: right;
+  color: #000000;
+  position: relative;
+  z-index: 9;
+  pointer-events: auto;
+}
+
+.calendar-slide__next::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  width: 18px;
+  height: 7px;
+  transform: translate(-100%, -50%);
+  background: url("../img/svg/arrow2.svg") 0 0/100% 100% no-repeat;
+}
+
+.calendar-slide__dates {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #CFEDFF;
+}
+
+.calendar-slide__dates--item {
+  flex: 0 0 92px;
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-slide__dates--item span:nth-child(2) {
+  margin-left: 5px;
+}
+
+.calendar-slide__dates--item.today {
+  color: #F04E00;
+}
+
+.calendar-slide__items {
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.calendar-slide__items > *:nth-child(2) .calendar-slide__square {
+  position: relative;
+}
+
+.calendar-slide__items > *:nth-child(2) .calendar-slide__square::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 18px;
+  height: 1px;
+  background-color: #CFEDFF;
+  transform: translate(-100%, 0);
+}
+
+.calendar-slide__items > *:nth-child(2) .calendar-slide__square:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 18px;
+  height: 1px;
+  background-color: #CFEDFF;
+  transform: translate(-100%, 0);
+}
+
+.calendar-slide__items > *:nth-child(2) .calendar-slide__square:nth-child(1)::after,
+.calendar-slide__items > *:nth-child(2) .calendar-slide__square:nth-child(2)::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #CFEDFF;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.calendar-slide__item {
+  cursor: pointer;
+  flex: 0 0 92px;
+  border: 1px solid #CFEDFF;
+  pointer-events: auto;
+  position: relative;
+}
+
+.calendar-slide__square {
+  position: relative;
+  min-height: 78px;
+  max-height: 78px;
+}
+
+.calendar-slide__square:not(:last-child) {
+  border-bottom: 1px solid #CFEDFF;
+}
+
+.calendar-times {
+  height: calc(100% + 24px);
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  transform: translate(calc(-100% - 18px), 0);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -12px;
+}
+
+.calendar-times__items {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calendar-times__item {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  color: #000000;
+}
+
+.calendar-popap {
+  padding: 18px 24px 10px 18px;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 0;
+  transition: opacity 0.7s ease 0s, width 0.7s ease 0.7s;
+  opacity: 0;
   pointer-events: none;
 }
 
-.select-offices--label {
+.calendar-popap__container {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.calendar-popap__name {
+  font-weight: 700;
+  border-bottom: 2px solid #FFFFFF;
+  padding-bottom: 7px;
+}
+
+.calendar-popap__text {
+  margin-top: 13px;
+}
+
+.calendar-popap__time {
+  margin-top: 18px;
+}
+
+.calendar-popap__btn {
+  margin-top: 10px;
+  width: 177px;
+  height: 26px;
   display: flex;
   align-items: center;
+  padding: 5px 7px 6px;
+  background-color: #ffffff;
+}
+
+.confirmed-block {
+  background: #CFEDFF;
+}
+
+.waiting-block {
+  background: #EDEDED;
+}
+
+.confirmed-hover-block {
+  position: absolute;
+  /* top: 15%; */
+  left: 0;
   width: 100%;
-  height: 34px;
-  max-height: 0;
-  padding: 0 0 0 38px;
-  transition: all 0.2s ease-out;
-  cursor: pointer;
+  /* height: 25%; */
+  background: #E1F3FD;
+}
+
+.waiting-hover-block {
+  position: absolute;
+  /* top: 10%; */
+  left: 0;
+  width: 100%;
+  /* height: 10%; */
+  background: #EDEDED;
+}
+
+.confirmed-block-click {
+  position: absolute;
+  left: 0%;
+  background: #CFEDFF;
+  z-index: 99;
+  width: 0;
   overflow: hidden;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.calendar-slide__item.active .confirmed-block-click {
+  transition: opacity 0.5s ease 0s;
+  width: 219px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hover-block.active .calendar-popap {
+  transition: opacity 0.5s ease 0s;
+  width: 219px;
+  opacity: 1;
+  z-index: 99;
+  pointer-events: auto;
+}
+
+.meeting-rooms {
+  max-width: 81%;
+}
+
+.meeting-rooms__swiper {
+  max-width: 100%;
+  margin: 0 !important;
+}
+
+.meeting-rooms-pagination {
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #CFEDFF;
+  opacity: 1;
+  margin: 0 !important;
+  margin-bottom: 16px !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  transition: transform 0.3s ease 0s;
+  border-radius: 50%;
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet::after {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+  padding-left: 38px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100%;
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(1)::after {
+  content: "переговорная 1";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(2)::after {
+  content: "переговорная 2";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(3) {
+  margin-bottom: 48px !important;
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(3)::after {
+  content: "переговорная 3";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(4)::after {
+  content: "курьер Анастасия";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(5)::after {
+  content: "водитель Борис";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet:nth-child(6)::after {
+  content: "водитель Александр";
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.meeting-rooms-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
+  font-weight: 700;
 }
 
 .select1 {
@@ -5837,10 +6287,11 @@ section.gray:hover {
     padding-bottom: 2.105vw;
   }
 
-  .sidebar__calendar img {
+  .sidebar__calendar-img {
+    min-width: 5.947vw;
+    min-height: 5.947vw;
+    margin-top: -1.053vw;
     margin-right: 1.158vw;
-    width: 3.526vw;
-    height: 3.789vw;
   }
 
   .sidebar__title {
@@ -6199,10 +6650,6 @@ section.gray:hover {
     max-width: 11.211vw;
   }
 
-  .offices-calendar__left .offices-calendar__checkbox1 {
-    margin-top: 5.526vw;
-  }
-
   .offices-calendar__left .offices-calendar__checkbox2 {
     margin-top: 2.526vw;
   }
@@ -6219,26 +6666,14 @@ section.gray:hover {
   }
 
   .select-offices {
-    width: 12vw;
-    height: 1.789vw;
-  }
-
-  .select-offices[data-state=active] .select-offices--title::before {
-    transform: translate(-0.211vw, -50%) rotate(-45deg);
-  }
-
-  .select-offices[data-state=active] .select-offices--title::after {
-    transform: translate(0.211vw, -50%) rotate(45deg);
-  }
-
-  .select-offices[data-state=active] .select-offices--label + .select-offices--input + .select-offices--label {
-    max-height: 2.105vw;
+    margin-top: 4.211vw;
   }
 
   .select-offices--title {
     font-size: 0.842vw;
     line-height: 1.263vw;
     padding: 0 0 0 2vw;
+    max-width: 12vw;
   }
 
   .select-offices--title::before,
@@ -6253,17 +6688,196 @@ section.gray:hover {
     transform: translate(0.211vw, -50%) rotate(-45deg);
   }
 
-  .select-offices--title span {
-    border-bottom: 0.105vw solid #CFEDFF;
+  .select-offices.active .select-offices--title::before {
+    transform: translate(-0.211vw, -50%) rotate(-45deg);
+  }
+
+  .select-offices.active .select-offices--title::after {
+    transform: translate(0.211vw, -50%) rotate(45deg);
+  }
+
+  .select-offices--span1 {
+    padding-left: 2.158vw;
+  }
+
+  .select-offices--span2 {
+    padding-left: 2.158vw;
   }
 
   .select-offices--content {
-    top: 1.789vw;
+    min-width: 12vw;
+    max-width: 12vw;
+    padding-left: 2.158vw;
   }
 
-  .select-offices--label {
-    height: 1.789vw;
-    padding: 0 0 0 2vw;
+  .select-offices--content.active {
+    min-height: 5.053vw;
+    max-height: 5.053vw;
+  }
+
+  .select-offices--content .swiper-pagination-bullet {
+    font-size: 0.842vw;
+  }
+
+  .offices-calendar__right .calendar__swiper-inner {
+    padding-left: 6vw;
+    padding-bottom: 1.053vw;
+  }
+
+  .calendar-slide__header {
+    border-bottom: 0.105vw solid #CFEDFF;
+    padding-bottom: 0.737vw;
+  }
+
+  .calendar-slide__month span {
+    font-size: 1.263vw;
+  }
+
+  .calendar-slide__month span:nth-child(2) {
+    margin-left: 0.526vw;
+  }
+
+  .calendar-slide__prev {
+    margin-right: 1.842vw;
+  }
+
+  .calendar-slide__prev::before {
+    left: -0.947vw;
+    width: 0.947vw;
+    height: 0.368vw;
+  }
+
+  .calendar-slide__next {
+    font-size: 0.842vw;
+  }
+
+  .calendar-slide__next::before {
+    left: -0.947vw;
+    width: 0.947vw;
+    height: 0.368vw;
+  }
+
+  .calendar-slide__dates {
+    margin-top: 1.053vw;
+    padding-bottom: 0.368vw;
+    border-bottom: 0.105vw solid #CFEDFF;
+  }
+
+  .calendar-slide__dates--item {
+    flex: 0 0 4.842vw;
+    font-size: 0.842vw;
+  }
+
+  .calendar-slide__dates--item span:nth-child(2) {
+    margin-left: 0.263vw;
+  }
+
+  .calendar-slide__items {
+    margin-top: 1.474vw;
+  }
+
+  .calendar-slide__items > *:nth-child(2) .calendar-slide__square::before {
+    top: 0.053vw;
+    width: 0.947vw;
+    height: 0.053vw;
+  }
+
+  .calendar-slide__items > *:nth-child(2) .calendar-slide__square:last-child::after {
+    bottom: 0.053vw;
+    width: 0.947vw;
+    height: 0.053vw;
+  }
+
+  .calendar-slide__items > *:nth-child(2) .calendar-slide__square:nth-child(1)::after,
+  .calendar-slide__items > *:nth-child(2) .calendar-slide__square:nth-child(2)::after {
+    width: 0.368vw;
+    height: 0.368vw;
+  }
+
+  .calendar-slide__item {
+    flex: 0 0 4.842vw;
+    border: 0.053vw solid #CFEDFF;
+  }
+
+  .calendar-slide__square {
+    min-height: 4.105vw;
+    max-height: 4.105vw;
+  }
+
+  .calendar-slide__square:not(:last-child) {
+    border-bottom: 0.053vw solid #CFEDFF;
+  }
+
+  .calendar-times {
+    height: calc(100% + 1.263vw);
+    transform: translate(calc(-100% - 0.947vw), 0);
+    margin-bottom: -0.632vw;
+  }
+
+  .calendar-times__item {
+    font-size: 0.632vw;
+  }
+
+  .calendar-popap {
+    padding: 0.947vw 1.263vw 0.526vw 0.947vw;
+  }
+
+  .calendar-popap__container {
+    font-size: 0.632vw;
+    line-height: 0.789vw;
+  }
+
+  .calendar-popap__name {
+    border-bottom: 0.105vw solid #FFFFFF;
+    padding-bottom: 0.368vw;
+  }
+
+  .calendar-popap__text {
+    margin-top: 0.684vw;
+  }
+
+  .calendar-popap__time {
+    margin-top: 0.947vw;
+  }
+
+  .calendar-popap__btn {
+    margin-top: 0.526vw;
+    width: 9.316vw;
+    height: 1.368vw;
+    padding: 0.263vw 0.368vw 0.316vw;
+  }
+
+  .calendar-slide__item.active .confirmed-block-click {
+    width: 11.526vw;
+  }
+
+  .hover-block.active .calendar-popap {
+    width: 11.526vw;
+  }
+
+  .meeting-rooms-pagination {
+    margin-top: 7.368vw;
+  }
+
+  .meeting-rooms-pagination .swiper-pagination-bullet {
+    width: 1.263vw;
+    height: 1.263vw;
+    margin-bottom: 0.842vw !important;
+  }
+
+  .meeting-rooms-pagination .swiper-pagination-bullet::before {
+    width: 0.632vw;
+    height: 0.632vw;
+  }
+
+  .meeting-rooms-pagination .swiper-pagination-bullet::after {
+    font-size: 0.842vw;
+    padding-left: 2vw;
+    width: 12.105vw;
+  }
+
+  .meeting-rooms-pagination .swiper-pagination-bullet:nth-child(3) {
+    margin-bottom: 2.526vw !important;
   }
 
   .select1 {

@@ -27,10 +27,29 @@
 					padding-bottom: 2.105vw;
 				}
 			}
-			img {
+			&:hover{
+				.sidebar__calendar-img {
+					background: #CFEDFF;
+				}
+			}
+			&-img {
+				min-width: 113px;
+				min-height: 113px;
+				margin-top: -20px;
 				margin-right: 22px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: all 0.3s ease 0s;
 				@media (max-width: 1900px){
+					min-width: 5.947vw;
+					min-height: 5.947vw;
+					margin-top: -1.053vw;
 					margin-right: 1.158vw;
+				}
+
+				img {
 					width: 3.526vw;
 					height: 3.789vw;
 				}
