@@ -387,7 +387,7 @@ jQuery(function () {
     var mapJsonSrc = '/jslibs/mall.json';
 
     if (document.location.href.includes('.github.io')) {
-      mapJsonSrc = '/IP/dist/jslibs/mall.json';
+      mapJsonSrc = '/IP/dist/jslibs/mall-github.json';
     }
 
     var map = $('#mapplic').mapplic((_$$mapplic = {
