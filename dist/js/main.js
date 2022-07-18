@@ -406,6 +406,7 @@ jQuery(function () {
     fullscreen: false
   }, _defineProperty(_$$mapplic, "developer", false), _defineProperty(_$$mapplic, "thumbholder", true), _defineProperty(_$$mapplic, "maxscale", 3), _$$mapplic));
   Fancybox.bind("[data-fancy-map]", {
+    dragToClose: false,
     on: {
       reveal: function reveal(fancybox, slide) {
         $('#mapplic').trigger('resize');

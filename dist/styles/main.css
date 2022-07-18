@@ -4069,11 +4069,11 @@ h6 {
 .offices-calendar__left {
   max-width: 213px;
   /* 			.offices-calendar__checkbox1 {
-  				margin-top: 105px;
-  				@media (max-width: 1900px){
-  					margin-top: 5.526vw;
-  				}
-  			} */
+  		margin-top: 105px;
+  		@media (max-width: 1900px){
+  			margin-top: 5.526vw;
+  		}
+  	} */
 }
 
 .offices-calendar__left .offices-calendar__checkbox2 {
@@ -4237,7 +4237,7 @@ h6 {
   padding-left: 114px;
   padding-bottom: 20px;
   /* 		padding-right: 200px;
-  		margin-right: -200px; */
+  margin-right: -200px; */
 }
 
 .calendar-slide__header {
@@ -4353,6 +4353,16 @@ h6 {
   position: relative;
 }
 
+.calendar-slide__items::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #CFEDFF;
+}
+
 .calendar-slide__items > *:nth-child(2) .calendar-slide__square {
   position: relative;
 }
@@ -4395,7 +4405,7 @@ h6 {
 .calendar-slide__squares {
   position: relative;
   border: 1px solid #CFEDFF;
-  margin-top: 28px;
+  margin-top: 35px;
 }
 
 .calendar-slide__item {
@@ -6782,6 +6792,12 @@ section.gray:hover {
     margin-top: 1.474vw;
   }
 
+  .calendar-slide__items::before {
+    content: "";
+    top: 1.563vw;
+    height: 0.105vw;
+  }
+
   .calendar-slide__items > *:nth-child(2) .calendar-slide__square::before {
     top: 0.053vw;
     width: 0.947vw;
@@ -6802,7 +6818,7 @@ section.gray:hover {
 
   .calendar-slide__squares {
     border: 0.053vw solid #CFEDFF;
-    margin-top: 1.474vw;
+    margin-top: 1.823vw;
   }
 
   .calendar-slide__item {

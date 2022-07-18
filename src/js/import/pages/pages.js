@@ -139,6 +139,7 @@ jQuery(function () {
 	});
 
 	Fancybox.bind("[data-fancy-map]", {
+		dragToClose:false,
 		on: {
 			reveal: (fancybox, slide) => {
 				$('#mapplic').trigger('resize')
