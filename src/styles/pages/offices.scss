@@ -414,7 +414,7 @@
 
 .offices-calendar__right {
 	flex: 1 1 auto;
-	.calendar__swiper-inner {
+	.calendar__inner {
 		padding-left: 114px;
 		padding-bottom: 20px;
 		@media (max-width: 1900px){
@@ -564,7 +564,7 @@
 			}
 		}
 	}
-	
+
 	&__items {
 		margin-top: 28px;
 		display: flex;
@@ -630,16 +630,22 @@
 			}
 		}
 	}
-	
+		&__squares {
+			position: relative;
+			border: 1px solid #CFEDFF;
+			margin-top: 28px;
+			@media (max-width: 1900px){
+				border: 0.053vw solid #CFEDFF;
+				margin-top: 1.474vw;
+			}
+		}
 		&__item {
 			cursor: pointer;
 			flex: 0 0 92px;
-			border: 1px solid #CFEDFF;
 			pointer-events: auto;
 			position: relative;
 			@media (max-width: 1900px){
 				flex: 0 0 4.842vw;
-				border: 0.053vw solid #CFEDFF;
 			}
 		}
 	
@@ -661,7 +667,7 @@
 }
 
 .calendar-times {
-	height: calc(100% + 24px);
+	height: calc(100% - 27px);
 	position: absolute;
 	z-index: 20;
 	bottom: 0;
@@ -672,7 +678,7 @@
 	flex-direction: column;
 	margin-bottom: -12px;
 	@media (max-width: 1900px){
-		height: calc(100% + 1.263vw);
+		height: calc(100% - 1.421vw);
 		transform: translate(calc(-100% - 0.947vw), 0);
 		margin-bottom: -0.632vw;
 	}
