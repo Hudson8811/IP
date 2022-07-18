@@ -112,8 +112,14 @@ $(document).ready(function () {
 jQuery(function () {
 	var css = '.mapplic-filtered svg [id^=landmark] > * {opacity: 1 !important; }';
 
+	var mapJsonSrc= '/jslibs/mall.json';
+	if(document.location.href.includes('.github.io')){
+		mapJsonSrc= '/IP/dist/jslibs/mall-github.json';
+	}
+
+
 	var map = $('#mapplic').mapplic({
-		source: '/jslibs/mall.json',
+		source: mapJsonSrc,
 		customcss: css,
 		sidebar: true,
 		sidebartoggle: true,
