@@ -110,33 +110,42 @@ $(document).ready(function () {
 });*/
 
 jQuery(function () {
-	var css = '.mapplic-filtered svg [id^=landmark] > * {opacity: 1 !important; }';
+	if($('#mapplic').length>0){
 
-	var map = $('#mapplic').mapplic({
-		source: '/jslibs/mall.json',
-		customcss: css,
-		sidebar: true,
-		sidebartoggle: true,
-		alphabetic: true,
-		height: 560,
-		developer: true,
-		searchdescription: true,
-		searcheverywhere: true,
-		animations: true,
-		minimap: false,
-		marker: 'hidden',
-		fillcolor: false,
-		fullscreen: false,
-		developer: false,
-		thumbholder: true,
-		maxscale: 3
-	});
+		var css = '.mapplic-filtered svg [id^=landmark] > * {opacity: 1 !important; }';
 
-	Fancybox.bind("[data-fancy-map]", {
-		on: {
-			reveal: (fancybox, slide) => {
-				$('#mapplic').trigger('resize')
-			}
+		var mapJsonSrc= '/jslibs/mall.json';
+		if(document.location.href.includes('.github.io')){
+			mapJsonSrc= '/IP/dist/jslibs/mall.json';
 		}
-	  });
+
+
+		var map = $('#mapplic').mapplic({
+			source: mapJsonSrc,
+			customcss: css,
+			sidebar: true,
+			sidebartoggle: true,
+			alphabetic: true,
+			height: 560,
+			developer: true,
+			searchdescription: true,
+			searcheverywhere: true,
+			animations: true,
+			minimap: false,
+			marker: 'hidden',
+			fillcolor: false,
+			fullscreen: false,
+			developer: false,
+			thumbholder: true,
+			maxscale: 3
+		});
+
+		Fancybox.bind("[data-fancy-map]", {
+			on: {
+				reveal: (fancybox, slide) => {
+					$('#mapplic').trigger('resize')
+				}
+			}
+		});
+	}
 });
