@@ -2965,6 +2965,7 @@ h6 {
   margin: 0;
   font-size: inherit;
   font-weight: 400;
+  text-align: left !important;
 }
 
 .wrapper {
@@ -3313,7 +3314,7 @@ h6 {
 }
 
 .menu__item:not(:first-child) {
-  margin-top: 3px;
+  margin-top: 8px;
 }
 
 .menu__item--click {
@@ -3322,7 +3323,7 @@ h6 {
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
-  line-height: 45px;
+  line-height: 40px;
   display: flex;
   align-items: center;
   text-transform: lowercase;
@@ -3370,10 +3371,10 @@ h6 {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 34px;
+  line-height: 23px;
   display: flex;
   align-items: center;
-  text-transform: lowercase;
+  text-transform: none;
   color: #000000;
   transition: all 0.3s ease 0s;
   padding: 5px 0px 5px 10px;
@@ -3402,7 +3403,7 @@ h6 {
 
 .sidebar__calendar-wrapper {
   border-bottom: 1px solid #000000;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .sidebar__calendar:hover .sidebar__calendar-img {
@@ -3412,8 +3413,8 @@ h6 {
 .sidebar__calendar-img {
   min-width: 113px;
   min-height: 113px;
-  margin-top: -20px;
-  margin-right: 22px;
+  margin-top: -10px;
+  margin-right: -2px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -3473,11 +3474,11 @@ h6 {
 }
 
 .sidebar__email {
-  margin-top: 40px;
+  margin-top: 46px;
 }
 
 .sidebar__maps {
-  margin-top: 40px;
+  margin-top: 46px;
 }
 
 .sidebar-icons {
@@ -3671,7 +3672,7 @@ h6 {
 }
 
 .login {
-  background-color: #EDEDED;
+  background-color: #E1F3FD;
   width: 100%;
   min-height: 100%;
 }
@@ -3716,7 +3717,7 @@ h6 {
 }
 
 .form-login__title {
-  margin-bottom: 79px;
+  margin-bottom: 92px;
   font-family: "Styrene A LC";
   font-style: normal;
   font-weight: 400;
@@ -3728,7 +3729,7 @@ h6 {
 
 .form-login__group {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 31px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -3826,17 +3827,24 @@ h6 {
 }
 
 .form-login__text {
-  margin-top: 70px;
-  font-family: "Styrene A LC Web";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #000000;
+  margin-top: 77px;
 }
 
 .form-login__text a {
   color: #F04E00;
+}
+
+.form-login__text p {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.form-login__text p:not(:first-child) {
+  margin-top: 20px;
 }
 
 .signature__text {
@@ -4062,8 +4070,9 @@ h6 {
 }
 
 .offices-calendar__body {
-  margin-top: 75px;
+  margin-top: 67px;
   display: flex;
+  justify-content: space-between;
 }
 
 .offices-calendar__left {
@@ -4347,7 +4356,7 @@ h6 {
 }
 
 .calendar-slide__items {
-  margin-top: 28px;
+  margin-top: 18px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -4426,7 +4435,7 @@ h6 {
 }
 
 .calendar-times {
-  height: calc(100% - 27px);
+  height: calc(100% - 35px);
   position: absolute;
   z-index: 20;
   bottom: 0;
@@ -4553,7 +4562,7 @@ h6 {
 }
 
 .meeting-rooms {
-  max-width: 81%;
+  max-width: 82%;
 }
 
 .meeting-rooms__swiper {
@@ -4574,7 +4583,7 @@ h6 {
   background: #CFEDFF;
   opacity: 1;
   margin: 0 !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 18px !important;
   position: relative;
   display: flex;
   align-items: center;
@@ -5510,7 +5519,7 @@ h6 {
 }
 
 .autoreply__text {
-  margin-top: 33px;
+  margin-top: 43px;
   font-family: "Styrene A LC Web";
   font-style: normal;
   font-weight: 400;
@@ -5526,6 +5535,10 @@ h6 {
 
 .autoreply__left {
   flex: 0 1 410px;
+}
+
+.autoreply__item {
+  padding-top: 2.5px;
 }
 
 .autoreply__item select {
@@ -6190,7 +6203,7 @@ section.gray:hover {
   .header__search--icon {
     width: 1.138vw;
     height: 1.138vw;
-    margin-left: 0.421vw;
+    margin-right: 0.421vw;
   }
 
   .header__search--input {
@@ -6263,12 +6276,12 @@ section.gray:hover {
   }
 
   .menu__item:not(:first-child) {
-    margin-top: 0.158vw;
+    margin-top: 0.469vw;
   }
 
   .menu__item--click {
     font-size: 1.263vw;
-    line-height: 2.368vw;
+    line-height: 2.083vw;
     border-bottom: 0.053vw solid #F04E00;
   }
 
@@ -6284,7 +6297,7 @@ section.gray:hover {
 
   .menu__item .submenu__link {
     font-size: 0.947vw;
-    line-height: 1.789vw;
+    line-height: 1.198vw;
     padding: 0.263vw 0 0.263vw 0.526vw;
   }
 
@@ -6306,8 +6319,8 @@ section.gray:hover {
   .sidebar__calendar-img {
     min-width: 5.947vw;
     min-height: 5.947vw;
-    margin-top: -1.053vw;
-    margin-right: 1.158vw;
+    margin-top: -0.526vw;
+    margin-right: -0.105vw;
   }
 
   .sidebar__title {
@@ -6522,6 +6535,14 @@ section.gray:hover {
     height: 2.105vw;
   }
 
+  .form-login__eye::before {
+    background: url("../img/svg/eye.svg") center/0.938vw 0.729vw no-repeat;
+  }
+
+  .form-login__eye::after {
+    background: url("../img/svg/eye closed.svg") center/0.938vw 0.729vw no-repeat;
+  }
+
   .form-login__btn {
     height: 2.105vw;
     margin-top: 1.789vw;
@@ -6531,8 +6552,15 @@ section.gray:hover {
 
   .form-login__text {
     margin-top: 3.684vw;
+  }
+
+  .form-login__text p {
     font-size: 0.737vw;
     line-height: 1.053vw;
+  }
+
+  .form-login__text p:not(:first-child) {
+    margin-top: 1.042vw;
   }
 
   .signature__text {
@@ -7410,6 +7438,7 @@ section.gray:hover {
     width: 10vw;
     height: 2.526vw;
     font-size: 0.947vw;
+    border: 0.05vw solid #000000;
   }
 
   .autoreply__btn-copy {

@@ -1,5 +1,5 @@
 .login {
-	background-color: #EDEDED;
+	background-color: #E1F3FD;
 	width: 100%;
 	min-height: 100%;
 	&__header {
@@ -64,7 +64,7 @@
 		width: 21.579vw;
 	}
 	&__title {
-		margin-bottom: 79px;
+		margin-bottom: 92px;
 		font-family: 'Styrene A LC';
 		font-style: normal;
 		font-weight: 400;
@@ -81,7 +81,7 @@
 	
 	&__group {
 		width: 100%;
-		margin-top: 25px;
+		margin-top: 31px;
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -162,9 +162,15 @@
 		&::before{
 			display: none;
 			background: url('../img/svg/eye.svg') center / 18px 14px no-repeat;
+			@media (max-width: 1900px){
+				background: url('../img/svg/eye.svg') center / 0.938vw 0.729vw no-repeat;
+			}
 		}
 		&::after{
 			background: url('../img/svg/eye closed.svg') center / 18px 14px no-repeat;
+			@media (max-width: 1900px){
+				background: url('../img/svg/eye closed.svg') center / 0.938vw 0.729vw no-repeat;
+			}
 		}
 	}
 	&__eye.active {
@@ -201,20 +207,30 @@
 	}
 
 	&__text {
-		margin-top: 70px;
-		font-family: 'Styrene A LC Web';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 20px;
-		color: #000000;
+		margin-top: 77px;
 		@media (max-width: 1900px){
 			margin-top: 3.684vw;
-			font-size: 0.737vw;
-			line-height: 1.053vw;
 		}
 		a {
 			color: #F04E00;
+		}
+		p {
+			font-family: 'Styrene A LC Web';
+			font-style: normal;
+			font-weight: 400;
+			color: #000000;
+			font-size: 14px;
+			line-height: 20px;
+			@media (max-width: 1900px){
+				font-size: 0.737vw;
+				line-height: 1.053vw;
+			}
+			&:not(:first-child) {
+				margin-top: 20px;
+				@media (max-width: 1900px){
+					margin-top: 1.042vw;
+				}
+			}
 		}
 	}
 }

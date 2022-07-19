@@ -52,7 +52,7 @@
 .autoreply {
 
 		&__text {
-			margin-top: 33px;
+			margin-top: 43px;
 			font-family: 'Styrene A LC Web';
 			font-style: normal;
 			font-weight: 400;
@@ -81,6 +81,7 @@
 			}
 
 				&__item {
+					padding-top: 2.5px;
 					select {
 						cursor: pointer;
 						appearance: none;
@@ -273,6 +274,7 @@
 						width: 10vw;
 						height: 2.526vw;
 						font-size: 0.947vw;
+						border: 0.05vw solid #000000;
 					}
 			
 					&-copy {

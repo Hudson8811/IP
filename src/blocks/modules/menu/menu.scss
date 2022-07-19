@@ -59,9 +59,9 @@
 	
 		&__item {
 			&:not(:first-child) {
-				margin-top: 3px;
+				margin-top: 8px;
 				@media (max-width: 1900px){
-					margin-top: 0.158vw;
+					margin-top: 0.469vw;
 				}
 			}
 			&--click {
@@ -70,7 +70,7 @@
 				font-style: normal;
 				font-weight: 600;
 				font-size: 24px;
-				line-height: 45px;
+				line-height: 40px;
 				display: flex;
 				align-items: center;
 				text-transform: lowercase;
@@ -80,7 +80,7 @@
 				transition: all 0.3s ease 0s;
 				@media (max-width: 1900px){
 					font-size: 1.263vw;
-					line-height: 2.368vw;
+					line-height: 2.083vw;
 					border-bottom: 0.053vw solid #F04E00;
 				}
 				&:hover{
@@ -133,16 +133,16 @@
 						font-style: normal;
 						font-weight: 400;
 						font-size: 18px;
-						line-height: 34px;
+						line-height: 23px;
 						display: flex;
 						align-items: center;
-						text-transform: lowercase;
+						text-transform: none;
 						color: #000000;
 						transition: all 0.3s ease 0s;
 						padding: 5px 0px 5px 10px;
 						@media (max-width: 1900px){
 							font-size: 0.947vw;
-							line-height: 1.789vw;
+							line-height: 1.198vw;
 							padding: 0.263vw 0 0.263vw 0.526vw;
 						}
 						&:hover{

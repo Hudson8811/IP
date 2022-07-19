@@ -21,7 +21,7 @@
 			display: flex;
 			&-wrapper {
 				border-bottom: 1px solid #000000;
-				padding-bottom: 40px;
+				padding-bottom: 20px;
 				@media (max-width: 1900px){
 					border-bottom: 0.053vw solid #000000;
 					padding-bottom: 2.105vw;
@@ -35,8 +35,8 @@
 			&-img {
 				min-width: 113px;
 				min-height: 113px;
-				margin-top: -20px;
-				margin-right: 22px;
+				margin-top: -10px;
+				margin-right: -2px;
 				border-radius: 50%;
 				display: flex;
 				justify-content: center;
@@ -45,8 +45,8 @@
 				@media (max-width: 1900px){
 					min-width: 5.947vw;
 					min-height: 5.947vw;
-					margin-top: -1.053vw;
-					margin-right: 1.158vw;
+					margin-top: -0.526vw;
+					margin-right: -0.105vw;
 				}
 
 				img {
@@ -124,7 +124,7 @@
 			&--link {}
 		}
 		&__email {
-			margin-top: 40px;
+			margin-top: 46px;
 			@media (max-width: 1900px){
 				margin-top: 2.105vw;
 			}
@@ -132,7 +132,7 @@
 		}
 	
 		&__maps {
-			margin-top: 40px;
+			margin-top: 46px;
 			@media (max-width: 1900px){
 				margin-top: 2.105vw;
 			}
