@@ -1,3 +1,26 @@
+const autoreply = document.querySelector('.autoreply');
+const massage_icon = document.querySelector('.massage-icon');
+if (autoreply) {
+	massage_icon.classList.add('active')
+}
+
+const signature = document.querySelector('.signature');
+const signature_icon = document.querySelector('.signature-icon');
+if (signature) {
+	signature_icon.classList.add('active')
+}
+
+const offices_calendar = document.querySelector('.offices-calendar');
+const calendar_icon = document.querySelector('.calendar-icon');
+if (offices_calendar) {
+	calendar_icon.classList.add('active')
+}
+
+const people = document.querySelector('.people');
+const call_icon = document.querySelector('.call-icon');
+if (people) {
+	call_icon.classList.add('active')
+}
 //RADIO
 $(document).ready(function () {
 	$.each($('.radiobuttons__item'), function (index, val) {
@@ -16,74 +39,73 @@ $(document).ready(function () {
 
 
 //select
-
-
-
-
-
 $(document).ready(function () {
 	const selectSingle1 = document.querySelector('.select1');
 	const selectSingle1_title = selectSingle1.querySelector('.select1--title');
 	const selectSingle1_labels = selectSingle1.querySelectorAll('.select1--label');
 
 	selectSingle1_title.addEventListener('click', () => {
-		if ('active' === selectSingle1.getAttribute('data-state')) {
-			selectSingle1.setAttribute('data-state', '');
-		} else {
-			selectSingle1.setAttribute('data-state', 'active');
-		}
+		selectSingle1.classList.toggle('active')
 	});
 
 	for (let i = 0; i < selectSingle1_labels.length; i++) {
 		selectSingle1_labels[i].addEventListener('click', (evt) => {
 			selectSingle1_title.textContent = evt.target.textContent;
-			selectSingle1.setAttribute('data-state', '');
+			selectSingle1.classList.remove('active')
 		});
 	}
 
+	
 
-
+	
+	
+	
 	const selectSingle2 = document.querySelector('.select2');
 	const selectSingle2_title = selectSingle2.querySelector('.select2--title');
 	const selectSingle2_labels = selectSingle2.querySelectorAll('.select2--label');
-
+	
 	selectSingle2_title.addEventListener('click', () => {
-		if ('active' === selectSingle2.getAttribute('data-state')) {
-			selectSingle2.setAttribute('data-state', '');
-		} else {
-			selectSingle2.setAttribute('data-state', 'active');
-		}
+		selectSingle2.classList.toggle('active')
 	});
 
 	for (let i = 0; i < selectSingle2_labels.length; i++) {
 		selectSingle2_labels[i].addEventListener('click', (evt) => {
 			selectSingle2_title.textContent = evt.target.textContent;
-			selectSingle2.setAttribute('data-state', '');
+			selectSingle2.classList.remove('active')
 		});
 	}
-
-
-	const selectSingle_offices = document.querySelector('.select-offices');
-	const selectSingle_offices_title = selectSingle_offices.querySelector('.select-offices--title');
-	const selectSingle_offices_labels = selectSingle_offices.querySelectorAll('.select-offices--label');
-
-	selectSingle_offices_title.addEventListener('click', () => {
-		if ('active' === selectSingle_offices.getAttribute('data-state')) {
-			selectSingle_offices.setAttribute('data-state', '');
-		} else {
-			selectSingle_offices.setAttribute('data-state', 'active');
-		}
-	});
-
-	for (let i = 0; i < selectSingle_offices_labels.length; i++) {
-		selectSingle_offices_labels[i].addEventListener('click', (evt) => {
-			selectSingle_offices_title.textContent = evt.target.textContent;
-			selectSingle_offices.setAttribute('data-state', '');
-		});
-	}
-
 
 });
+$(document).click( function(e){ 
+	const selectSingle2 = document.querySelector('.select2');
+	const selectSingle2_title = $( ".select2--title" );
+	if ( !selectSingle2_title.is(e.target) && selectSingle2_title.has(e.target).length === 0 ) { 
+		selectSingle2.classList.remove('active')
+	}
+});
+$(document).click( function(e){ 
+	const selectSingle1 = document.querySelector('.select1');
+	const selectSingle1_title = $( ".select1--title" );
+	if ( !selectSingle1_title.is(e.target) && selectSingle1_title.has(e.target).length === 0 ) { 
+		selectSingle1.classList.remove('active')
+	}
+});
+
+
+const autoreply__item_select = document.querySelector('.autoreply__item--inner');
+const autoreply__item_select_title = autoreply__item_select.querySelector('.autoreply__item--row');
+const autoreply__item_select_labels = autoreply__item_select.querySelectorAll('.autoreply__item--label');
+
+autoreply__item_select_title.addEventListener('click', () => {
+	autoreply__item_select.classList.toggle('active')
+});
+
+for (let i = 0; i < autoreply__item_select_labels.length; i++) {
+	autoreply__item_select_labels[i].addEventListener('click', (evt) => {
+		autoreply__item_select_title.textContent = evt.target.textContent;
+		autoreply__item_select.classList.remove('active')
+	});
+}
 
 
 
@@ -98,25 +120,25 @@ $(document).ready(function () {
 
 	$(document).on('mousemove', '.mapplic-layer', function(e) {
 		var map = $('.mapplic-map'),
-			x = (e.pageX - map.offset().left) / map.width(),
+		x = (e.pageX - map.offset().left) / map.width(),
 			y = (e.pageY - map.offset().top) / map.height();
-		$('.mapplic-coordinates-x').text(parseFloat(x).toFixed(4));
-		$('.mapplic-coordinates-y').text(parseFloat(y).toFixed(4));
-	});
+			$('.mapplic-coordinates-x').text(parseFloat(x).toFixed(4));
+			$('.mapplic-coordinates-y').text(parseFloat(y).toFixed(4));
+		});
+		
+		$('.editor-window .window-mockup').click(function() {
+			$('.editor-window').slideUp(200);
+		});
+	});*/
 
-	$('.editor-window .window-mockup').click(function() {
-		$('.editor-window').slideUp(200);
-	});
-});*/
-
-jQuery(function () {
-	var css = '.mapplic-filtered svg [id^=landmark] > * {opacity: 1 !important; }';
-
+	jQuery(function () {
+		var css = '.mapplic-filtered svg [id^=landmark] > * {opacity: 1 !important; }';
+		
 	var mapJsonSrc= '/jslibs/mall.json';
 	if(document.location.href.includes('.github.io')){
 		mapJsonSrc= '/IP/dist/jslibs/mall-github.json';
 	}
-
+	
 
 	var map = $('#mapplic').mapplic({
 		source: mapJsonSrc,
@@ -137,7 +159,7 @@ jQuery(function () {
 		thumbholder: true,
 		maxscale: 3
 	});
-
+	
 	Fancybox.bind("[data-fancy-map]", {
 		dragToClose:false,
 		on: {
@@ -145,5 +167,5 @@ jQuery(function () {
 				$('#mapplic').trigger('resize')
 			}
 		}
-	  });
+	});
 });

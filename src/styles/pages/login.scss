@@ -10,12 +10,7 @@
 		max-width: 100%;
 		margin: 0 auto;
 		padding-top: 50px;
-		padding-bottom: 150px;
-		@media (max-width: 1900px){
-			width: 90.947vw;
-			padding-top: 2.632vw;
-			padding-bottom: 7.895vw;
-		}
+
 	}
 
 		&__logo {
@@ -24,10 +19,7 @@
 			img {
 				width: 64px;
 				height: 32px;
-				@media (max-width: 1900px){
-					width: 3.368vw;
-					height: 1.684vw;
-				}
+
 			}
 			span {
 				width: 172px;
@@ -39,30 +31,21 @@
 				font-size: 18px;
 				line-height: 23px;
 				color: #000000;
-				@media (max-width: 1900px){
-					width: 9.053vw;
-					margin-left: 1.053vw;
-					font-size: 0.947vw;
-					line-height: 1.211vw;
-				}
+
 			}
 		}
 	
 		&__form {
 			margin: 0 auto;
-			margin-top: 215px;
-			@media (max-width: 1900px){
-				margin-top: 11.316vw;
-			}
+			margin-top: 10px;
+
 		}
 	
 }
 
 .form-login {
 	width: 410px;
-	@media (max-width: 1900px){
-		width: 21.579vw;
-	}
+
 	&__title {
 		margin-bottom: 92px;
 		font-family: 'Styrene A LC';
@@ -72,11 +55,7 @@
 		line-height: 29px;
 		text-align: center;
 		color: #000000;
-		@media (max-width: 1900px){
-			margin-bottom: 4.158vw;
-			font-size: 1.263vw;
-			line-height: 1.526vw;
-		}
+
 	}
 	
 	&__group {
@@ -85,9 +64,7 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		@media (max-width: 1900px){
-			margin-top: 1.316vw;
-		}
+
 		label {
 			font-family: 'Styrene A LC';
 			font-style: normal;
@@ -95,10 +72,7 @@
 			font-size: 12px;
 			line-height: 14px;
 			color: #000000;
-			@media (max-width: 1900px){
-				font-size: 0.632vw;
-				line-height: 0.737vw;
-			}
+
 		}
 	}
 	
@@ -115,13 +89,7 @@
 		font-size: 18px;
 		line-height: 22px;
 		color: #000000;
-		@media (max-width: 1900px){
-			height: 2.105vw;
-			margin-top: 0.263vw;
-			padding-left: 0.895vw;
-			font-size: 0.947vw;
-			line-height: 1.158vw;
-		}
+
 	}
 	input::placeholder {
 		font-family: 'Styrene A LC';
@@ -130,10 +98,7 @@
 		font-size: 18px;
 		line-height: 22px;
 		color: #000000;
-		@media (max-width: 1900px) {
-				font-size: 0.947vw;
-				line-height: 1.158vw;
-			}
+
 	}
 	input::focus {
 		border: none;
@@ -147,11 +112,8 @@
 		width: 42px;
 		height: 40px;
 		background-color: #ffffff;
-		@media (max-width: 1900px){
-			width: 2.211vw;
-			height: 2.105vw;
-		}
-		&::before,&::after{
+
+		&::before{
 			content: '';
 			position: absolute;
 			top: 0;
@@ -160,24 +122,21 @@
 			height: 100%;
 		}
 		&::before{
-			display: none;
-			background: url('../img/svg/eye.svg') center / 18px 14px no-repeat;
-			@media (max-width: 1900px){
-				background: url('../img/svg/eye.svg') center / 0.938vw 0.729vw no-repeat;
-			}
+			background: url('../img/svg/eye.svg') center / 20px 15px no-repeat;
+
 		}
 		&::after{
-			background: url('../img/svg/eye closed.svg') center / 18px 14px no-repeat;
-			@media (max-width: 1900px){
-				background: url('../img/svg/eye closed.svg') center / 0.938vw 0.729vw no-repeat;
-			}
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 60%;
+			height: 1px;
+			background-color: #000000;
+			transform: translate(-50%, -50%) rotate(45deg);
 		}
 	}
 	&__eye.active {
-		&::before {
-			display: block;
-		}
-	
 		&::after {
 			display: none;
 		}
@@ -198,20 +157,17 @@
 		text-align: center;
 		color: #FFFFFF;
 		border: 0;
-		@media (max-width: 1900px){
-			height: 2.105vw;
-			margin-top: 1.789vw;
-			font-size: 0.947vw;
-			line-height: 1.158vw;
+
+		transition: all 0.1s ease 0s;
+		&:hover{
+			background: #e04d00;
 		}
 	}
 
 	&__text {
 		margin-top: 77px;
-		@media (max-width: 1900px){
-			margin-top: 3.684vw;
-		}
-		a {
+
+		span {
 			color: #F04E00;
 		}
 		p {
@@ -221,15 +177,10 @@
 			color: #000000;
 			font-size: 14px;
 			line-height: 20px;
-			@media (max-width: 1900px){
-				font-size: 0.737vw;
-				line-height: 1.053vw;
-			}
+
 			&:not(:first-child) {
 				margin-top: 20px;
-				@media (max-width: 1900px){
-					margin-top: 1.042vw;
-				}
+
 			}
 		}
 	}

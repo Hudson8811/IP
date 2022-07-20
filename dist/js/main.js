@@ -286,7 +286,35 @@ if (togglePassword) {
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//RADIO
+var autoreply = document.querySelector('.autoreply');
+var massage_icon = document.querySelector('.massage-icon');
+
+if (autoreply) {
+  massage_icon.classList.add('active');
+}
+
+var signature = document.querySelector('.signature');
+var signature_icon = document.querySelector('.signature-icon');
+
+if (signature) {
+  signature_icon.classList.add('active');
+}
+
+var offices_calendar = document.querySelector('.offices-calendar');
+var calendar_icon = document.querySelector('.calendar-icon');
+
+if (offices_calendar) {
+  calendar_icon.classList.add('active');
+}
+
+var people = document.querySelector('.people');
+var call_icon = document.querySelector('.call-icon');
+
+if (people) {
+  call_icon.classList.add('active');
+} //RADIO
+
+
 $(document).ready(function () {
   $.each($('.radiobuttons__item'), function (index, val) {
     if ($(this).find('input').prop('checked') == true) {
@@ -307,17 +335,13 @@ $(document).ready(function () {
   var selectSingle1_title = selectSingle1.querySelector('.select1--title');
   var selectSingle1_labels = selectSingle1.querySelectorAll('.select1--label');
   selectSingle1_title.addEventListener('click', function () {
-    if ('active' === selectSingle1.getAttribute('data-state')) {
-      selectSingle1.setAttribute('data-state', '');
-    } else {
-      selectSingle1.setAttribute('data-state', 'active');
-    }
+    selectSingle1.classList.toggle('active');
   });
 
   for (var i = 0; i < selectSingle1_labels.length; i++) {
     selectSingle1_labels[i].addEventListener('click', function (evt) {
       selectSingle1_title.textContent = evt.target.textContent;
-      selectSingle1.setAttribute('data-state', '');
+      selectSingle1.classList.remove('active');
     });
   }
 
@@ -325,38 +349,45 @@ $(document).ready(function () {
   var selectSingle2_title = selectSingle2.querySelector('.select2--title');
   var selectSingle2_labels = selectSingle2.querySelectorAll('.select2--label');
   selectSingle2_title.addEventListener('click', function () {
-    if ('active' === selectSingle2.getAttribute('data-state')) {
-      selectSingle2.setAttribute('data-state', '');
-    } else {
-      selectSingle2.setAttribute('data-state', 'active');
-    }
+    selectSingle2.classList.toggle('active');
   });
 
   for (var _i = 0; _i < selectSingle2_labels.length; _i++) {
     selectSingle2_labels[_i].addEventListener('click', function (evt) {
       selectSingle2_title.textContent = evt.target.textContent;
-      selectSingle2.setAttribute('data-state', '');
+      selectSingle2.classList.remove('active');
     });
   }
+});
+$(document).click(function (e) {
+  var selectSingle2 = document.querySelector('.select2');
+  var selectSingle2_title = $(".select2--title");
 
-  var selectSingle_offices = document.querySelector('.select-offices');
-  var selectSingle_offices_title = selectSingle_offices.querySelector('.select-offices--title');
-  var selectSingle_offices_labels = selectSingle_offices.querySelectorAll('.select-offices--label');
-  selectSingle_offices_title.addEventListener('click', function () {
-    if ('active' === selectSingle_offices.getAttribute('data-state')) {
-      selectSingle_offices.setAttribute('data-state', '');
-    } else {
-      selectSingle_offices.setAttribute('data-state', 'active');
-    }
+  if (!selectSingle2_title.is(e.target) && selectSingle2_title.has(e.target).length === 0) {
+    selectSingle2.classList.remove('active');
+  }
+});
+$(document).click(function (e) {
+  var selectSingle1 = document.querySelector('.select1');
+  var selectSingle1_title = $(".select1--title");
+
+  if (!selectSingle1_title.is(e.target) && selectSingle1_title.has(e.target).length === 0) {
+    selectSingle1.classList.remove('active');
+  }
+});
+var autoreply__item_select = document.querySelector('.autoreply__item--inner');
+var autoreply__item_select_title = autoreply__item_select.querySelector('.autoreply__item--row');
+var autoreply__item_select_labels = autoreply__item_select.querySelectorAll('.autoreply__item--label');
+autoreply__item_select_title.addEventListener('click', function () {
+  autoreply__item_select.classList.toggle('active');
+});
+
+for (var i = 0; i < autoreply__item_select_labels.length; i++) {
+  autoreply__item_select_labels[i].addEventListener('click', function (evt) {
+    autoreply__item_select_title.textContent = evt.target.textContent;
+    autoreply__item_select.classList.remove('active');
   });
-
-  for (var _i2 = 0; _i2 < selectSingle_offices_labels.length; _i2++) {
-    selectSingle_offices_labels[_i2].addEventListener('click', function (evt) {
-      selectSingle_offices_title.textContent = evt.target.textContent;
-      selectSingle_offices.setAttribute('data-state', '');
-    });
-  }
-}); //MAP
+} //MAP
 
 /* Landing page scripts */
 
@@ -368,16 +399,17 @@ $(document).ready(function () {
 
 	$(document).on('mousemove', '.mapplic-layer', function(e) {
 		var map = $('.mapplic-map'),
-			x = (e.pageX - map.offset().left) / map.width(),
+		x = (e.pageX - map.offset().left) / map.width(),
 			y = (e.pageY - map.offset().top) / map.height();
-		$('.mapplic-coordinates-x').text(parseFloat(x).toFixed(4));
-		$('.mapplic-coordinates-y').text(parseFloat(y).toFixed(4));
-	});
+			$('.mapplic-coordinates-x').text(parseFloat(x).toFixed(4));
+			$('.mapplic-coordinates-y').text(parseFloat(y).toFixed(4));
+		});
+		
+		$('.editor-window .window-mockup').click(function() {
+			$('.editor-window').slideUp(200);
+		});
+	});*/
 
-	$('.editor-window .window-mockup').click(function() {
-		$('.editor-window').slideUp(200);
-	});
-});*/
 
 jQuery(function () {
   var _$$mapplic;

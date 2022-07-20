@@ -23,21 +23,28 @@ block content
 									.autoreply__item.autoreply__item-calendar 
 										.autoreply__item--title даты
 										.autoreply__item--row.autoreply__item--row-arrow
-											input#datepicker.js-datepicker(type='text' placeholder='11.06.2022 - ')
+											input#datepicker.js-datepicker(type='text' placeholder='Выберите даты')
 											img(src="img/svg/autoreply/arrow.svg", alt="alt")
 									.autoreply__item 
 										.autoreply__item--title заместитель
 										label.autoreply__item--row.autoreply__item--row-search
-											input(type='text' placeholder='Андрей Петров')
+											input(type='text' placeholder='Начните набирать имя')
 											img(src="img/svg/autoreply/search.svg", alt="alt")
 									.autoreply__item 
 										.autoreply__item--title язык
-										label.autoreply__item--row.autoreply__item--row-arrow
-											select
-												option русский
-												option русский
-												option русский
+										.autoreply__item--inner(data-state='')
 											img(src="img/svg/autoreply/arrow.svg", alt="alt")
+											.autoreply__item--row.autoreply__item--row-arrow(data-default='active') 
+												span русский
+											.autoreply__item--content
+												input#autoreplySelect1.autoreply__item--input(type='radio' name='autoreplySelect')
+												label.autoreply__item--label1(for='autoreplySelect1')
+												input#autoreplySelect2.autoreply__item--input(type='radio' name='autoreplySelect' checked='')
+												label.autoreply__item--label.autoreply__item--label-rus(for='autoreplySelect2') 
+													span русский
+												input#autoreplySelect3.autoreply__item--input(type='radio' name='autoreplySelect')
+												label.autoreply__item--label.autoreply__item--label-eng(for='autoreplySelect3') 
+													span английский
 								.autoreply__right 
 									textarea
 										|Тут будет стандартный текст для ответа на время отпуска. Писмо формируется автоматичевки: текст письма стандартный, данный сотрудника подтягиваются из базы данных (имя фамилия, телефон, email и тд

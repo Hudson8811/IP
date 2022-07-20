@@ -2,66 +2,49 @@
 .select1 {
 	position: relative;
 	width: 345px;
-
+	margin-left: 37px;
 	height: 34px;
-	@media (max-width: 1900px){
-		width: 18.158vw;
-		height: 1.789vw;
-	}
-	&[data-state="active"] {
-		.select1--title {
-			&::before {
-				transform: translate(-4px, -50%) rotate(-45deg);
-				@media (max-width: 1900px){
-									transform: translate(-0.211vw, -50%) rotate(-45deg);
+
+
+		&.active {
+			.select1--title {
+				&::before {
+					transform: translate(-4px, -50%) rotate(-45deg);
+
+				}
+	
+				&::after {
+					transform: translate(4px, -50%) rotate(45deg);
+
 				}
 			}
+	
+			.select1--content {
+				opacity: 1;
+				pointer-events: auto;
+			}
+	
+			.select1--label+.select1--input+.select1--label {
+				max-height: 40px;
 
-			&::after {
-				transform: translate(4px, -50%) rotate(45deg);
-				@media (max-width: 1900px){
-									transform: translate(0.211vw, -50%) rotate(45deg);
-				}
 			}
 		}
-
-		.select1--content {
-			opacity: 1;
-			pointer-events: auto;
-		}
-
-		.select1--label+.select1--input+.select1--label {
-			max-height: 40px;
-			@media (max-width: 1900px){
-				max-height: 2.105vw;
-			}
-		}
-	}
 
 
 	&--title {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
-		width: 100%;
 		height: 100%;
-		padding: 0 0 0 38px;
+		margin: 0 0 0 38px;
 font-family: 'Styrene A LC Web';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 24px;
-	/* identical to box height, or 150% */
-
-
-	/* black */
-
+	border-bottom: 2px solid #CFEDFF;
 	color: #000000;
 		cursor: pointer;
-		@media (max-width: 1900px){
-			padding: 0 0 0 2vw;
-			font-size: 0.842vw;
-			line-height: 1.263vw;
-		}
+
 		&::before,
 		&::after {
 			content: "";
@@ -71,7 +54,7 @@ font-family: 'Styrene A LC Web';
 			left: 3px;
 
 			display: block;
-			width: 10px;
+			width: 12px;
 			height: 1px;
 
 			transition: all 0.3s ease-out;
@@ -79,36 +62,24 @@ font-family: 'Styrene A LC Web';
 			background-color: #333333;
 
 			transform: translate(-4px, -50%) rotate(45deg);
-			@media (max-width: 1900px){
-				left: 0.158vw;
-				width: 0.526vw;
-				height: 0.053vw;
-							transform: translate(-0.211vw, -50%) rotate(45deg);
-			}
+
 		}
 
 		&::after {
 			transform: translate(4px, -50%) rotate(-45deg);
-			@media (max-width: 1900px){
-							transform: translate(0.211vw, -50%) rotate(-45deg);
 
-			}
 		}
 
 		span {
 			display: inline-flex;
 			align-items: center;
 			height: 100%;
-			border-bottom: 2px solid #CFEDFF;
-			@media (max-width: 1900px){
-				border-bottom: 0.105vw solid #CFEDFF;
-			}
 		}
 	}
 
 	&--content {
 		position: absolute;
-		top: 34px;
+		top: 30px;
 		left: 0px;
 		pointer-events: none;
 		display: flex;
@@ -122,11 +93,7 @@ font-family: 'Styrene A LC Web';
 		opacity: 0;
 		z-index: 8;
 		padding-bottom: 30px;
-		@media (max-width: 1900px){
-			top: 1.789vw;
-			width: 32vw;
-			padding-bottom: 1.579vw;
-		}
+
 	}
 
 	&--input {
@@ -161,85 +128,60 @@ font-family: 'Styrene A LC Web';
 			font-weight: 400;
 			font-size: 16px;
 			line-height: 26px;
-			@media (max-width: 1900px){
-				height: 1.789vw;
-				padding: 0 0 0 2vw;
-			}
+
 	}
 }
 .select2 {
 	position: relative;
 	width: 188px;
 	height: 34px;
+	margin-left: 50px;
 			font-family: 'Styrene A LC Web';
 				font-style: normal;
 				font-weight: 400;
 				font-size: 16px;
 				line-height: 26px;
-	@media (max-width: 1900px) {
-		width: 11.895vw;
-		height: 1.789vw;
-		font-size: 0.842vw;
-		line-height: 1.368vw;
-	}
 
-	&[data-state="active"] {
-		.select2--title {
-			&::before {
-				transform: translate(-4px, -50%) rotate(-45deg);
+		&.active {
+			.select2--title {
+				&::before {
+					transform: translate(-4px, -50%) rotate(-45deg);
+	
 
-				@media (max-width: 1900px) {
-					transform: translate(-0.211vw, -50%) rotate(-45deg);
+				}
+	
+				&::after {
+					transform: translate(4px, -50%) rotate(45deg);
+	
+
 				}
 			}
+	
+			.select2--content {
+				opacity: 1;
+			}
+	
+			.select2--label+.select2--input+.select2--label {
+				max-height: 40px;
+	
 
-			&::after {
-				transform: translate(4px, -50%) rotate(45deg);
-
-				@media (max-width: 1900px) {
-					transform: translate(0.211vw, -50%) rotate(45deg);
-				}
 			}
 		}
-
-		.select2--content {
-			opacity: 1;
-		}
-
-		.select2--label+.select2--input+.select2--label {
-			max-height: 40px;
-
-			@media (max-width: 1900px) {
-				max-height: 2.105vw;
-			}
-		}
-	}
-
 
 	&--title {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
-		width: 100%;
 		height: 100%;
-		padding: 0 0 0 38px;
+		margin: 0 0 0 38px;
 		font-family: 'Styrene A LC Web';
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 24px;
-		/* identical to box height, or 150% */
-
-
-		/* black */
-
+		border-bottom: 2px solid #CFEDFF;
 		color: #000000;
 		cursor: pointer;
 
-		@media (max-width: 1900px) {
-			font-size: 0.842vw;
-			line-height: 1.263vw;
-			padding: 0 0 0 2vw;
-		}
 
 		&::before,
 		&::after {
@@ -250,7 +192,7 @@ font-family: 'Styrene A LC Web';
 			left: 3px;
 
 			display: block;
-			width: 10px;
+			width: 12px;
 			height: 1px;
 
 			transition: all 0.3s ease-out;
@@ -259,37 +201,25 @@ font-family: 'Styrene A LC Web';
 
 			transform: translate(-4px, -50%) rotate(45deg);
 
-			@media (max-width: 1900px) {
-				left: 0.158vw;
-				width: 0.526vw;
-				height: 0.053vw;
-				transform: translate(-0.211vw, -50%) rotate(45deg);
-			}
+
 		}
 
 		&::after {
 			transform: translate(4px, -50%) rotate(-45deg);
 
-			@media (max-width: 1900px) {
-				transform: translate(0.211vw, -50%) rotate(-45deg);
-			}
 		}
 
 		span {
 			display: inline-flex;
 			align-items: center;
 			height: 100%;
-			border-bottom: 2px solid #CFEDFF;
 
-			@media (max-width: 1900px) {
-				border-bottom: 0.105vw solid #CFEDFF;
-			}
 		}
 	}
 
 	&--content {
 		position: absolute;
-		top: 34px;
+		top: 30px;
 		left: 0px;
 
 		display: flex;
@@ -303,11 +233,6 @@ font-family: 'Styrene A LC Web';
 		opacity: 0;
 		z-index: 8;
 
-		@media (max-width: 1900px) {
-			top: 1.789vw;
-			width: 11.842vw;
-			padding: 1.421vw 0;
-		}
 	}
 
 	&--input {
@@ -341,10 +266,7 @@ font-family: 'Styrene A LC Web';
 
 		overflow: hidden;
 
-		@media (max-width: 1900px) {
-			height: 1.789vw;
-			padding: 0 0 0 2vw;
-		}
+
 	}
 }
 
@@ -356,33 +278,30 @@ font-family: 'Styrene A LC Web';
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 37px;
-	@media (max-width: 1900px){
-		margin-top: 1.947vw;
-	}
+
 	&--search {
 		flex: 0 1 410px;
-		@media (max-width: 1900px){
-			flex: 0 1 21.579vw;
-		}
+
 	}
 
 	&--icon {}
 
-	&--input {}
+	&--input {
+		&::before{
+			content:'';
+			display: none!important;
+		}
+	}
 
 	&--select {}
 
 	.select1--content {
 		padding-top: 21px;
-		@media (max-width: 1900px){
-			padding-top: 1.105vw;
-		}
+
 		&__wrapper {
 			margin-top: 20px;
 			display: flex;
-			@media (max-width: 1900px){
-				margin-top: 1.105vw;
-			}
+
 			.select1--input {
 				display: none;
 
@@ -411,30 +330,25 @@ font-family: 'Styrene A LC Web';
 			font-size: 16px;
 			line-height: 26px;
 			color: #F04E00;
-			@media (max-width: 1900px){
-				padding-left: 2vw;
-				font-size: 0.842vw;
-				line-height: 1.368vw;
-			}
+
 		}
 	}
 
 	&--btns {
-		margin-left: 73px;
+		flex: 1 1 auto;
 		display: flex;
-		@media (max-width: 1900px){
-			margin-left: 0.842vw;
-		}
+		justify-content: flex-end;
 	}
 
 		&--btn {
 			width: 26px;
 			height: 26px;
-			@media (max-width: 1900px){
-				width: 1.368vw;
-				height: 1.368vw;
-			}
+			position: relative;
+
 			svg {
+				position: absolute;
+				top: 0;
+				left: 0;
 				width: 100%;
 				height: 100%;
 			}
@@ -448,15 +362,22 @@ font-family: 'Styrene A LC Web';
 					}
 				}
 			}
+			&.active {
+				&:hover {
+					svg {
+						path {
+							stroke: #000000;
+						}
+					}
+				}
+			}
 		}
 
 		&--btn1 {}
 
 		&--btn2 {
 			margin-left: 23px;
-			@media (max-width: 1900px){
-				margin-left: 1.211vw;
-			}
+
 		}
 }
 
@@ -464,42 +385,36 @@ font-family: 'Styrene A LC Web';
 .people-cards {
 	&__items {
 		margin-top: 70px;
-		@media (max-width: 1900px){
-			  margin-top: 3.684vw;
-		}
+
 	}
 
 	&__row {
 		display: flex;
 		flex-wrap: wrap;
 		margin: -30px -15px;
-		@media (max-width: 1900px){
-			margin: -1.579vw -0.789vw;
-		}
+
 	}
 
 	&__item {
 		flex: 0 1 20%;
 		padding: 30px 15px;
-		@media (max-width: 1900px) {
-				padding: 1.579vw 0.789vw;
-			}
+
 	}
 
 	&__column {
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
 		height: 100%;
 	}
 
 	&__img {
 		display: block;
 		position: relative;
+		width: 100%;
 		height: 220px;
 		background: #EDEDED;
-		@media (max-width: 1900px){
-			height: 11.579vw;
-		}
+
 		img {
 			position: absolute;
 			top: 0;
@@ -511,7 +426,7 @@ font-family: 'Styrene A LC Web';
 	}
 
 	&__name {
-		display: block;
+		display: inline-block;
 		margin-top: 20px;
 		font-family: 'Styrene A LC Web';
 		font-style: normal;
@@ -519,27 +434,42 @@ font-family: 'Styrene A LC Web';
 		font-size: 24px;
 		line-height: 31px;
 		color: #000000;
-		@media (max-width: 1900px){
-			margin-top: 1.053vw;
-			font-size: 1.263vw;
-			line-height: 1.632vw;
-		}
+
 		span {
 			display: inline-block;
 			border-bottom: 2px solid #CFEDFF;
 			transition: all 0.3s ease 0s;
-			@media (max-width: 1900px){
-				border-bottom: 0.105vw solid #CFEDFF;
-			}
-		}
 
-		&:hover {
-			span {
+		}
+		position: relative;
+		
+
+		
+		
+		span {
+			position: relative;
+			z-index: 2;
+			&::before {
+				content: '';
+				z-index: -1;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 0;
+				transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
 				background: #CFEDFF;
 			}
 		}
+		&:hover {
+			span {
+				&::before {
+					height: 100%;
+				}
+			}
+		}
 	}
-
+	
 	&__position {
 		width: 190px;
 		flex: 1 1 auto;
@@ -550,22 +480,14 @@ font-family: 'Styrene A LC Web';
 		font-size: 16px;
 		line-height: 20px;
 		color: #000000;
-		@media (max-width: 1900px){
-			width: 10vw;
-			margin-top: 0.737vw;
-			font-size: 0.842vw;
-			line-height: 0.842vw;
-		}
+
 	}
 
 	&__links {
 		margin-top: 30px;
 		padding-bottom: 14px;
 		display: flex;
-		@media (max-width: 1900px){
-			margin-top: 1.579vw;
-			padding-bottom: 0.737vw;
-		}
+
 		&--icon {
 			width: 35px;
 			height: 35px;
@@ -576,19 +498,10 @@ font-family: 'Styrene A LC Web';
 			border: 1px solid #CFEDFF;
 			border-radius: 50%;
 			position: relative;
-			@media (max-width: 1900px){
-				width: 1.842vw;
-				height: 1.842vw;
-				border: 0.053vw solid #CFEDFF;
-				svg {
-					width: 0.789vw;
-				}
-			}
+
 			&:not(:first-child) {
 				margin-left: 10px;
-				@media (max-width: 1900px){
-					margin-left: 0.526vw;
-				}
+
 			}
 		}
 		&--text-hidden {
@@ -611,12 +524,7 @@ font-family: 'Styrene A LC Web';
 			text-align: center;
 			color: #000000;
 			transition: all 0.3s ease 0s;
-			@media (max-width: 1900px){
-				height: 1.789vw;
-				padding: 0.158vw 0.316vw 0.263vw;
-				font-size: 0.526vw;
-				line-height: 0.684vw;
-			}
+
 			span {
 				position: relative;
 				z-index: 2;
@@ -631,11 +539,7 @@ font-family: 'Styrene A LC Web';
 				height: 15px;
 				transform: translate(-50%, 0) rotate(45deg);
 				background-color: #ffffff;
-				@media (max-width: 1900px){
-					width: 0.789vw;
-					height: 0.789vw;
-					bottom: -0.105vw;
-				}
+
 			}
 		}
 			&--icon {
@@ -643,9 +547,7 @@ font-family: 'Styrene A LC Web';
 				&:hover{
 					background: #CFEDFF;
 					border: 1px solid #CFEDFF;
-					@media (max-width: 1900px){
-						border: 0.053vw solid #CFEDFF;
-					}
+
 					.people-cards__links--text-hidden {
 						opacity: 1;
 					}
@@ -666,12 +568,8 @@ font-family: 'Styrene A LC Web';
 		display: flex;
 		align-items: center;
 		transition: all 0.3s ease 0s;
-		@media (max-width: 1900px){
-			border-top: 0.105vw solid #CFEDFF;
-			height: 1.895vw;
-			font-size: 0.789vw;
-			line-height: 1vw;
-		}
+
+		
 		span {
 			position: relative;
 			&::after{
@@ -679,17 +577,12 @@ font-family: 'Styrene A LC Web';
 				content:'';
 				position: absolute;
 				top: 50%;
-				left: calc(100% + 20px);
+				left: calc(100% + 10px);
 				width: 12px;
 				height: 8px;
 				transform: translate(0, -50%);
 				background: url('../img/svg/people-cards/arrow.svg') 0 0 / 12px 100% no-repeat;
-				@media (max-width: 1900px){
-					left: calc(100% + 1.053vw);
-					width: 0.632vw;
-					height: 0.421vw;
-					background: url('../img/svg/people-cards/arrow.svg') 0 0 / 0.632vw 100% no-repeat;
-				}
+
 			}
 		}
 		&:hover {
@@ -698,12 +591,32 @@ font-family: 'Styrene A LC Web';
 				&::after{
 					width: 33px;
 					background: url('../img/svg/people-cards/arrow long.svg') 0 0 / 33px 100% no-repeat;
-					@media (max-width: 1900px){
-						width: 1.737vw;
-						background: url('../img/svg/people-cards/arrow long.svg') 0 0 / 1.737vw 100% no-repeat;
-					}
+
 				}
 			}
+		}
+		position: relative;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
+			background: #CFEDFF;
+		}
+		
+		&:hover {
+			&::before {
+				height: 100%;
+			}
+		}
+		
+		span {
+			position: relative;
+			z-index: 2;
 		}
 	}
 }
@@ -719,26 +632,17 @@ font-family: 'Styrene A LC Web';
 		align-items: center;
 		height: 34px;
 		margin-top: 20px;
-		@media (max-width: 1900px){
-			height: 1.789vw;
-			margin-top: 1.053vw;
-		}
+
 		&:nth-child(1){
 			margin-top: 50px;
 			border-bottom: 2px solid #CFEDFF;
 			height: 32px;
-			@media (max-width: 1900px){
-				margin-top: 2.632vw;
-				border-bottom: 0.105vw solid #CFEDFF;
-				height: 32p1.684vwx;
-			}
+
 		}
 
 		&:nth-child(2) {
 			margin-top: 42px;
-			@media (max-width: 1900px){
-				margin-top: 2.211vw;
-			}
+
 		}
 		a {
 			display: inline-flex;
@@ -746,11 +650,27 @@ font-family: 'Styrene A LC Web';
 			height: 100%;
 			border-bottom: 2px solid #CFEDFF;
 			transition: all 0.3s ease 0s;
-			@media (max-width: 190px){
-				border-bottom: 0.105vw solid #CFEDFF;
-			}
-			&:hover{
+
+			position: relative;
+		
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 0;
+				transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
 				background: #CFEDFF;
+			}
+			>span {
+				position: relative;
+				z-index: 2;
+			}
+			&:hover {
+				&::before {
+					height: 100%;
+				}
 			}
 		}
 		th {
@@ -761,51 +681,36 @@ font-family: 'Styrene A LC Web';
 			font-weight: 400;
 			font-size: 12px;
 			line-height: 15px;
-			@media (max-width: 1900px){
-				font-size: 0.632vw;
-				line-height: 0.789vw;
-			}
+
 			color: #000000;
 			&:nth-child(1) {
 				flex: 0 1 305px;
-				@media (max-width: 1900px){
-					flex: 0 1 16.053vw;
-				}
+
 			}
 
 			&:nth-child(2) {
 				flex: 0 1 283px;
-				@media (max-width: 1900px){
-					flex: 0 1 14.895vw;
-				}
+
 			}
 
 			&:nth-child(3) {
 				flex: 0 1 104px;
-				@media (max-width: 1900px){
-					flex: 0 1 5.474vw;
-				}
+
 			}
 
 			&:nth-child(4) {
 				flex: 0 1 192px;
-				@media (max-width: 1900px){
-					flex: 0 1 10.105vw;
-				}
+
 			}
 
 			&:nth-child(5) {
 				flex: 0 1 244px;
-				@media (max-width: 1900px){
-					flex: 0 1 12.842vw;
-				}
+
 			}
 
 			&:nth-child(6) {
 				flex: 0 1 50px;
-				@media (max-width: 1900px){
-					flex: 0 1 2.632vw;
-				}
+
 				justify-content: flex-end;
 			}
 		}
@@ -819,46 +724,31 @@ font-family: 'Styrene A LC Web';
 			font-size: 16px;
 			line-height: 24px;
 			color: #000000;
-			@media (max-width: 1900px){
-				font-size: 0.842vw;
-					line-height: 1.263vw;
-			}
+
 			&:nth-child(1){
 				flex: 0 1 305px;
-				@media (max-width: 1900px){
-					flex: 0 1 16.053vw;
-				}
+
 				font-weight: 700;
 			}
 			&:nth-child(2) {
 				flex: 0 1 283px;
-				@media (max-width: 1900px){
-					flex: 0 1 14.895vw;
-				}
+
 			}
 			&:nth-child(3) {
 				flex: 0 1 104px;
-				@media (max-width: 1900px){
-					flex: 0 1 5.474vw;
-				}
+
 			}
 			&:nth-child(4) {
 				flex: 0 1 192px;
-				@media (max-width: 1900px){
-					flex: 0 1 10.105vw;
-				}
+
 			}
 			&:nth-child(5) {
 				flex: 0 1 244px;
-				@media (max-width: 1900px){
-					flex: 0 1 12.842vw;
-				}
+
 			}
 			&:nth-child(6) {
 				flex: 0 1 50px;
-				@media (max-width: 1900px){
-					flex: 0 1 2.632vw;
-				}
+
 				justify-content: flex-end;
 			}
 		}
@@ -872,17 +762,11 @@ font-family: 'Styrene A LC Web';
 	padding-bottom: 52px;
 	background: #E1F3FD;
 	flex: 1 1 auto;
-	@media (max-width: 1900px){
-		margin: 0 -5.789vw -5.421vw;
-		padding-top: 1.579vw;
-		padding-bottom: 2.737vw;
-	}
+
 	&__container {
 		padding: 90px 110px 100px;
 		background-color: #ffffff;
-		@media (max-width: 1900px){
-			padding: 4.737vw 5.789vw 5.263vw;
-		}
+
 	}
 
 		&__row {
@@ -893,10 +777,7 @@ font-family: 'Styrene A LC Web';
 			position: relative;
 			width: 410px;
 			height: 490px;
-			@media (max-width: 1900px){
-				width: 21.579vw;
-				height: 21.579vw;
-			}
+
 			img {
 				position: absolute;
 				top: 0;
@@ -910,10 +791,7 @@ font-family: 'Styrene A LC Web';
 		&__body {
 			margin-top: -10px;
 			margin-left: 76px;
-			@media (max-width: 1900px){
-				margin-top: -0.526vw;
-					margin-left: 4vw;
-			}
+
 		}
 
 		&__name {
@@ -923,10 +801,7 @@ font-family: 'Styrene A LC Web';
 			font-size: 48px;
 			line-height: 60px;
 			color: #000000;
-			@media (max-width: 1900px){
-				font-size: 2.526vw;
-				line-height: 3.158vw;
-			}
+
 		}
 
 		&__position {
@@ -937,11 +812,7 @@ font-family: 'Styrene A LC Web';
 			font-size: 16px;
 			line-height: 24px;
 			color: #000000;
-			@media (max-width: 1900px){
-				margin-top: 1.158vw;
-				font-size: 0.842vw;
-				line-height: 1.263vw;
-			}
+
 		}
 
 		&__city {
@@ -952,52 +823,58 @@ font-family: 'Styrene A LC Web';
 			font-size: 16px;
 			line-height: 24px;
 			color: #F04E00;
-			@media (max-width: 1900px){
-				margin-top: 1.789vw;
-				font-size: 0.842vw;
-				line-height: 1.263vw;
-			}
+
 		}
 
 		&__contacts {
 			margin-top: 52px;
 			display: flex;
 			align-items: flex-start;
-			@media (max-width: 1900px){
-				margin-top: 2.737vw;
-			}
+
 			a {
 				display: flex;
 				align-items: center;
 				min-height: 100%;
 				border-bottom: 2px solid #CFEDFF;
 				transition: all 0.3s ease 0s;
-				@media (max-width: 1900px){
-					border-bottom: 0.105vw solid #CFEDFF;
+
+				position: relative;
+		
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 0;
+					transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
+					background: #CFEDFF;
 				}
-				&:hover{
-					background-color: #CFEDFF;
+		
+				&:hover {
+					&::before {
+						height: 100%;
+					}
+				}
+		
+				>span {
+					position: relative;
+					z-index: 2;
 				}
 			}
 			&--left {
 				left: 290px;
-				@media (max-width: 1900px){
-					left: 15.263vw;
-				}
+
 			}
 
 				&--item {
 					height: 35px;
 					display: flex;
 					align-items: center;
-					@media (max-width: 1900px){
-						height: 1.842vw;
-					}
+
 					&:not(:first-child) {
 						margin-top: 16px;
-						@media (max-width: 1900px){
-							margin-top: 0.842vw;
-						}
+
 					}
 					a {
 						font-family: 'Styrene A LC Web';
@@ -1006,21 +883,14 @@ font-family: 'Styrene A LC Web';
 						font-size: 16px;
 						line-height: 24px;
 						margin-left: 15px;
-						@media (max-width: 1900px){
-							font-size: 0.842vw;
-							line-height: 1.263vw;
-							margin-left: 0.789vw;
-						}
+
 					}
 				}
 
 				&--icon {
 					width: 35px;
 					height: 35px;
-					@media (max-width: 1900px){
-						width: 1.842vw;
-						height: 1.842vw;
-					}
+
 					img {
 						width: 100%;
 						height: 100%;
@@ -1031,9 +901,7 @@ font-family: 'Styrene A LC Web';
 					margin-left: 118px;
 					display: flex;
 					align-items: center;
-					@media (max-width: 1900px){
-						margin-left: 6.211vw;
-					}
+
 					span {
 						font-family: 'Styrene A LC Web';
 						font-style: normal;
@@ -1041,10 +909,7 @@ font-family: 'Styrene A LC Web';
 						font-size: 16px;
 						line-height: 24px;
 						color: #000000;
-						@media (max-width: 1900px){
-							font-size: 0.842vw;
-							line-height: 1.263vw;
-						}
+
 					}
 					a {
 						font-family: 'Styrene A LC Web';
@@ -1053,11 +918,7 @@ font-family: 'Styrene A LC Web';
 						font-size: 16px;
 						line-height: 24px;
 						margin-left: 9px;
-						@media (max-width: 1900px) {
-							font-size: 0.842vw;
-							line-height: 1.263vw;
-							margin-left: 0.474vw;
-						}
+
 					}
 				}
 		}
@@ -1069,20 +930,8 @@ font-family: 'Styrene A LC Web';
 	label {
 		font-size: 16px!important;
 		line-height: 26px!important;
-		@media (max-width: 1900px){
-			font-size: 0.84vw!important;
-			line-height: 1.37vw!important;
-		}
+
 	}
-/* 	.select1--content {
-		overflow: auto;
-		width: 608px;
-		height: 445px;
-		@media (max-width: 1900px){
-			width: 32vw;
-			height: 23.42vw;
-		}
-	} */
 }
 
 

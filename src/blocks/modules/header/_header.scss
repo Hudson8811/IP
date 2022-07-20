@@ -1,5 +1,5 @@
 .header {
-	padding-top: 50px;
+	padding-top: 47px;
 	padding-left: 425px;
 	padding-right: 96px;
 	position: absolute;
@@ -7,15 +7,12 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	@media (max-width: 1900px){
-		padding-top: 2.632vw;
-		padding-left: 22.368vw;
-		padding-right: 5.053vw;
-	}
+
 	&__container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		position: relative;
 	}
 
 		&__search {
@@ -23,21 +20,13 @@
 			display: flex;
 			align-items: center;
 			border-bottom: 1px solid #000000;
-			padding: 8px 8px 10px;
-			@media (max-width: 1900px){
-				width: 50.526vw;
-				border-bottom: 0.053vw solid #000000;
-				padding: 0.421vw 0.421vw 0.526vw;
-			}
+			padding: 8px 8px 7px;
+
 			&--icon {
-				width: 21.62px;
-				height: 21.12px;
+				width: 23px;
+				height: 23px;
 				margin-right: 8px;
-				@media (max-width: 1900px){
-					width: 1.138vw;
-					height: 1.138vw;
-					margin-right: 0.421vw;
-				}
+
 				img {
 					width: 100%;
 					height: 100%;
@@ -45,11 +34,7 @@
 			}
 
 			&--input {
-				border-left: 1px solid #000000;
 				flex: 1 1 auto;
-				@media (max-width: 1900px){
-					border-left: 0.053vw solid #000000;
-				}
 				input {
 					background-color: transparent;
 					width: 100%;
@@ -64,11 +49,7 @@
 					display: flex;
 					align-items: center;
 					color: #000000;
-					@media (max-width: 1900px){
-						padding-left: 0.474vw;
-						font-size: 0.842vw;
-						line-height: 1.368vw;
-					}
+
 					&::placeholder {
 						color: rgba(0, 0, 0, 0.3);
 					}
@@ -82,9 +63,7 @@
 			align-items: center;
 			justify-content: flex-end;
 			margin-left: 25px;
-			@media (max-width: 1900px){
-				margin-left: 1.316vw;
-			}
+
 			span {
 				font-family: 'Styrene A LC Web';
 				font-style: normal;
@@ -96,25 +75,18 @@
 				text-align: right;
 				text-transform: capitalize;
 				color: #000000;
-				@media (max-width: 1900px){
-					font-size: 0.947vw;
-					line-height: 1.211vw;
-				}
+
 			}
 			img {
 				margin-left: 20px;
-				@media (max-width: 1900px){
-					margin-left: 1.053vw;
-					width: 2.105vw;
-					height: 2.105vw;
-				}
+
 			}
 		}
 
 		.login-header {
 			position: absolute;
 			z-index: 9;
-			top: 120%;
+			top: 100%;
 			right: 0;
 			width: 265px;
 			height: 137px;
@@ -124,12 +96,7 @@
 			opacity: 0;
 			pointer-events: none;
 			transition: all 0.3s ease 0s;
-			@media (max-width: 1900px){
-				width: 13.947vw;
-				height: 7.211vw;
-				border: 0.053vw solid #CFEDFF;
-				padding: 1.053vw 1.211vw 1.263vw;
-			}
+
 			&.active {
 				opacity: 1;
 				pointer-events: auto;
@@ -153,10 +120,7 @@
 						align-items: center;
 						transition: all 0.3s ease 0s;
 						color: #000000;
-						@media (max-width: 1900px){
-							font-size: 0.947vw ;
-							line-height: 1.211vw;
-						}
+
 						&:hover{
 							color: #F04E00;
 						}

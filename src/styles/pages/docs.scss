@@ -3,14 +3,17 @@
 	
 		&__search {
 			margin-top: 47px;
-			@media (max-width: 1900px){
-				margin-top: 2.474vw;
-			}
+
 		}
 	
 		&__icon {}
 	
-		&__input {}
+		&__input {
+			&::before {
+				content: '';
+				display: none ;
+			}
+		}
 	
 		&__text {
 			margin-top: 46px;
@@ -20,11 +23,7 @@
 			font-size: 16px;
 			line-height: 24px;
 			color: #000000;
-			@media (max-width: 1900px){
-				margin-top: 2.43vw;
-				font-size: 0.842vw;
-				line-height: 1.263vw;
-			}
+
 		}
 
 		&__subtitle {
@@ -34,37 +33,26 @@
 			font-size: 24px;
 			line-height: 26px;
 			color: #F04E00;
-			@media (max-width: 1900px){
-				font-size: 1.263vw;
-				line-height: 1.368vw;
-			}
+
 			&:nth-child(4){
 				margin-top: 70px;
-				@media (max-width: 1900px){
-					margin-top: 3.684vw;
-				}
+
 			}
 			&:nth-child(6){
 				margin-top: 80px;
-				@media (max-width: 1900px){
-					margin-top: 4.211vw;
-				}
+
 			}
 		}
 	
 		&__list {
 			margin-top: 50px;
-			@media (max-width: 1900px){
-				margin-top: 2.632vw;
-			}
+
 		}
 	
 		&__item {
 			&:not(:first-child) {
 				margin-top: 21px;
-				@media (max-width: 1900px){
-					margin-top: 1.105vw;
-				}
+
 			}
 		}
 	
@@ -78,14 +66,28 @@
 			border-bottom: 2px solid #CFEDFF;
 			padding-bottom: 5px;
 			transition: all 0.3s ease 0s;
-			@media (max-width: 1900px){
-				font-size: 0.947vw;
-				line-height: 1.368vw;
-				border-bottom: 0.105vw solid #CFEDFF;
-				padding-bottom: 0.263vw;
+
+			position: relative;
+		
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 0;
+				transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03);
+				background: #CFEDFF;
 			}
-			&:hover{
-				background-color: #CFEDFF;
+		
+			&:hover {
+				&::before {
+					height: 100%;
+				}
+			}
+			span {
+				position: relative;
+				z-index: 2;
 			}
 		}
 }
