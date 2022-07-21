@@ -108,16 +108,48 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************/
 /***/ (function() {
 
+/* $(function() {
+	const $datepicker = $('.js-datepicker');
+	let datepicker = $datepicker.datepicker({
+		autoClose: false,
+		classes: 'datepicker__calendar',
+		position: 'bottom center',
+		offset: 22,
+		range: true,
+		multipleDatesSeparator: '  ',
+
+	})
+}); */
 $(function () {
-  var $datepicker = $('.js-datepicker');
-  var datepicker = $datepicker.datepicker({
-    autoClose: false,
-    classes: 'datepicker__calendar',
-    position: 'bottom center',
-    offset: 22,
-    range: true,
-    multipleDatesSeparator: '  '
+  $(".autoreply__item-calendar-row input").click(function () {
+    $(".autoreply__item-calendar").addClass("active");
   });
+});
+var picker = new easepick.create({
+  element: "#datepicker",
+  css: ["https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css", "styles/main.css"],
+  lang: "ru-RU",
+  calendars: 2,
+  autoApply: true,
+  zIndex: 10,
+  plugins: ['RangePlugin'],
+  RangePlugin: {
+    tooltip: true
+  },
+
+  /* 
+  setup(picker) {
+  picker.on('hide', (e) => {
+  const autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
+  autoreply__item_calendar.classList.remove('active')
+  });
+  }, */
+  setup: function setup(picker) {
+    picker.on('hide', function (e) {
+      var autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
+      autoreply__item_calendar.classList.remove('active');
+    });
+  }
 });
 /* var swiper2 = new Swiper(".swiper-offices-calendar", {
 	pagination: {
