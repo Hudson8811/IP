@@ -4920,6 +4920,10 @@ h6 {
   line-height: 26px;
 }
 
+.select1--label.active {
+  color: #000000 !important;
+}
+
 .select2 {
   position: relative;
   width: 188px;

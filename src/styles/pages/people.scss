@@ -128,7 +128,9 @@ font-family: 'Styrene A LC Web';
 			font-weight: 400;
 			font-size: 16px;
 			line-height: 26px;
-
+		&.active {
+			color: #000000!important;
+		}
 	}
 }
 .select2 {

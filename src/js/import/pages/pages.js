@@ -91,6 +91,23 @@ $(document).click( function(e){
 	}
 });
 
+$(document).ready(function(){
+	$('.select1--label-all').click(function(){
+		$('.select1--label-left').removeClass('active');
+		$('.select1--label-right').removeClass('active');
+	});
+	$('.select1--label-right').click(function(){
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		$('.select1--label-left').removeClass('active');
+	});
+	$('.select1--label-left').click(function(){
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		$('.select1--label-right').removeClass('active');
+	});
+});
+
 
 const autoreply__item_select = document.querySelector('.autoreply__item--inner');
 const autoreply__item_select_title = autoreply__item_select.querySelector('.autoreply__item--row');
