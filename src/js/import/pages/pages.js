@@ -1,3 +1,18 @@
+//RADIO
+$(document).ready(function () {
+	$.each($('.radiobuttons__item'), function (index, val) {
+		if ($(this).find('input').prop('checked') == true) {
+			$(this).addClass('active');
+		}
+	});
+	$(document).on('click', '.radiobuttons__item', function (event) {
+		$(this).parents('.radiobuttons').find('.radiobuttons__item').removeClass('active');
+		$(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked', false);
+		$(this).toggleClass('active');
+		$(this).find('input').prop('checked', true);
+		return false;
+	});
+});
 const autoreply = document.querySelector('.autoreply');
 const massage_icon = document.querySelector('.massage-icon');
 if (autoreply) {
@@ -21,21 +36,6 @@ const call_icon = document.querySelector('.call-icon');
 if (people) {
 	call_icon.classList.add('active')
 }
-//RADIO
-$(document).ready(function () {
-	$.each($('.radiobuttons__item'), function (index, val) {
-		if ($(this).find('input').prop('checked') == true) {
-			$(this).addClass('active');
-		}
-	});
-	$(document).on('click', '.radiobuttons__item', function (event) {
-		$(this).parents('.radiobuttons').find('.radiobuttons__item').removeClass('active');
-		$(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked', false);
-		$(this).toggleClass('active');
-		$(this).find('input').prop('checked', true);
-		return false;
-	});
-});
 
 
 //select
@@ -54,11 +54,6 @@ $(document).ready(function () {
 			selectSingle1.classList.remove('active')
 		});
 	}
-
-	
-
-	
-	
 	
 	const selectSingle2 = document.querySelector('.select2');
 	const selectSingle2_title = selectSingle2.querySelector('.select2--title');
@@ -74,7 +69,6 @@ $(document).ready(function () {
 			selectSingle2.classList.remove('active')
 		});
 	}
-
 });
 $(document).click( function(e){ 
 	const selectSingle2 = document.querySelector('.select2');
@@ -186,3 +180,28 @@ for (let i = 0; i < autoreply__item_select_labels.length; i++) {
 		}
 	});
 });
+$(function() {
+	$(".autoreply__item-calendar-row input").click(function() {
+		$(".autoreply__item-calendar").addClass("active");   
+	});
+});
+const picker = new easepick.create({
+	element: "#datepicker",
+	css: [
+		"https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css", "styles/main.css"
+	],
+	lang: "ru-RU",
+	calendars: 2,
+	autoApply: true,
+	zIndex: 10,
+	plugins: ['RangePlugin'],
+	RangePlugin: {
+		tooltip: true,
+	},
+	setup(picker) {
+		picker.on('hide', (e) => {
+			const autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
+			autoreply__item_calendar.classList.remove('active')
+		});
+	},
+})

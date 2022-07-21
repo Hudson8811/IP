@@ -21,12 +21,8 @@ $(document).ready(function () {
   $('.header__man').click(function (event) {
     $('.login-header').toggleClass('active');
   });
-  $(document).click(function (e) {
-    var login = $(".login-header, .header__man");
-
-    if (!login.is(e.target) && login.has(e.target).length === 0) {
-      login.removeClass('active');
-    }
+  $('.page').click(function (e) {
+    $('.login-header').removeClass('active');
   });
 });
 
@@ -108,80 +104,16 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************/
 /***/ (function() {
 
-/* $(function() {
-	const $datepicker = $('.js-datepicker');
-	let datepicker = $datepicker.datepicker({
-		autoClose: false,
-		classes: 'datepicker__calendar',
-		position: 'bottom center',
-		offset: 22,
-		range: true,
-		multipleDatesSeparator: '  ',
-
-	})
-}); */
-$(function () {
-  $(".autoreply__item-calendar-row input").click(function () {
-    $(".autoreply__item-calendar").addClass("active");
-  });
-});
-var picker = new easepick.create({
-  element: "#datepicker",
-  css: ["https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css", "styles/main.css"],
-  lang: "ru-RU",
-  calendars: 2,
-  autoApply: true,
-  zIndex: 10,
-  plugins: ['RangePlugin'],
-  RangePlugin: {
-    tooltip: true
-  },
-
-  /* 
-  setup(picker) {
-  picker.on('hide', (e) => {
-  const autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
-  autoreply__item_calendar.classList.remove('active')
-  });
-  }, */
-  setup: function setup(picker) {
-    picker.on('hide', function (e) {
-      var autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
-      autoreply__item_calendar.classList.remove('active');
-    });
-  }
-});
-/* var swiper2 = new Swiper(".swiper-offices-calendar", {
-	pagination: {
-		el: ".select-offices--content-pagination",
-		clickable: true,
-	},
-	speed: 1000,
-	effect: 'fade',
-	thumbs: {
-		swiper: swiper,
-	},
-});
-var swiper = new Swiper(".select-offices--title", {
-	watchSlidesProgress: true,
-}); */
-
 var swiper = new Swiper(".swiper-offices-calendar", {
   slidesPerView: 1,
   watchSlidesProgress: true,
   allowTouchMove: false,
-
-  /* 	speed: 500,
-   */
   effect: 'fade'
 });
 var swiper2 = new Swiper(".select-offices--title", {
   thumbs: {
     swiper: swiper
   },
-
-  /* 	speed: 500,
-   */
   effect: 'fade',
   pagination: {
     el: ".select-offices--content-pagination",
@@ -190,8 +122,6 @@ var swiper2 = new Swiper(".select-offices--title", {
   allowTouchMove: false
 });
 var swiper2 = new Swiper(".meeting-rooms__swiper-mosk", {
-  /* 	speed: 500,
-   */
   effect: 'fade',
   pagination: {
     el: ".meeting-rooms-mosk-pagination",
@@ -200,8 +130,6 @@ var swiper2 = new Swiper(".meeting-rooms__swiper-mosk", {
   allowTouchMove: false
 });
 var swiper2 = new Swiper(".meeting-rooms__swiper-pit", {
-  /* 	speed: 500,
-   */
   effect: 'fade',
   pagination: {
     el: ".meeting-rooms-pit-pagination",
@@ -210,8 +138,6 @@ var swiper2 = new Swiper(".meeting-rooms__swiper-pit", {
   allowTouchMove: false
 });
 var swiper2 = new Swiper(".calendar__swiper-inner1", {
-  /* 	speed: 500,
-   */
   effect: 'fade',
   navigation: {
     nextEl: ".calendar-slide__next1",
@@ -235,26 +161,6 @@ $(document).click(function (e) {
     $(".select-offices, .select-offices--content").removeClass('active');
   }
 });
-/*
-$(document).ready(function(){
-   $("#confirmed-hover-block1").mousemove(function (pos) {
-		$("#confirmed-block1").show(300);
-		$("#confirmed-block1").css('left',(pos.pageX+40)+'px').css('top',(pos.pageY+40)+'px');          
-	}).mouseleave(function() {
-		$("#confirmed-block1").hide(300); 
-	});
-});
-*/
-
-/* $(document).ready(function(){
-   $("#waiting-hover-block1").mousemove(function (pos) { 
-		$("#waiting-block1").show(300);
-		$("#waiting-block1").css('left',(pos.pageX+40)+'px').css('top',(pos.pageY+40)+'px');          
-	}).mouseleave(function() {
-		$("#waiting-block1").hide(300); 
-	});
-}); */
-
 $(function () {
   $(".hover-block").mouseover(function () {
     $(this).addClass('active');
@@ -270,16 +176,6 @@ $(function () {
       $(this).addClass('active');
     }
   });
-  /* 	$(".calendar-slide__item").click(function() {
-  		$(".calendar-slide__item").removeClass('active');
-  		$(this).addClass('active');
-  	}); */
-
-  /* 	$(".hover-block").click(function() {
-  		if (!$(".calendar-slide__item").hasClass('active')) {
-  			$(".calendar-slide__item").removeClass('active');   
-  		}
-  	});  */
 });
 $(document).click(function (e) {
   var calendar = $(".calendar-slide__item");
@@ -318,6 +214,21 @@ if (togglePassword) {
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//RADIO
+$(document).ready(function () {
+  $.each($('.radiobuttons__item'), function (index, val) {
+    if ($(this).find('input').prop('checked') == true) {
+      $(this).addClass('active');
+    }
+  });
+  $(document).on('click', '.radiobuttons__item', function (event) {
+    $(this).parents('.radiobuttons').find('.radiobuttons__item').removeClass('active');
+    $(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked', false);
+    $(this).toggleClass('active');
+    $(this).find('input').prop('checked', true);
+    return false;
+  });
+});
 var autoreply = document.querySelector('.autoreply');
 var massage_icon = document.querySelector('.massage-icon');
 
@@ -344,23 +255,8 @@ var call_icon = document.querySelector('.call-icon');
 
 if (people) {
   call_icon.classList.add('active');
-} //RADIO
+} //select
 
-
-$(document).ready(function () {
-  $.each($('.radiobuttons__item'), function (index, val) {
-    if ($(this).find('input').prop('checked') == true) {
-      $(this).addClass('active');
-    }
-  });
-  $(document).on('click', '.radiobuttons__item', function (event) {
-    $(this).parents('.radiobuttons').find('.radiobuttons__item').removeClass('active');
-    $(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked', false);
-    $(this).toggleClass('active');
-    $(this).find('input').prop('checked', true);
-    return false;
-  });
-}); //select
 
 $(document).ready(function () {
   var selectSingle1 = document.querySelector('.select1');
@@ -493,6 +389,29 @@ jQuery(function () {
       }
     }
   });
+});
+$(function () {
+  $(".autoreply__item-calendar-row input").click(function () {
+    $(".autoreply__item-calendar").addClass("active");
+  });
+});
+var picker = new easepick.create({
+  element: "#datepicker",
+  css: ["https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css", "styles/main.css"],
+  lang: "ru-RU",
+  calendars: 2,
+  autoApply: true,
+  zIndex: 10,
+  plugins: ['RangePlugin'],
+  RangePlugin: {
+    tooltip: true
+  },
+  setup: function setup(picker) {
+    picker.on('hide', function (e) {
+      var autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
+      autoreply__item_calendar.classList.remove('active');
+    });
+  }
 });
 
 /***/ })
