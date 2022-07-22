@@ -1,13 +1,16 @@
 .header {
 	padding-top: 47px;
 	padding-left: 425px;
-	padding-right: 96px;
+	padding-right: 95px;
 	position: absolute;
 	z-index: 99;
 	top: 0;
 	left: 0;
 	width: 100%;
-
+	@media (max-width: 1600px){
+		padding-right: 64px;
+		padding-left: 310px;
+	}
 	&__container {
 		display: flex;
 		justify-content: space-between;

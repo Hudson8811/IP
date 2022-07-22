@@ -5,8 +5,11 @@
 		margin-top: 21px;
 		display: flex;
 		justify-content: space-between;
-
-
+		>* {
+			&:nth-child(2), &:nth-child(3){
+				margin-left: 10px;
+			}
+		}
 	}
 
 	&__btn {

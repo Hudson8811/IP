@@ -2988,14 +2988,14 @@ h6 {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: calc(100% - 20.789vw);
+  max-width: calc(100% - 395px);
 }
 
 .wrapper .page .content__container {
   flex: 1 1 auto;
   background-color: #ffffff;
   margin: 190px 95px 0 30px;
-  padding: 64px 110px 103px;
+  padding: 64px 110px 103px 110px;
 }
 
 .general-title {
@@ -3119,7 +3119,7 @@ h6 {
 .header {
   padding-top: 47px;
   padding-left: 425px;
-  padding-right: 96px;
+  padding-right: 95px;
   position: absolute;
   z-index: 99;
   top: 0;
@@ -3409,7 +3409,7 @@ h6 {
 }
 
 .sidebar {
-  width: 410px;
+  width: 21vw;
   background: #FFFFFF;
   position: absolute;
   z-index: 9;
@@ -3444,11 +3444,6 @@ h6 {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease 0s;
-}
-
-.sidebar__calendar-img img {
-  width: 3.526vw;
-  height: 3.789vw;
 }
 
 .sidebar__title {
@@ -3502,7 +3497,7 @@ h6 {
 .sidebar__link .sidebar__link-icon {
   position: relative;
   z-index: 2;
-  width: 35px;
+  min-width: 35px;
   height: 35px;
   background: transparent;
   border: 1px solid #000000;
@@ -3665,7 +3660,7 @@ h6 {
 .main {
   padding-top: 212px;
   padding-bottom: 102px;
-  margin-right: 535px;
+  margin-right: calc(21vw + 126px);
   margin-left: 30px;
 }
 
@@ -3699,25 +3694,29 @@ h6 {
   margin-top: 50px;
 }
 
+.main__container a {
+  margin-top: 15px;
+  display: block;
+}
+
 .main__container p {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  margin-top: 15px;
 }
 
 .main__massages {
   margin-top: 93px;
 }
 
-.main__massages > div {
+.main__massages div {
   margin-top: 50px;
   border-bottom: 2px solid #FFFFFF;
   padding-bottom: 14px;
 }
 
-.main__massages > div span {
+.main__massages div span {
   font-size: 16px;
   line-height: 20px;
   display: inline-flex;
@@ -3725,11 +3724,11 @@ h6 {
   color: #000000;
 }
 
-.main__massages > div span:nth-child(1) {
+.main__massages div span:nth-child(1) {
   font-weight: 700;
 }
 
-.main__massages > div span:nth-child(2) {
+.main__massages div span:nth-child(2) {
   margin-left: 14px;
   font-weight: 400;
 }
@@ -3738,6 +3737,7 @@ h6 {
   background-color: #E1F3FD;
   width: 100%;
   min-height: 100%;
+  padding: 0 30px 15px;
 }
 
 .login__container {
@@ -4034,6 +4034,11 @@ h6 {
   margin-top: 21px;
   display: flex;
   justify-content: space-between;
+}
+
+.offices__btns > *:nth-child(2),
+.offices__btns > *:nth-child(3) {
+  margin-left: 10px;
 }
 
 .offices__btn {
@@ -4815,9 +4820,8 @@ h6 {
 
 .select1 {
   position: relative;
-  width: 345px;
+  flex: 0 1 345px;
   margin-left: 37px;
-  height: 34px;
 }
 
 .select1.active .select1--title::before {
@@ -4847,6 +4851,7 @@ h6 {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #CFEDFF;
   color: #000000;
   cursor: pointer;
@@ -4878,7 +4883,7 @@ h6 {
 
 .select1--content {
   position: absolute;
-  top: 30px;
+  top: 95%;
   left: 0px;
   pointer-events: none;
   display: flex;
@@ -4925,9 +4930,8 @@ h6 {
 }
 
 .select2 {
+  flex: 0 1 188px;
   position: relative;
-  width: 188px;
-  height: 34px;
   margin-left: 50px;
   font-family: "Styrene A LC Web";
   font-style: normal;
@@ -4962,6 +4966,7 @@ h6 {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #CFEDFF;
   color: #000000;
   cursor: pointer;
@@ -4993,7 +4998,7 @@ h6 {
 
 .select2--content {
   position: absolute;
-  top: 30px;
+  top: 95%;
   left: 0px;
   display: flex;
   flex-direction: column;
@@ -5085,6 +5090,7 @@ h6 {
   flex: 1 1 auto;
   display: flex;
   justify-content: flex-end;
+  margin-left: 15px;
 }
 
 .people__header--btn {
@@ -5354,6 +5360,10 @@ h6 {
   margin-top: 20px;
 }
 
+.people__lists tr > *:not(:first-child) {
+  margin-left: 10px;
+}
+
 .people__lists tr:nth-child(1) {
   margin-top: 50px;
   border-bottom: 2px solid #CFEDFF;
@@ -5401,6 +5411,7 @@ h6 {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
+  white-space: nowrap;
   color: #000000;
 }
 
@@ -5589,6 +5600,7 @@ h6 {
   font-size: 16px;
   line-height: 24px;
   margin-left: 15px;
+  color: #000000;
 }
 
 .person__contacts--icon {
@@ -5699,23 +5711,26 @@ h6 {
   color: #000000;
   border-bottom: 2px solid #CFEDFF;
   padding-bottom: 5px;
-  transition: all 0.3s ease 0s;
+  transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
   position: relative;
+  box-shadow: inset 0px 0px #CFEDFF;
+  /* &::before {
+  	content: '';
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 0;
+  	transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03);
+  	background: #CFEDFF;
+  } */
 }
 
-.docs__link::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03);
-  background: #CFEDFF;
-}
-
-.docs__link:hover::before {
-  height: 100%;
+.docs__link:hover {
+  box-shadow: inset 0px -100px 0px #CFEDFF;
+  /* &::before {
+  	height: 100%;
+  } */
 }
 
 .docs__link span {
@@ -5895,8 +5910,8 @@ h6 {
 }
 
 .autoreply__item--row-search img {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .autoreply__right {
@@ -5965,6 +5980,7 @@ h6 {
   display: flex;
   align-items: center;
   transition: all 0.3s ease 0s;
+  margin-left: 10px;
 }
 
 .autoreply__reset img {
@@ -6684,6 +6700,104 @@ section.gray:hover {
 }
 
 /* Responsivity */
+
+@media (max-width: 1900px) {
+  .wrapper .page .content__container {
+    padding: 64px 60px 103px;
+  }
+
+  .people-cards__row {
+    margin: -30px -5px;
+  }
+
+  .people-cards__item {
+    padding: 30px 5px;
+  }
+
+  .person {
+    margin: 0px -60px -103px;
+  }
+
+  .person__container {
+    padding: 90px 60px 100px;
+  }
+}
+
+@media (max-width: 1700px) {
+  .people-cards__item {
+    flex: 0 1 25%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .wrapper .page .content {
+    max-width: calc(100% - 300px);
+  }
+
+  .wrapper .page .content__container {
+    margin: 190px 64px 0 10px;
+    padding: 64px 30px 103px;
+  }
+
+  .header {
+    padding-right: 64px;
+    padding-left: 310px;
+  }
+
+  .menu {
+    width: 300px;
+    flex: 0 0 300px;
+  }
+
+  .menu__wrapper {
+    width: 300px;
+  }
+
+  .menu__container {
+    padding: 50px 20px 100px 40px;
+  }
+
+  .sidebar {
+    right: 64px;
+  }
+
+  .sidebar__calendar-img {
+    min-width: 80px;
+    min-height: 80px;
+  }
+
+  .sidebar__calendar-img img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .main {
+    margin-left: 10px;
+    margin-right: calc(21vw + 74px);
+  }
+
+  .select2 {
+    margin-left: 20px;
+  }
+
+  .people-cards__item {
+    flex: 0 1 20%;
+  }
+
+  .person {
+    margin: 0px -30px -103px;
+  }
+
+  .person__container {
+    padding: 90px 30px 100px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .people-cards__item {
+    flex: 0 1 25%;
+  }
+}
 
 @media screen and (max-width: 992px) {
   .mapplic-dir-grid.mapplic-dir-columns .mapplic-dir-item {

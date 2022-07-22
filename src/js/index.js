@@ -1,11 +1,12 @@
-import "./import/pages/login";
-
+import "./import/login";
 import "./import/modules";
-import "./import/pages/calendar";
-import "./import/pages/pages";
 
 
 
 
+import "./import/swiper";
+import "./import/select";
+import "./import/calendar";
+import "./import/pages";
 
 
