@@ -7,7 +7,7 @@
 		justify-content: space-between;
 		>* {
 			&:nth-child(2), &:nth-child(3){
-				margin-left: 10px;
+				margin-left: 30px;
 			}
 		}
 	}
@@ -15,7 +15,7 @@
 	&__btn {
 		background: #FFFFFF;
 		border: 1px solid #CFEDFF;
-		height: 47px;
+		min-height: 47px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -23,7 +23,7 @@
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
-		line-height: 26px;
+		line-height: 20px;
 		color: #000000;
 		position: relative;
 		transition: all 0.3s ease 0s;
@@ -31,6 +31,7 @@
 		span {
 			position: relative;
 			z-index: 2;
+			text-align: center;
 		}
 		&::before {
 			content: '';
@@ -57,13 +58,12 @@
 
 
 		&-map {
-			width: 410px;
-
-
+			flex: 0 1 410px;
+			padding: 0 30px;
 		}
 
 		&-calendar {
-			width: 300px;
+			flex: 0 1 300px;
 
 		}
 

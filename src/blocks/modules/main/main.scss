@@ -3,10 +3,6 @@
 	padding-bottom: 102px;
 	margin-right: calc(21vw + 126px);
 	margin-left: 30px;
-	@media (max-width: 1600px){
-		margin-left: 10px;
-		margin-right: calc(21vw + 74px);
-	}
 	&__container {
 		font-family: 'Styrene A LC Web';
 		font-style: normal;
@@ -17,7 +13,7 @@
 			line-height: 31px;
 			color: #000000;
 			margin: 0;
-
+			margin-bottom: 50px;
 		}
 		h2 {
 			font-weight: 700;
@@ -44,7 +40,7 @@
 			font-size: 16px;
 			line-height: 24px;
 			color: #000000;
-
+			margin-top: 15px;
 		}
 
 	} 
@@ -55,7 +51,7 @@
 			margin-top: 93px;
 
 			div {
-				margin-top: 50px;
+				margin-top: 48px;
 				border-bottom: 2px solid #FFFFFF;
 				padding-bottom: 14px;
 

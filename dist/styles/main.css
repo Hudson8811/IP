@@ -2988,7 +2988,7 @@ h6 {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: calc(100% - 395px);
+  max-width: calc(100% - 95px);
 }
 
 .wrapper .page .content__container {
@@ -3338,7 +3338,7 @@ h6 {
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
-  line-height: 40px;
+  line-height: 22px;
   display: flex;
   align-items: center;
   text-transform: lowercase;
@@ -3346,6 +3346,7 @@ h6 {
   border-bottom: 1px solid #F04E00;
   position: relative;
   transition: all 0.3s ease 0s;
+  padding: 9px 0;
 }
 
 .menu__item--click::after {
@@ -3676,6 +3677,7 @@ h6 {
   line-height: 31px;
   color: #000000;
   margin: 0;
+  margin-bottom: 50px;
 }
 
 .main__container h2 {
@@ -3704,6 +3706,7 @@ h6 {
   font-size: 16px;
   line-height: 24px;
   color: #000000;
+  margin-top: 15px;
 }
 
 .main__massages {
@@ -3711,7 +3714,7 @@ h6 {
 }
 
 .main__massages div {
-  margin-top: 50px;
+  margin-top: 48px;
   border-bottom: 2px solid #FFFFFF;
   padding-bottom: 14px;
 }
@@ -3779,7 +3782,7 @@ h6 {
 }
 
 .form-login__title {
-  margin-bottom: 92px;
+  margin-bottom: 89px;
   font-family: "Styrene A LC";
   font-style: normal;
   font-weight: 400;
@@ -4038,13 +4041,13 @@ h6 {
 
 .offices__btns > *:nth-child(2),
 .offices__btns > *:nth-child(3) {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .offices__btn {
   background: #FFFFFF;
   border: 1px solid #CFEDFF;
-  height: 47px;
+  min-height: 47px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4052,7 +4055,7 @@ h6 {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 20px;
   color: #000000;
   position: relative;
   transition: all 0.3s ease 0s;
@@ -4062,6 +4065,7 @@ h6 {
 .offices__btn span {
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .offices__btn::before {
@@ -4087,11 +4091,12 @@ h6 {
 }
 
 .offices__btn-map {
-  width: 410px;
+  flex: 0 1 410px;
+  padding: 0 30px;
 }
 
 .offices__btn-calendar {
-  width: 300px;
+  flex: 0 1 300px;
 }
 
 .offices__btn--arrow {
@@ -5356,12 +5361,12 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 34px;
+  min-height: 34px;
   margin-top: 20px;
 }
 
 .people__lists tr > *:not(:first-child) {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .people__lists tr:nth-child(1) {
@@ -5375,32 +5380,22 @@ h6 {
 }
 
 .people__lists tr a {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  border-bottom: 2px solid #CFEDFF;
-  transition: all 0.3s ease 0s;
-  position: relative;
+  cursor: default;
 }
 
-.people__lists tr a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
-  background: #CFEDFF;
-}
-
-.people__lists tr a > span {
+.people__lists tr a span {
+  cursor: pointer;
+  line-height: 28px;
+  padding: 3px 0;
+  box-shadow: inset 0px 0px #cfedff;
   position: relative;
   z-index: 2;
+  transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
+  border-bottom: 2px solid #CFEDFF;
 }
 
-.people__lists tr a:hover::before {
-  height: 100%;
+.people__lists tr a span:hover {
+  box-shadow: inset 0 -40px 0px #CFEDFF;
 }
 
 .people__lists tr th {
@@ -5416,32 +5411,42 @@ h6 {
 }
 
 .people__lists tr th:nth-child(1) {
-  flex: 0 1 305px;
+  flex: 0 0 22%;
+  min-width: 22%;
 }
 
 .people__lists tr th:nth-child(2) {
-  flex: 0 1 283px;
+  flex: 0 0 18%;
+  min-width: 18%;
 }
 
 .people__lists tr th:nth-child(3) {
-  flex: 0 1 104px;
+  flex: 0 0 5%;
+  min-width: 5%;
 }
 
 .people__lists tr th:nth-child(4) {
-  flex: 0 1 192px;
+  flex: 0 0 16%;
+  min-width: 16%;
+}
+
+.people__lists tr th:nth-child(4) a span {
+  white-space: nowrap;
 }
 
 .people__lists tr th:nth-child(5) {
-  flex: 0 1 244px;
+  flex: 0 0 21%;
+  min-width: 21%;
 }
 
 .people__lists tr th:nth-child(6) {
-  flex: 0 1 50px;
+  flex: 0 0 5%;
+  min-width: 5%;
   justify-content: flex-end;
 }
 
 .people__lists tr td {
-  height: 100%;
+  min-height: 34px;
   display: flex;
   align-items: center;
   font-family: "Styrene A LC Web";
@@ -5453,28 +5458,37 @@ h6 {
 }
 
 .people__lists tr td:nth-child(1) {
-  flex: 0 1 305px;
-  font-weight: 700;
+  flex: 0 0 22%;
+  min-width: 22%;
 }
 
 .people__lists tr td:nth-child(2) {
-  flex: 0 1 283px;
+  flex: 0 0 18%;
+  min-width: 18%;
 }
 
 .people__lists tr td:nth-child(3) {
-  flex: 0 1 104px;
+  flex: 0 0 5%;
+  min-width: 5%;
 }
 
 .people__lists tr td:nth-child(4) {
-  flex: 0 1 192px;
+  flex: 0 0 16%;
+  min-width: 16%;
+}
+
+.people__lists tr td:nth-child(4) a span {
+  white-space: nowrap;
 }
 
 .people__lists tr td:nth-child(5) {
-  flex: 0 1 244px;
+  flex: 0 0 21%;
+  min-width: 21%;
 }
 
 .people__lists tr td:nth-child(6) {
-  flex: 0 1 50px;
+  flex: 0 0 5%;
+  min-width: 5%;
   justify-content: flex-end;
 }
 
@@ -5497,8 +5511,8 @@ h6 {
 
 .person__img {
   position: relative;
-  width: 410px;
   height: 490px;
+  flex: 0 0 410px;
 }
 
 .person__img img {
@@ -5513,6 +5527,8 @@ h6 {
 .person__body {
   margin-top: -10px;
   margin-left: 76px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .person__name {
@@ -5522,6 +5538,7 @@ h6 {
   font-size: 48px;
   line-height: 60px;
   color: #000000;
+  flex: 1 1 100%;
 }
 
 .person__position {
@@ -5532,6 +5549,7 @@ h6 {
   font-size: 16px;
   line-height: 24px;
   color: #000000;
+  flex: 1 1 100%;
 }
 
 .person__city {
@@ -5542,11 +5560,14 @@ h6 {
   font-size: 16px;
   line-height: 24px;
   color: #F04E00;
+  flex: 1 1 100%;
 }
 
 .person__contacts {
+  flex: 0 1 510px;
   margin-top: 52px;
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -5614,7 +5635,8 @@ h6 {
 }
 
 .person__contacts--right {
-  margin-left: 118px;
+  /* 
+margin-left: 118px; */
   display: flex;
   align-items: center;
 }
@@ -5710,27 +5732,15 @@ h6 {
   line-height: 26px;
   color: #000000;
   border-bottom: 2px solid #CFEDFF;
-  padding-bottom: 5px;
+  padding: 5px 0;
   transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03) 0s;
+  display: inline;
   position: relative;
   box-shadow: inset 0px 0px #CFEDFF;
-  /* &::before {
-  	content: '';
-  	position: absolute;
-  	bottom: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 0;
-  	transition: all 0.2s cubic-bezier(1, 0.05, 0.43, 1.03);
-  	background: #CFEDFF;
-  } */
 }
 
 .docs__link:hover {
   box-shadow: inset 0px -100px 0px #CFEDFF;
-  /* &::before {
-  	height: 100%;
-  } */
 }
 
 .docs__link span {
@@ -5915,13 +5925,13 @@ h6 {
 }
 
 .autoreply__right {
-  padding: 30px;
   border: 1px solid #EDEDED;
   flex: 1 1 auto;
   margin-left: 30px;
 }
 
 .autoreply__right textarea {
+  padding: 30px;
   width: 100%;
   height: 100%;
   font-family: "Styrene A LC Web";
@@ -6702,46 +6712,20 @@ section.gray:hover {
 /* Responsivity */
 
 @media (max-width: 1900px) {
-  .wrapper .page .content__container {
-    padding: 64px 60px 103px;
-  }
-
-  .people-cards__row {
-    margin: -30px -5px;
-  }
-
-  .people-cards__item {
-    padding: 30px 5px;
-  }
-
-  .person {
-    margin: 0px -60px -103px;
-  }
-
-  .person__container {
-    padding: 90px 60px 100px;
-  }
-}
-
-@media (max-width: 1700px) {
   .people-cards__item {
     flex: 0 1 25%;
   }
 }
 
+@media (max-width: 1700px) {
+  .people-cards__item {
+    flex: 0 1 33.333333%;
+  }
+}
+
 @media (max-width: 1600px) {
-  .wrapper .page .content {
-    max-width: calc(100% - 300px);
-  }
-
-  .wrapper .page .content__container {
-    margin: 190px 64px 0 10px;
-    padding: 64px 30px 103px;
-  }
-
   .header {
-    padding-right: 64px;
-    padding-left: 310px;
+    padding-left: 330px;
   }
 
   .menu {
@@ -6757,45 +6741,14 @@ section.gray:hover {
     padding: 50px 20px 100px 40px;
   }
 
-  .sidebar {
-    right: 64px;
+  .people__lists tr th:nth-child(1) {
+    flex: 0 0 15%;
+    min-width: 15px;
   }
 
-  .sidebar__calendar-img {
-    min-width: 80px;
-    min-height: 80px;
-  }
-
-  .sidebar__calendar-img img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .main {
-    margin-left: 10px;
-    margin-right: calc(21vw + 74px);
-  }
-
-  .select2 {
-    margin-left: 20px;
-  }
-
-  .people-cards__item {
-    flex: 0 1 20%;
-  }
-
-  .person {
-    margin: 0px -30px -103px;
-  }
-
-  .person__container {
-    padding: 90px 30px 100px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .people-cards__item {
-    flex: 0 1 25%;
+  .people__lists tr td:nth-child(1) {
+    flex: 0 0 15%;
+    min-width: 15px;
   }
 }
 

@@ -155,18 +155,16 @@ $(document).ready(function () {
   \********************************/
 /***/ (function() {
 
-$(document).ready(function () {
-  var togglePassword = document.querySelector('.form-login__eye');
-  var password = document.querySelector('.form-login__input-password');
+var togglePassword = document.querySelector('.form-login__eye');
+var password = document.querySelector('.form-login__input-password');
 
-  if (togglePassword) {
-    togglePassword.addEventListener('click', function (e) {
-      var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-      password.setAttribute('type', type);
-      this.classList.toggle('active');
-    });
-  }
-});
+if (togglePassword) {
+  togglePassword.addEventListener('click', function (e) {
+    var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('active');
+  });
+}
 
 /***/ }),
 

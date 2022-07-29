@@ -74,7 +74,7 @@
 				font-style: normal;
 				font-weight: 600;
 				font-size: 24px;
-				line-height: 40px;
+				line-height: 22px;
 				display: flex;
 				align-items: center;
 				text-transform: lowercase;
@@ -82,7 +82,7 @@
 				border-bottom: 1px solid #F04E00;
 				position: relative;
 				transition: all 0.3s ease 0s;
-
+				padding: 9px 0;
 				&::after{
 					content:'';
 					position: absolute;
