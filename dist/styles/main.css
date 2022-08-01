@@ -3256,16 +3256,37 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.footer__container span,
-.footer__container a {
   font-family: "Styrene A LC Web";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #E1E6EB;
+}
+
+.footer-contacts a {
+  font-family: "Styrene A LC Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #E1E6EB;
+}
+
+.footer-contacts .footer-contact {
+  display: inline-block;
+}
+
+.footer-contacts .footer-contact__city,
+.footer-contacts .footer-contact__phone,
+.footer-contacts .footer-contact__email {
+  display: inline;
+}
+
+.footer-contacts .footer-contact__city::after,
+.footer-contacts .footer-contact__phone::after,
+.footer-contacts .footer-contact__email::after {
+  content: " ";
 }
 
 .menu {
