@@ -3679,19 +3679,19 @@ h6 {
   background-color: #000000;
 }
 
-.main {
+.news {
   padding-top: 212px;
   padding-bottom: 102px;
   margin-right: calc(21vw + 126px);
   margin-left: 30px;
 }
 
-.main__container {
+.news__container {
   font-family: "Styrene A LC Web";
   font-style: normal;
 }
 
-.main__title {
+.news__title {
   text-align: left;
   font-weight: 400;
   font-size: 24px;
@@ -3701,7 +3701,19 @@ h6 {
   margin-bottom: 50px;
 }
 
-.main__subtitle {
+.news__item {
+  margin-top: 15px;
+}
+
+.news__massages {
+  margin-top: 93px;
+}
+
+.item-news {
+  display: block;
+}
+
+.item-news__title {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -3713,16 +3725,11 @@ h6 {
   margin-top: 40px;
 }
 
-.main__subtitle:nth-child(2) {
+.item-news__title:nth-child(2) {
   margin-top: 50px;
 }
 
-.main__link {
-  margin-top: 15px;
-  display: block;
-}
-
-.main__text {
+.item-news__text {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -3730,17 +3737,13 @@ h6 {
   margin-top: 15px;
 }
 
-.main__massages {
-  margin-top: 93px;
-}
-
-.main__date {
+.item-news__date {
   margin-top: 48px;
   border-bottom: 2px solid #FFFFFF;
   padding-bottom: 14px;
 }
 
-.main__date span {
+.item-news__date span {
   font-size: 16px;
   line-height: 20px;
   display: inline-flex;
@@ -3748,11 +3751,11 @@ h6 {
   color: #000000;
 }
 
-.main__date span:nth-child(1) {
+.item-news__date span:nth-child(1) {
   font-weight: 700;
 }
 
-.main__date span:nth-child(2) {
+.item-news__date span:nth-child(2) {
   margin-left: 14px;
   font-weight: 400;
 }
