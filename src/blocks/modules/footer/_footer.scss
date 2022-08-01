@@ -9,15 +9,12 @@
 		justify-content: space-between;
 		align-items: center;
 
-		a {
-			font-family: 'Styrene A LC Web';
-			font-style: normal;
-			font-weight: 400;
-			font-size: 12px;
-			line-height: 15px;
-			color: #E1E6EB;
-
-		}
+		font-family: 'Styrene A LC Web';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 15px;
+		color: #E1E6EB;
 	}
 
 	&__left {}
@@ -28,7 +25,6 @@
 
 .footer-contacts {
 
-	&,
 	a {
 		font-family: 'Styrene A LC Web';
 		font-style: normal;

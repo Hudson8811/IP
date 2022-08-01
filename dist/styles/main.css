@@ -3256,9 +3256,6 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.footer__container a {
   font-family: "Styrene A LC Web";
   font-style: normal;
   font-weight: 400;
@@ -3267,7 +3264,6 @@ h6 {
   color: #E1E6EB;
 }
 
-.footer-contacts,
 .footer-contacts a {
   font-family: "Styrene A LC Web";
   font-style: normal;
