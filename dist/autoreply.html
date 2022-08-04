@@ -135,50 +135,71 @@
         </div>
         <div class="content">
           <div class="content__container">
-            <div class="autoreply"> 
+            <div class="autoreply">
               <div class="autoreply__container">
                 <div class="autoreply__title general-title">Автоответ на время отпуска</div>
                 <p class="autoreply__text">Короткая инструкция будет тут. Писмо формируется автоматичевки: текст письма стандартный, данный сотрудника подтягиваются из базы данных (имя фамилия, телефон, email и тд) Изначально текст будет серым (50% black), без возможности править. Возможность внести корректировки появляется уже после создания подписи. При выборе пунка он становиться черным (100% black). После того, как все пункты были выбраны кнопка создать становится активной. После нажатия кнопки создать  становиться активной кнопка скопировать (при этом кнопка создать становиться неактивной (30% black), а также текст письма становится доступным к редактированию (100% black). В сформированное письмо можно добавить еще один номер телефона, например, или еще какие данные.<br>Ссылка на подробную инструкцию со скринами (в раздел IT??)</p>
-                <div class="autoreply__body"> 
-                  <div class="autoreply__left"> 
-                    <div class="autoreply__item autoreply__item-calendar"> 
+                <div class="autoreply__body">
+                  <div class="autoreply__left">
+                    <div class="autoreply__item autoreply__item-calendar">
                       <div class="autoreply__item--title">даты</div>
                       <div class="autoreply__item-calendar-row autoreply__item--row autoreply__item--row-arrow">
                         <input class="js-datepicker" id="datepicker" type="text" placeholder="Выберите даты"><img src="img/svg/autoreply/arrow.svg" alt="alt">
                       </div>
                     </div>
-                    <div class="autoreply__item"> 
+                    <div class="autoreply__item">
                       <div class="autoreply__item--title">заместитель</div>
-                      <label class="autoreply__item--row autoreply__item--row-search">
-                        <input type="text" placeholder="Начните набирать имя"><img src="img/svg/autoreply/search.svg" alt="alt">
-                      </label>
+                      <form class="search-dropdown js-search-dropdown">
+                        <input class="search-dropdown-input" type="text">
+                        <input class="search-dropdown-db-id" type="text">
+                        <div class="search-dropdown-dd">
+                          <div class="search-dropdown-dd__inner">
+                            <div class="search-dropdown-dd__item" data-id="1">Андрей Васильев</div>
+                            <div class="search-dropdown-dd__item" data-id="2">Андрей Петров</div>
+                            <div class="search-dropdown-dd__item" data-id="3">Петр Андриян</div>
+                            <div class="search-dropdown-dd__item" data-id="4">Таисия Андреева</div>
+                            <div class="search-dropdown-dd__item" data-id="1">Андрей Васильев</div>
+                            <div class="search-dropdown-dd__item" data-id="2">Андрей Петров</div>
+                            <div class="search-dropdown-dd__item" data-id="3">Петр Андриян</div>
+                            <div class="search-dropdown-dd__item" data-id="4">Таисия Андреева</div>
+                            <div class="search-dropdown-dd__item" data-id="1">Андрей Васильев</div>
+                            <div class="search-dropdown-dd__item" data-id="2">Андрей Петров</div>
+                            <div class="search-dropdown-dd__item" data-id="3">Петр Андриян</div>
+                            <div class="search-dropdown-dd__item" data-id="4">Таисия Андреева</div>
+                            <div class="search-dropdown-dd__item" data-id="1">Андрей Васильев</div>
+                            <div class="search-dropdown-dd__item" data-id="2">Андрей Петров</div>
+                            <div class="search-dropdown-dd__item" data-id="3">Петр Андриян</div>
+                            <div class="search-dropdown-dd__item" data-id="4">Таисия Андреева</div>
+                          </div>
+                        </div><img class="search-dropdown-icon" src="img/svg/autoreply/search.svg" alt="alt">
+                      </form>
                     </div>
-                    <div class="autoreply__item"> 
+                    <div class="autoreply__item">
                       <div class="autoreply__item--title">язык</div>
                       <div class="autoreply__item--inner" data-state=""><img src="img/svg/autoreply/arrow.svg" alt="alt">
-                        <div class="autoreply__item--row-lang autoreply__item--row autoreply__item--row-arrow" data-default="active"> <span>русский</span></div>
+                        <div class="autoreply__item--row-lang autoreply__item--row autoreply__item--row-arrow" data-default="active"><span>русский</span></div>
                         <div class="autoreply__item--content">
                           <input class="autoreply__item--input" id="autoreplySelect1" type="radio" name="autoreplySelect">
                           <label class="autoreply__item--label1" for="autoreplySelect1"></label>
                           <input class="autoreply__item--input" id="autoreplySelect2" type="radio" name="autoreplySelect" checked="">
-                          <label class="autoreply__item--label autoreply__item--label-rus" for="autoreplySelect2"> <span>русский</span></label>
+                          <label class="autoreply__item--label autoreply__item--label-rus" for="autoreplySelect2"><span>русский</span></label>
                           <input class="autoreply__item--input" id="autoreplySelect3" type="radio" name="autoreplySelect">
-                          <label class="autoreply__item--label autoreply__item--label-eng" for="autoreplySelect3"> <span>английский</span></label>
+                          <label class="autoreply__item--label autoreply__item--label-eng" for="autoreplySelect3"><span>английский</span></label>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="autoreply__right"> 
+                  <div class="autoreply__right">
                     <textarea>Тут будет стандартный текст для ответа на время отпуска. Писмо формируется автоматичевки: текст письма стандартный, данный сотрудника подтягиваются из базы данных (имя фамилия, телефон, email и тд</textarea>
                   </div>
                 </div>
-                <div class="autoreply__footer"> 
-                  <div class="autoreply__empty"> </div>
-                  <div class="autoreply__btns"> 
+                <div class="autoreply__footer">
+                  <div class="autoreply__empty"></div>
+                  <div class="autoreply__btns">
                     <div class="autoreply__btn autoreply__btn-create">создать</div>
                     <div class="autoreply__btn autoreply__btn-copy">скопировать</div>
                   </div>
-                  <div class="autoreply__reset"> <img src="img/svg/autoreply/shape.svg" alt="alt"><span>сбросить</span></div>
+                  <div class="autoreply__reset"><img src="img/svg/autoreply/shape.svg" alt="alt"><span>сбросить</span></div>
                 </div>
               </div>
             </div>
@@ -218,6 +239,8 @@
     <script src="jslibs/magnific-popup.js"></script>
     <script src="jslibs/mapplic.js"></script>
     <!--import "./import/libs/csvparser.js"; - опционален для карты-->
+    <script src="jslibs/jquery.mark.min.js"></script>
+    <script src="jslibs/simplebar.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
