@@ -143,6 +143,12 @@ $(document).ready(function () {
         var autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
         autoreply__item_calendar.classList.remove('active');
       });
+      picker.on('select', function (e) {
+        $('#datepicker').trigger('select');
+      });
+      picker.on('clear', function (e) {
+        $('#datepicker').trigger('clear');
+      });
     }
   });
 });

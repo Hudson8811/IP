@@ -1,18 +1,18 @@
 $(document).ready(function () {
 	$(function() {
 		$(".select-offices--title").click(function() {
-			$(".select-offices").toggleClass("active");   
+			$(".select-offices").toggleClass("active");
 			$('.select-offices--content').toggleClass("active");
 		});
 		$(".swiper-pagination-bullet").click(function() {
-			$(".select-offices").removeClass("active");   
+			$(".select-offices").removeClass("active");
 			$('.select-offices--content').removeClass("active");
 		});
 	});
-	$(document).click( function(e){ 
+	$(document).click( function(e){
 		var login = $( ".select-offices" );
-		if ( !login.is(e.target) && login.has(e.target).length === 0 ) { 
-			$(".select-offices, .select-offices--content").removeClass('active'); 
+		if ( !login.is(e.target) && login.has(e.target).length === 0 ) {
+			$(".select-offices, .select-offices--content").removeClass('active');
 		}
 	});
 
@@ -33,15 +33,15 @@ $(document).ready(function () {
 			}
 		});
 	});
-	$(document).click( function(e){ 
+	$(document).click( function(e){
 		var calendar = $( ".calendar-slide__item" );
-		if ( !calendar.is(e.target) && calendar.has(e.target).length === 0 ) { 
-			$(".calendar-slide__item").removeClass('active'); 
+		if ( !calendar.is(e.target) && calendar.has(e.target).length === 0 ) {
+			$(".calendar-slide__item").removeClass('active');
 		}
 	});
 	$(function() {
 		$(".autoreply__item-calendar-row input").click(function() {
-			$(".autoreply__item-calendar").addClass("active");   
+			$(".autoreply__item-calendar").addClass("active");
 		});
 	});
 	const picker = new easepick.create({
@@ -61,6 +61,12 @@ $(document).ready(function () {
 			picker.on('hide', (e) => {
 				const autoreply__item_calendar = document.querySelector('.autoreply__item-calendar');
 				autoreply__item_calendar.classList.remove('active')
+			});
+			picker.on('select', function (e) {
+			  $('#datepicker').trigger('select');
+			});
+			picker.on('clear', function (e) {
+			  $('#datepicker').trigger('clear');
 			});
 		},
 	})
