@@ -262,13 +262,16 @@
 		border: 1px solid #000000;
 		transition: all 0.3s ease 0s;
 
-
-		&-copy {
+		&+.autoreply__btn{
 			margin-left: 32px;
+		}
+
+		&[disabled]{
+			pointer-events: none;
 			color: rgba(0, 0, 0, 0.3);
 			border: 1px solid rgba(0, 0, 0, 0.5);
-
 		}
+
 	}
 
 	&__reset {

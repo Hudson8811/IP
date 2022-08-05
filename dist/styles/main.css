@@ -6212,8 +6212,12 @@ margin-left: 118px; */
   transition: all 0.3s ease 0s;
 }
 
-.autoreply__btn-copy {
+.autoreply__btn + .autoreply__btn {
   margin-left: 32px;
+}
+
+.autoreply__btn[disabled] {
+  pointer-events: none;
   color: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
