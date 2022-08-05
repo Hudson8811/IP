@@ -617,86 +617,96 @@ function searchEmulator(request) {
 
   return result;
 }
+/*
+$.fn.searchDropdown = function (options = {}) {
+	if (!this.length > 0) {
+		return this;
+	}
+	// настройки по умолчанию (объектный литерал настроек),
+	// расширяемые с помощью параметров, которые были переданы
+	var settings = $.extend({
+		variableExample: '',
+		onSelect : function(){},
+		onUnSelect : function(){},
+	}, options);
+	var $this = $(this),
+		selected = false,
+		textInp = $this.find('.search-dropdown-input'),
+		idInp = $this.find('.search-dropdown-db-id'),
+		dd = $this.find('.search-dropdown-dd'),
+		//ddInner = $this.find('.search-dropdown-dd__inner'),
+		searchSimplebar = new SimpleBar(dd[0], { autoHide: false });
+	//this.parent().append('');
 
-$.fn.searchDropdown = function () {
-  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  if (!this.length > 0) {
-    return this;
-  } // настройки по умолчанию (объектный литерал настроек),
-  // расширяемые с помощью параметров, которые были переданы
+	textInp.on('keyup input', function () {
+		var request = textInp.val();
+
+		dd.removeClass('search-dropdown-dd--active');
+
+		if(selected && request!==textInp.attr('data-selected')){
+			textInp.attr('data-selected', '');
+			idInp.val('');
+			selected=false;
+			settings.onUnSelect();
+		}
+
+		if (request.length > 1) {
+
+			var searchResult = searchEmulator(request);
+			var resultStr = '';
 
 
-  var settings = $.extend({
-    variableExample: '',
-    onSelect: function onSelect() {},
-    onUnSelect: function onUnSelect() {}
-  }, options);
-  var $this = $(this),
-      selected = false,
-      textInp = $this.find('.search-dropdown-input'),
-      idInp = $this.find('.search-dropdown-db-id'),
-      dd = $this.find('.search-dropdown-dd'),
-      //ddInner = $this.find('.search-dropdown-dd__inner'),
-  searchSimplebar = new SimpleBar(dd[0], {
-    autoHide: false
-  }); //this.parent().append('');
+			if (!$.isEmptyObject(searchResult)) {
+				for (key in searchResult) {
+					resultStr += '<div class="search-dropdown-dd__item" data-id="' + searchResult[key] + '">' + key + '</div>';
+				}
+				resultStr = '<div class="search-dropdown-dd__inner">' + resultStr + '</div>';
 
-  textInp.on('keyup input', function () {
-    var request = textInp.val();
-    dd.removeClass('search-dropdown-dd--active');
+				$(searchSimplebar.getContentElement()).html(resultStr);
 
-    if (selected && request !== textInp.attr('data-selected')) {
-      textInp.attr('data-selected', '');
-      idInp.val('');
-      selected = false;
-      settings.onUnSelect();
-    }
+				var ddInner = $this.find('.search-dropdown-dd__inner');
+				var markOptions=[];
+				markOptions['separateWordSearch']=false;
+				ddInner.unmark({
+					done: function () {
+						ddInner.mark(request, markOptions);
+					}
+				});
 
-    if (request.length > 1) {
-      var searchResult = searchEmulator(request);
-      var resultStr = '';
+				searchSimplebar.recalculate();
 
-      if (!$.isEmptyObject(searchResult)) {
-        for (key in searchResult) {
-          resultStr += '<div class="search-dropdown-dd__item" data-id="' + searchResult[key] + '">' + key + '</div>';
-        }
+				dd.addClass('search-dropdown-dd--active');
+			}
+		}
+	});
 
-        resultStr = '<div class="search-dropdown-dd__inner">' + resultStr + '</div>';
-        $(searchSimplebar.getContentElement()).html(resultStr);
-        var ddInner = $this.find('.search-dropdown-dd__inner');
-        var markOptions = [];
-        markOptions['separateWordSearch'] = false;
-        ddInner.unmark({
-          done: function done() {
-            ddInner.mark(request, markOptions);
-          }
-        });
-        searchSimplebar.recalculate();
-        dd.addClass('search-dropdown-dd--active');
-      }
-    }
-  });
-  dd.on('click', '.search-dropdown-dd__item', function () {
-    console.log('click');
-    textInp.val($(this).text());
-    textInp.attr('data-selected', $(this).text());
-    idInp.val($(this).attr('data-id'));
-    dd.removeClass('search-dropdown-dd--active');
-    selected = true;
-    settings.onSelect();
-  });
-  textInp.on('blur', function () {
-    setTimeout(function () {
-      dd.removeClass('search-dropdown-dd--active');
-    }, 300);
-  });
-  return this;
+	dd.on('click', '.search-dropdown-dd__item', function(){
+		console.log('click');
+		textInp.val($(this).text());
+		textInp.attr('data-selected', $(this).text());
+		idInp.val($(this).attr('data-id'));
+		dd.removeClass('search-dropdown-dd--active');
+		selected=true;
+		settings.onSelect();
+	});
+	textInp.on('blur', function(){
+		setTimeout(function(){
+			dd.removeClass('search-dropdown-dd--active');
+		}, 300);
+	});
+
+	return this;
 };
 
+
 $(document).ready(function () {
-  $('.js-search-dropdown').searchDropdown();
+	$('.js-search-dropdown').searchDropdown();
+
+
 });
+
+*/
 
 /***/ }),
 
