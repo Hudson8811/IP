@@ -1,3 +1,4 @@
+/*
 var searchTest = {
 	'Аиша Булгакова': 1,
 	'Аиша Малышева': 2,
@@ -211,7 +212,6 @@ function searchEmulator(request) {
 	return result;
 }
 
-/*
 $.fn.searchDropdown = function (options = {}) {
 	if (!this.length > 0) {
 		return this;
