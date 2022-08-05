@@ -211,7 +211,7 @@ function searchEmulator(request) {
 	return result;
 }
 
-
+/*
 $.fn.searchDropdown = function (options = {}) {
 	if (!this.length > 0) {
 		return this;
@@ -299,3 +299,5 @@ $(document).ready(function () {
 
 
 });
+
+*/
