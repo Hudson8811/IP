@@ -3684,7 +3684,8 @@ h6 {
   transition: all 0.3s ease 0s;
 }
 
-.sidebar__title {
+.sidebar__title,
+.sidebar-section__title {
   font-family: "Source Serif Pro";
   font-style: normal;
   font-weight: 700;
@@ -3745,16 +3746,8 @@ h6 {
   align-items: center;
 }
 
-.sidebar__tel {
+.sidebar-section {
   margin-top: 40px;
-}
-
-.sidebar__email {
-  margin-top: 46px;
-}
-
-.sidebar__maps {
-  margin-top: 46px;
 }
 
 .sidebar-icons {

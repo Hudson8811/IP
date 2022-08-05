@@ -9,7 +9,7 @@
 		padding: 30px 25px 31px;
 
 	}
-	
+
 		&__calendar {
 			display: flex;
 			&-wrapper {
@@ -34,12 +34,12 @@
 				transition: all 0.3s ease 0s;
 
 				img {
-					
+
 				}
 			}
 		}
-	
-		&__title {
+
+		&__title, &-section__title {
 			font-family: 'Source Serif Pro';
 			font-style: normal;
 			font-weight: 700;
@@ -47,10 +47,9 @@
 			line-height: 30px;
 			color: #000000;
 			text-transform: lowercase;
-
 		}
-		
-	
+
+
 		&__link {
 			font-family: 'Styrene A LC Web';
 			font-style: normal;
@@ -101,22 +100,9 @@
 
 			}
 		}
-		
-		&__tel {
+
+		&-section{
 			margin-top: 40px;
-
-			&--link {}
-		}
-		&__email {
-			margin-top: 46px;
-
-			&--link {}
-		}
-	
-		&__maps {
-			margin-top: 46px;
-
-			&--link {}
 		}
 }
 
