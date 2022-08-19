@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
+$(document).ready(function (){
 	const selectSingle1 = document.querySelector('.select1');
 	if(selectSingle1!==null){
 		const selectSingle1_title = selectSingle1.querySelector('.select1--title');
@@ -40,9 +40,22 @@ $(document).ready(function () {
 			}
 		});
 
+
+		$('.select1--label-all').click(function(){
+			$('.select1--label-left').removeClass('active');
+			$('.select1--label-right').removeClass('active');
+		});
+		$('.select1--label-right').click(function(){
+			$(this).addClass('active');
+			$(this).siblings().removeClass('active');
+			$('.select1--label-left').removeClass('active');
+		});
+		$('.select1--label-left').click(function(){
+			$(this).addClass('active');
+			$(this).siblings().removeClass('active');
+			$('.select1--label-right').removeClass('active');
+		});
 	}
-
-
 
 
 	const selectSingle2 = document.querySelector('.select-c1');
@@ -70,23 +83,5 @@ $(document).ready(function () {
 
 	}
 
-
-
-	$(document).ready(function(){
-		$('.select1--label-all').click(function(){
-			$('.select1--label-left').removeClass('active');
-			$('.select1--label-right').removeClass('active');
-		});
-		$('.select1--label-right').click(function(){
-			$(this).addClass('active');
-			$(this).siblings().removeClass('active');
-			$('.select1--label-left').removeClass('active');
-		});
-		$('.select1--label-left').click(function(){
-			$(this).addClass('active');
-			$(this).siblings().removeClass('active');
-			$('.select1--label-right').removeClass('active');
-		});
-	});
 });
 

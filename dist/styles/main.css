@@ -5080,7 +5080,7 @@ h6 {
   pointer-events: auto;
 }
 
-.select1.active .select1--label + .select1--input + .select1--label {
+.select1.active .select1--label {
   max-height: 40px;
 }
 
@@ -5195,7 +5195,7 @@ h6 {
   opacity: 1;
 }
 
-.select-c1.active .select-c1--label + .select-c1--input + .select-c1--label {
+.select-c1.active .select-c1--label {
   max-height: 40px;
 }
 

@@ -23,7 +23,7 @@
 				pointer-events: auto;
 			}
 
-			.select1--label+.select1--input+.select1--label {
+			.select1--label {
 				max-height: 40px;
 
 			}
@@ -161,10 +161,8 @@ font-family: 'Styrene A LC Web';
 				opacity: 1;
 			}
 
-			.select-c1--label+.select-c1--input+.select-c1--label {
+			.select-c1--label {
 				max-height: 40px;
-
-
 			}
 		}
 
