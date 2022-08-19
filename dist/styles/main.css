@@ -5392,8 +5392,12 @@ h6 {
   display: block;
   position: relative;
   width: 100%;
-  height: 220px;
-  background: #EDEDED;
+}
+
+.people-cards__img::before {
+  content: "";
+  display: block;
+  padding-top: 103.7736%;
 }
 
 .people-cards__img img {

@@ -416,8 +416,12 @@ font-family: 'Styrene A LC Web';
 		display: block;
 		position: relative;
 		width: 100%;
-		height: 220px;
-		background: #EDEDED;
+
+		&::before{
+			content: '';
+			display: block;
+			padding-top: 103.7736%;
+		}
 
 		img {
 			position: absolute;
