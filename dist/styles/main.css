@@ -3281,7 +3281,7 @@ h6 {
   display: none;
 }
 
-.search {
+.my-search {
   height: 40px;
   border: 1px solid #F04E00;
   display: flex;
@@ -3289,24 +3289,24 @@ h6 {
   padding: 10px;
 }
 
-.search--icon {
+.my-search--icon {
   width: 22px;
   height: 22px;
   margin-right: 10px;
 }
 
-.search--icon img {
+.my-search--icon img {
   width: 100%;
   height: 100%;
 }
 
-.search--input {
+.my-search--input {
   position: relative;
   padding-left: 6px;
   width: 100%;
 }
 
-.search--input::before {
+.my-search--input::before {
   content: "";
   position: absolute;
   top: 0;
@@ -3316,7 +3316,7 @@ h6 {
   background-color: #EDEDED;
 }
 
-.search--input input {
+.my-search--input input {
   width: 100%;
   font-family: "Styrene A LC Web";
   font-style: normal;
@@ -3328,7 +3328,7 @@ h6 {
   color: #000000;
 }
 
-.search--input input::placeholder {
+.my-search--input input::placeholder {
   color: #EDEDED;
 }
 
