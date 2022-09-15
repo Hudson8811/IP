@@ -91,6 +91,7 @@
 			"title": "Ground Floor",
 			"map": "/IP/dist/mapplic/maps/mall/mall-ground.svg",
 			"minimap": "/IP/dist/mapplic/maps/mall/mall-ground-mini.jpg",
+			"show": "true",
 			"locations": [
 				{
 					"id": "nordstrom",
@@ -187,7 +188,7 @@
 					"about": "Lorem ipsum",
 					"description": "<p>Enjoy today and every day with our creamy non-dairy beverage options.</p><strong>7:30 - 22:00</strong> <small>(Monday - Sunday)</small>",
 					"image": "https://source.unsplash.com/n-HtQS7IgU4/400x150",
-					"link": "https://www./IP/dist/mapplic.com/",
+					"link": "https://www.mapplic.com/",
 					"category": "food",
 					"x": "0.5431",
 					"y": "0.5240"
@@ -299,15 +300,6 @@
 					"x": "0.3750",
 					"y": "0.5391"
 				}
-			]
-		},
-		{
-			"id": "map_msk_2floor",
-			"title": "Этаж 2",
-			"map": "/IP/dist/mapplic/maps/mall/map_msk_2floor_ok.svg",
-			"minimap": "/IP/dist/mapplic/maps/mall/mall-first-mini.jpg",
-			"show": "true",
-			"locations": [
 			]
 		}
 	]
