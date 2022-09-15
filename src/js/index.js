@@ -6,5 +6,6 @@ import "./import/select";
 import "./import/calendar";
 import "./import/pages";
 
+import "./import/searchDropdown";
 import "./import/select2";
 

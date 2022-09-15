@@ -1,303 +1,74 @@
-/*
-var searchTest = {
-	'Аиша Булгакова': 1,
-	'Аиша Малышева': 2,
-	'Александр Акимов': 3,
-	'Александр Алехин': 4,
-	'Александр Блинов': 5,
-	'Александр Иванов': 6,
-	'Александр Потапов': 7,
-	'Александр Семенов': 8,
-	'Александр Соколов': 9,
-	'Александр Швецов': 10,
-	'Александра Виноградова': 11,
-	'Алексей Королев': 12,
-	'Алексей Орлов': 13,
-	'Алиса Новикова': 14,
-	'Алиса Овчинникова': 15,
-	'Алия Маслова': 16,
-	'Алёна Андреева': 17,
-	'Алёна Верещагина': 18,
-	'Алёна Попова': 19,
-	'Амина Завьялова': 20,
-	'Амина Наумова': 21,
-	'Анастасия Попова': 22,
-	'Анастасия Чижова': 23,
-	'Ангелина Ермакова': 24,
-	'Ангелина Сорокина': 25,
-	'Андрей Попов': 26,
-	'Анна Зайцева': 27,
-	'Анна Никифорова': 28,
-	'Анна Шестакова': 29,
-	'Арина Леонтьева': 30,
-	'Арина Миронова': 31,
-	'Арина Румянцева': 32,
-	'Арсений Королев': 33,
-	'Арсений Рябов': 34,
-	'Артемий Горбунов': 35,
-	'Артемий Исаев': 36,
-	'Артемий Овчинников': 37,
-	'Артём Маслов': 38,
-	'Артём Семенов': 39,
-	'Артём Смирнов': 40,
-	'Артём Сычев': 41,
-	'Валерия Кузина': 42,
-	'Валерия Сорокина': 43,
-	'Варвара Рябова': 44,
-	'Варвара Соколова': 45,
-	'Варвара Фокина': 46,
-	'Василий Гришин': 47,
-	'Василиса Клюева': 48,
-	'Василиса Чернова': 49,
-	'Василиса Щеглова': 50,
-	'Вера Балашова': 51,
-	'Вера Калугина': 52,
-	'Вероника Мельникова': 53,
-	'Виктория Ковалева': 54,
-	'Виктория Моргунова': 55,
-	'Виктория Морозова': 56,
-	'Виктория Пахомова': 57,
-	'Владимир Герасимов': 58,
-	'Владимир Новиков': 59,
-	'Владислав Овчинников': 60,
-	'Владислав Шубин': 61,
-	'Георгий Демидов': 62,
-	'Герман Борисов': 63,
-	'Григорий Бирюков': 64,
-	'Даниил Захаров': 65,
-	'Даниил Федоров': 66,
-	'Даниэль Субботин': 67,
-	'Дарья Зорина': 68,
-	'Дарья Короткова': 69,
-	'Дарья Крылова': 70,
-	'Дарья Лаврова': 71,
-	'Денис Фадеев': 72,
-	'Диана Афанасьева': 73,
-	'Диана Плотникова': 74,
-	'Дмитрий Киселев': 75,
-	'Дмитрий Кузнецов': 76,
-	'Дмитрий Сахаров': 77,
-	'Дмитрий Фадеев': 78,
-	'Ева Бородина': 79,
-	'Ева Ильина': 80,
-	'Ева Лебедева': 81,
-	'Ева Мальцева': 82,
-	'Евгения Матвеева': 83,
-	'Егор Блинов': 84,
-	'Егор Козлов': 85,
-	'Елизавета Гордеева': 86,
-	'Елизавета Емельянова': 87,
-	'Елизавета Кононова': 88,
-	'Елизавета Кузнецова': 89,
-	'Елизавета Панина': 90,
-	'Елизавета Пономарева': 91,
-	'Захар Бабушкин': 92,
-	'Зоя Минина': 93,
-	'Иван Гаврилов': 94,
-	'Иван Кузнецов': 95,
-	'Иван Федоров': 96,
-	'Илья Грачев': 97,
-	'Илья Журавлев': 98,
-	'Камила Аксенова': 99,
-	'Кира Быкова': 100,
-	'Кира Климова': 101,
-	'Кирилл Попов': 102,
-	'Кирилл Хомяков': 103,
-	'Кристина Терентьева': 104,
-	'Кристина Яковлева': 105,
-	'Ксения Васильева': 106,
-	'Ксения Соболева': 107,
-	'Лев Агеев': 108,
-	'Лев Аксенов': 109,
-	'Лев Бобров': 110,
-	'Лидия Комарова': 111,
-	'Майя Крылова': 112,
-	'Макар Лукьянов': 113,
-	'Макар Овчинников': 114,
-	'Максим Афанасьев': 115,
-	'Максим Калинин': 116,
-	'Максим Козлов': 117,
-	'Максим Крылов': 118,
-	'Максим Лаврентьев': 119,
-	'Максим Мельников': 120,
-	'Максим Михайлов': 121,
-	'Максим Парфенов': 122,
-	'Максим Сорокин': 123,
-	'Маргарита Софронова': 124,
-	'Марианна Никитина': 125,
-	'Марина Жданова': 126,
-	'Марина Куликова': 127,
-	'Мария Болдырева': 128,
-	'Мария Иванова': 129,
-	'Мария Маслова': 130,
-	'Мария Сорокина': 131,
-	'Мария Чернышева': 132,
-	'Марк Климов': 133,
-	'Матвей Беляев': 134,
-	'Матвей Назаров': 135,
-	'Матвей Павлов': 136,
-	'Милана Давыдова': 137,
-	'Милана Хромова': 138,
-	'Мирон Тихонов': 139,
-	'Мирослав Поляков': 140,
-	'Мирослава Елисеева': 141,
-	'Мирослава Петухова': 142,
-	'Мирослава Плотникова': 143,
-	'Михаил Абрамов': 144,
-	'Михаил Зотов': 145,
-	'Михаил Иванов': 146,
-	'Михаил Кондратьев': 147,
-	'Михаил Платонов': 148,
-	'Михаил Швецов': 149,
-	'Ника Васильева': 150,
-	'Ника Краснова': 151,
-	'Ника Федорова': 152,
-	'Никита Антонов': 153,
-	'Никита Кожевников': 154,
-	'Никита Козловский': 155,
-	'Никита Русаков': 156,
-	'Никита Токарев': 157,
-	'Ольга Михайлова': 158,
-	'Павел Давыдов': 159,
-	'Павел Ларин': 160,
-	'Павел Яковлев': 161,
-	'Платон Виноградов': 162,
-	'Платон Козлов': 163,
-	'Платон Розанов': 164,
-	'Полина Артамонова': 165,
-	'Полина Митрофанова': 166,
-	'Полина Семенова': 167,
-	'Полина Титова': 168,
-	'Полина Юдина': 169,
-	'Роберт Леонов': 170,
-	'Роман Прохоров': 171,
-	'Роман Филиппов': 172,
-	'Савва Макаров': 173,
-	'Сафия Антонова': 174,
-	'Светлана Назарова': 175,
-	'Семён Горбачев': 176,
-	'Сергей Левин': 177,
-	'София Иванова': 178,
-	'София Семенова': 179,
-	'Софья Козлова': 180,
-	'Софья Коровина': 181,
-	'Софья Осипова': 182,
-	'Софья Сазонова': 183,
-	'Станислав Мартынов': 184,
-	'Степан Ильин': 185,
-	'Степан Смирнов': 186,
-	'Таисия Белова': 187,
-	'Татьяна Иванова': 188,
-	'Тимофей Голованов': 189,
-	'Тимофей Михайлов': 190,
-	'Тимофей Муравьев': 191,
-	'Тимофей Орлов': 192,
-	'Тимур Краснов': 193,
-	'Ульяна Горбунова': 194,
-	'Элина Савельева': 195,
-	'Юлия Завьялова': 196,
-	'Юрий Тимофеев': 197,
-	'Ярослав Ефремов': 198,
-	'Ярослав Масленников': 199
-};
-function searchEmulator(request) {
-	var result = {};
-
-	for (key in searchTest) {
-		if (key.includes(request)) {
-			result[key] = searchTest[key];
-		}
-	}
-
-	return result;
-}
-
-$.fn.searchDropdown = function (options = {}) {
-	if (!this.length > 0) {
-		return this;
-	}
-	// настройки по умолчанию (объектный литерал настроек),
-	// расширяемые с помощью параметров, которые были переданы
-	var settings = $.extend({
-		variableExample: '',
-		onSelect : function(){},
-		onUnSelect : function(){},
-	}, options);
-	var $this = $(this),
-		selected = false,
-		textInp = $this.find('.search-dropdown-input'),
-		idInp = $this.find('.search-dropdown-db-id'),
-		dd = $this.find('.search-dropdown-dd'),
-		//ddInner = $this.find('.search-dropdown-dd__inner'),
-		searchSimplebar = new SimpleBar(dd[0], { autoHide: false });
-	//this.parent().append('');
-
-
-	textInp.on('keyup input', function () {
-		var request = textInp.val();
-
-		dd.removeClass('search-dropdown-dd--active');
-
-		if(selected && request!==textInp.attr('data-selected')){
-			textInp.attr('data-selected', '');
-			idInp.val('');
-			selected=false;
-			settings.onUnSelect();
-		}
-
-		if (request.length > 1) {
-
-			var searchResult = searchEmulator(request);
-			var resultStr = '';
-
-
-			if (!$.isEmptyObject(searchResult)) {
-				for (key in searchResult) {
-					resultStr += '<div class="search-dropdown-dd__item" data-id="' + searchResult[key] + '">' + key + '</div>';
-				}
-				resultStr = '<div class="search-dropdown-dd__inner">' + resultStr + '</div>';
-
-				$(searchSimplebar.getContentElement()).html(resultStr);
-
-				var ddInner = $this.find('.search-dropdown-dd__inner');
-				var markOptions=[];
-				markOptions['separateWordSearch']=false;
-				ddInner.unmark({
-					done: function () {
-						ddInner.mark(request, markOptions);
-					}
-				});
-
-				searchSimplebar.recalculate();
-
-				dd.addClass('search-dropdown-dd--active');
-			}
-		}
-	});
-
-	dd.on('click', '.search-dropdown-dd__item', function(){
-		console.log('click');
-		textInp.val($(this).text());
-		textInp.attr('data-selected', $(this).text());
-		idInp.val($(this).attr('data-id'));
-		dd.removeClass('search-dropdown-dd--active');
-		selected=true;
-		settings.onSelect();
-	});
-	textInp.on('blur', function(){
-		setTimeout(function(){
-			dd.removeClass('search-dropdown-dd--active');
-		}, 300);
-	});
-
-	return this;
-};
-
-
 $(document).ready(function () {
-	$('.js-search-dropdown').searchDropdown();
+	$('.js-simple-select2').each(function (index) {
+		var placeholder = $(this).attr('data-placeholder');
+		if (typeof(placeholder)!=='undefined' && placeholder.length > 0) {
+			$(this).addClass('simple-select2--placeholder-selected');
+		}
+
+		$(this).select2({
+			language: 'ru',
+			theme: 'custom-theme',
+			minimumResultsForSearch: Infinity,
+			//width: '100%',
+   			 dropdownAutoWidth : true,
+			width: 'auto',
+			dropdownParent: $(this).siblings('.simple-select2-items-wrapper')
+		}).on('select2:open', function (e) {
+			$(this).siblings('.simple-select2-items-wrapper').addClass('simple-select2-items-wrapper--show');
+		}).on('select2:closing', function (e) {
+			if ($(this).attr('data-close-anvaliable') !== '1') {
+				e.preventDefault();
+				var $this = $(this);
+				$(this).attr('data-close-anvaliable', '1');
+				$(this).siblings('.simple-select2-items-wrapper').removeClass('simple-select2-items-wrapper--show');
+				setTimeout(function () {
+					$this.select2('close');
+				}, 350);
+			}
+			else {
+				$(this).attr('data-close-anvaliable', '2');
+			}
+			//$(this).select2('close');
+
+		}).on('select2:select', function (e) {
+			$(this).removeClass('simple-select2--placeholder-selected');
+		});
+	});
 
 
+	$('.js-simple-select2-month').each(function (index) {
+		var placeholder = $(this).attr('data-placeholder');
+		if (typeof(placeholder)!=='undefined' && placeholder.length > 0) {
+			$(this).addClass('simple-select2--placeholder-selected');
+		}
+
+		$(this).select2({
+			language: 'ru',
+			theme: 'custom-theme select2-container--custom-theme--month',
+			minimumResultsForSearch: Infinity,
+			//width: '100%',
+   			 dropdownAutoWidth : true,
+			width: 'auto',
+			dropdownParent: $(this).siblings('.simple-select2-items-wrapper')
+		}).on('select2:open', function (e) {
+			$(this).siblings('.simple-select2-items-wrapper').addClass('simple-select2-items-wrapper--show');
+		}).on('select2:closing', function (e) {
+			if ($(this).attr('data-close-anvaliable') !== '1') {
+				e.preventDefault();
+				var $this = $(this);
+				$(this).attr('data-close-anvaliable', '1');
+				$(this).siblings('.simple-select2-items-wrapper').removeClass('simple-select2-items-wrapper--show');
+				setTimeout(function () {
+					$this.select2('close');
+				}, 350);
+			}
+			else {
+				$(this).attr('data-close-anvaliable', '2');
+			}
+			//$(this).select2('close');
+
+		}).on('select2:select', function (e) {
+			$(this).removeClass('simple-select2--placeholder-selected');
+		});
+	});
 });
-
-*/

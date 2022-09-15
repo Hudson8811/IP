@@ -1,0 +1,2644 @@
+extends ../layouts/default
+
+block variables
+	- const title = "IP";
+
+block content
+	.wrapper
+		include ../../blocks/modules/header/header
+
+		include ../../blocks/modules/sidebar-icons/sidebar-icons
+		.page
+			include ../../blocks/modules/menu/menu
+			.content
+				.content__container
+					.calendar-main
+						.offices__title.general-title Календарь бронирований
+						.offices__btns
+							a(href="/offices-maps.html").offices__btn.offices__btn--long.offices__btn--with-arrow
+								span карта офиса Москва
+								.offices__btn--arrow
+							a(href="").offices__btn.offices__btn--long.offices__btn--with-arrow
+								span карта офиса Санкт-Петербург
+								.offices__btn--arrow
+							a(href="").offices__btn.active
+								span календарь бронирований
+
+
+
+						.mycal-flex
+							.mycal-flex__left
+								.simple-select2-wrap
+									select#mycal-office.js-simple-select2
+										option(selected) Москва
+										option Санкт-Петербург
+									.simple-select2-items-wrapper
+
+
+								.bookable
+									.bookable-section
+										.bookable-section__title переговорные
+										//label.bookable-item
+											input(type="radio", name="bookable" checked)
+											.bookable-item__pseudo
+											.bookable-item__name все переговорные
+										label.bookable-item.bookable-item--type-1
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name переговорная 1
+										label.bookable-item.bookable-item--type-1
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name переговорная 2
+										label.bookable-item.bookable-item--type-1
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name переговорная 3
+										label.bookable-item.bookable-item--type-1
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name переговорная 4
+
+									.bookable-section
+										.bookable-section__title водители/курьеры
+										//label.bookable-item
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name курьеры и водители
+										label.bookable-item
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name курьер Анастасия
+										label.bookable-item
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name водитель Борис
+										label.bookable-item
+											input(type="radio", name="bookable")
+											.bookable-item__pseudo
+											.bookable-item__name водитель Александр
+
+								.bookable-info
+									p Тут будет короткая инструкция-подсказка, как пользоваться календарем. Типа: нужно выборать из списка что бронируем (переговорная, курьер и тд), далее выбрать время в поле календаря и создать бронь  описав задачу (серая).
+
+									p <span style="color:#F04E00;">Важно:</span> Неподтвержденная бронь – серая. После подтверждения брони секретарем бронь становится активной – голубая. Если вы вносите изменения в раннее созданную, но уже подтвержденную бронь, она вновь становится серой то есть требует подтверждения секретарем.
+
+
+
+
+							.mycal-flex__right
+								.mycal-wrap
+
+									#mycal.mycal
+										.mycal-top
+											.mycal-top__left
+												.datepicker-page-calendar__wrap.js-datepicker-calendar-wrap
+													.datepicker-page-calendar-controls.js-datepicker-calendar-controls
+														.datepicker-page-calendar-month.js-datepicker-calendar-month
+														.datepicker-page-calendar-arrow
+
+													input#datepicker-page-calendar.datepicker-page-calendar.js-datepicker-calendar(type='text' placeholder='Выберите даты')
+
+												//.simple-select2-wrap
+													select#mycal-month.js-simple-select2-month
+														option(value="1") Январь
+														option(value="2") Февраль
+														option(value="3") Март
+														option(value="4") Апрель
+														option(value="5") Май
+														option(value="6") Июнь
+														option(value="7") Июль
+														option(value="8" selected) Август
+														option(value="9") Сентябрь
+														option(value="10") Октябрь
+														option(value="11") Ноябрь
+														option(value="12") Декабрь
+													.simple-select2-items-wrapper.simple-select2-items-wrapper--month
+
+
+											.mycal-top__right
+												.mycal-arrows
+													.mycal-arrow.mycal-arrow__prev.mycal-arrow--disabled
+														|  <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1L1 7.91954L8 15" stroke="black"/></svg>
+
+													.mycal-arrow.mycal-arrow__next
+														|  <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 15L8 8.08046L0.999999 1" stroke="black"/></svg>
+
+
+										.mycal-heading
+											.mycal-col.mycal-col-date.mycal-col-date--active
+												.mycal-col-date__day 15
+												.mycal-col-date__name пн
+
+											.mycal-col.mycal-col-date
+												.mycal-col-date__day 16
+												.mycal-col-date__name вт
+
+											.mycal-col.mycal-col-date
+												.mycal-col-date__day 17
+												.mycal-col-date__name ср
+
+											.mycal-col.mycal-col-date
+												.mycal-col-date__day 18
+												.mycal-col-date__name чт
+
+											.mycal-col.mycal-col-date
+												.mycal-col-date__day 19
+												.mycal-col-date__name пт
+
+
+										.mycal-main
+											.mycal-col.mycal-col-main
+												.mycal-col-main__cells
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+
+												.mycal-subcols.mycal-subcols--7
+													each val in [1, 2, 3, 4, 5, 6, 7]
+														.mycal-subcol
+															.mycal-booking(style="top:0%; height: 20%;")
+
+
+											.mycal-col.mycal-col-main
+												.mycal-col-main__cells
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+
+												.mycal-subcols.mycal-subcols--2
+													each val in [1, 2]
+														.mycal-subcol
+															.mycal-booking(style="top:0%; height: 20%;")
+
+
+											.mycal-col.mycal-col-main
+												.mycal-col-main__cells
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+
+												.mycal-subcols.mycal-subcols--1
+													each val in [1]
+														.mycal-subcol
+															.mycal-booking(style="top:0%; height: 20%;")
+
+
+											.mycal-col.mycal-col-main
+												.mycal-col-main__cells
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+
+												.mycal-subcols.mycal-subcols--4
+													each val in [1, 2, 3, 4]
+														.mycal-subcol
+															.mycal-booking(style="top:0%; height: 20%;")
+
+
+											.mycal-col.mycal-col-main
+												.mycal-col-main__cells
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+													each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+														.mycal-col-main__cell
+
+												.mycal-subcols.mycal-subcols--3
+													each val in [1, 2, 3]
+														.mycal-subcol
+															.mycal-booking(style="top:0%; height: 20%;")
+
+
+
+										.mycal-time
+											.mycal-time__item 09:00
+											.mycal-time__item 10:00
+											.mycal-time__item 11:00
+											.mycal-time__item 12:00
+											.mycal-time__item 13:00
+											.mycal-time__item 14:00
+											.mycal-time__item 15:00
+											.mycal-time__item 16:00
+											.mycal-time__item 17:00
+											.mycal-time__item 18:00
+											.mycal-time__item 19:00
+											.mycal-time__item 20:00
+											.mycal-time__item 21:00
+											.mycal-time__item 22:00
+
+
+					//	.swiper.swiper-offices-calendar
+							.swiper-wrapper
+								.swiper-slide
+									.offices-calendar__body
+										.offices-calendar__left
+
+
+											.meeting-rooms-pagination.meeting-rooms-mosk-pagination
+
+											.offices-calendar__text
+												span Пояснительный текст
+												|Тут будет короткая инструкция-подсказка, как пользоваться календарем. Типа: нужно выборать из списка что бронируем (переговорная, курьер и тд), далее выбрать время в поле календаря и создать бронь  описав задачу (серая). После подтверждения брони секретарем бронь становится активной (голубая)
+
+
+										.meeting-rooms.meeting-rooms-mosk
+											.swiper.meeting-rooms__swiper.meeting-rooms__swiper-mosk
+												.swiper-wrapper
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+
+
+								.swiper-slide
+									.offices-calendar__body
+										.offices-calendar__left
+											.meeting-rooms-pagination.meeting-rooms-pit-pagination
+
+											.offices-calendar__text
+												span Пояснительный текст
+												|Тут будет короткая инструкция-подсказка, как пользоваться календарем. Типа: нужно выборать из списка что бронируем (переговорная, курьер и тд), далее выбрать время в поле календаря и создать бронь  описав задачу (серая). После подтверждения брони секретарем бронь становится активной (голубая)
+
+										.meeting-rooms.meeting-rooms-pit
+											.swiper.meeting-rooms__swiper.meeting-rooms__swiper-pit
+												.swiper-wrapper
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+													.swiper-slide
+														.offices-calendar__right
+															.calendar__inner
+																.calendar-slide
+																	.calendar-slide__header
+																		.calendar-slide__month
+																			span Август
+																			span 2022
+																		.calendar-slide__prev.calendar-slide__prev1
+																		.calendar-slide__next.calendar-slide__next1
+																			span 22-28 августа
+																	.calendar-slide__items
+																		.calendar-times
+																			.calendar-times__items
+																				.calendar-times__item
+																					span 09:00
+																				.calendar-times__item
+																					span 10:00
+																				.calendar-times__item
+																					span 11:00
+																				.calendar-times__item
+																					span 12:00
+																				.calendar-times__item
+																					span 13:00
+																				.calendar-times__item
+																					span 14:00
+																				.calendar-times__item
+																					span 15:00
+																				.calendar-times__item
+																					span 16:00
+																				.calendar-times__item
+																					span 17:00
+																				.calendar-times__item
+																					span 18:00
+																				.calendar-times__item
+																					span 19:00
+																		.calendar-slide__item
+																			.calendar-slide__dates--item.today
+																				span 15
+																				span пн
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.confirmed-hover-block.hover-block(style='top: 15%; height: 25%;')
+																					.confirmed-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Торкановский В.
+																							.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																							.calendar-popap__time 10:30 - 13:00
+																							.calendar-popap__btn подтверждено
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 16
+																				span вт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 17
+																				span ср
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 18
+																				span чт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.waiting-hover-block.hover-block(style='top: 10%; height: 10%;')
+																					.waiting-block.calendar-popap
+																						.calendar-popap__container
+																							.calendar-popap__name Милосавлевич А.
+																							.calendar-popap__text Забрать документы в ООО Лютик в 10:00
+																							.calendar-popap__time 10:00 - 11:00
+																							.calendar-popap__btn ждет подтверждения
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 19
+																				span пт
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 20
+																				span сб
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронироват
+																		.calendar-slide__item
+																			.calendar-slide__dates--item
+																				span 21
+																				span вс
+																			.calendar-slide__squares
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				.calendar-slide__square
+																				#confirmed-block-click.confirmed-block-click.calendar-popap
+																					.calendar-popap__container
+																						.calendar-popap__name Торкановский В.
+																						.calendar-popap__text Отрезти документы в ООО Ромашка к 11:00, забрать подписанные  документы и привезти в офис
+																						.calendar-popap__time 10:30 - 13:00
+																						.calendar-popap__btn забронировать
+
+
+							.offices-calendar__select.select-offices
+								.select-offices--title.swiper(thumbsslider='')
+									.swiper-wrapper
+										.swiper-slide.select-offices--span1
+											span Москва
+										.swiper-slide.select-offices--span2
+											span Санкт-Петербург
+								.select-offices--content.select-offices--content-pagination
+
+
+
+
+
+		include ../../blocks/modules/footer/footer

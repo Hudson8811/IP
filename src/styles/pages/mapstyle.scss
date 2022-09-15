@@ -1,14 +1,10 @@
-html {
-	scroll-behavior: smooth;
-}
-
-body {
+.mapplic-element {
 	background-color: #fff;
 	color: #666;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	margin: 0;
-}
+	max-width: 100%;
 
 h1 {
 	color: #fff;
@@ -382,4 +378,5 @@ section.gray:hover {
 	#main-menu li:last-child {
 		display: inline-block;
 	}
+}
 }

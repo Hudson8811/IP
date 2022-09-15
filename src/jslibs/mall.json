@@ -91,7 +91,6 @@
 			"title": "Ground Floor",
 			"map": "mapplic/maps/mall/mall-ground.svg",
 			"minimap": "mapplic/maps/mall/mall-ground-mini.jpg",
-			"show": "true",
 			"locations": [
 				{
 					"id": "nordstrom",
@@ -300,6 +299,15 @@
 					"x": "0.3750",
 					"y": "0.5391"
 				}
+			]
+		},
+		{
+			"id": "map_msk_2floor",
+			"title": "Этаж 2",
+			"map": "mapplic/maps/mall/map_msk_2floor_ok.svg",
+			"minimap": "mapplic/maps/mall/mall-first-mini.jpg",
+			"show": "true",
+			"locations": [
 			]
 		}
 	]

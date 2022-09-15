@@ -62,8 +62,8 @@
 		{
 			"id": "underground",
 			"title": "Underground",
-			"map": "mapplic/maps/mall/mall-underground.svg",
-			"minimap": "mapplic/maps/mall/mall-underground-mini.jpg",
+			"map": "/IP/dist/mapplic/maps/mall/mall-underground.svg",
+			"minimap": "/IP/dist/mapplic/maps/mall/mall-underground-mini.jpg",
 			"locations": [
 				{
 					"id": "gap",
@@ -89,8 +89,8 @@
 		{
 			"id": "ground-floor",
 			"title": "Ground Floor",
-			"map": "mapplic/maps/mall/mall-ground.svg",
-			"minimap": "mapplic/maps/mall/mall-ground-mini.jpg",
+			"map": "/IP/dist/mapplic/maps/mall/mall-ground.svg",
+			"minimap": "/IP/dist/mapplic/maps/mall/mall-ground-mini.jpg",
 			"locations": [
 				{
 					"id": "nordstrom",
@@ -187,7 +187,7 @@
 					"about": "Lorem ipsum",
 					"description": "<p>Enjoy today and every day with our creamy non-dairy beverage options.</p><strong>7:30 - 22:00</strong> <small>(Monday - Sunday)</small>",
 					"image": "https://source.unsplash.com/n-HtQS7IgU4/400x150",
-					"link": "https://www.mapplic.com/",
+					"link": "https://www./IP/dist/mapplic.com/",
 					"category": "food",
 					"x": "0.5431",
 					"y": "0.5240"
@@ -207,8 +207,8 @@
 		{
 			"id": "first-floor",
 			"title": "First Floor",
-			"map": "mapplic/maps/mall/mall-first.svg",
-			"minimap": "mapplic/maps/mall/mall-first-mini.jpg",
+			"map": "/IP/dist/mapplic/maps/mall/mall-first.svg",
+			"minimap": "/IP/dist/mapplic/maps/mall/mall-first-mini.jpg",
 			"locations": [
 				{
 					"id": "applebees",
@@ -304,8 +304,8 @@
 		{
 			"id": "map_msk_2floor",
 			"title": "Этаж 2",
-			"map": "mapplic/maps/mall/map_msk_2floor_ok.svg",
-			"minimap": "mapplic/maps/mall/mall-first-mini.jpg",
+			"map": "/IP/dist/mapplic/maps/mall/map_msk_2floor_ok.svg",
+			"minimap": "/IP/dist/mapplic/maps/mall/mall-first-mini.jpg",
 			"show": "true",
 			"locations": [
 			]

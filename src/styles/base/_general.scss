@@ -116,7 +116,8 @@ h6 {
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
-			max-width: calc(100% - 95px);
+			//max-width: calc(100% - 95px);
+			max-width: calc(100% - 395px);
 			&__container {
 				flex: 1 1 auto;
 				background-color: #ffffff;
