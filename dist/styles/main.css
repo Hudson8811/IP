@@ -8168,6 +8168,76 @@ margin-left: 118px; */
   background-color: #ccc;
 }
 
+.map-myinfo {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mapplic-tooltip {
+  z-index: 5;
+}
+
+.map-myinfo-item {
+  font-family: "Styrene A LC Web";
+  color: #000000;
+  display: block;
+  position: absolute;
+  padding-top: 17px;
+  padding-left: 22px;
+}
+
+.map-myinfo-item__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  font-size: 21px;
+}
+
+.map-myinfo-item__desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.map-myinfo-item__desc p,
+.map-myinfo-item__desc a {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  margin-top: 16px;
+}
+
+.map-myinfo-item__desc p + p,
+.map-myinfo-item__desc a + p {
+  margin-top: 5px;
+}
+
+.map-myinfo-item__desc a {
+  transition-duration: 0.3s;
+  pointer-events: all;
+}
+
+.map-myinfo-item__desc a:hover {
+  opacity: 0.7;
+}
+
+g.map-rooms-wrap .mapplic-active:not(g) {
+  fill: #CFEDFF !important;
+}
+
+g.map-rooms-wrap path,
+g.map-rooms-wrap rect,
+g.map-rooms-wrap polygon {
+  pointer-events: none;
+}
+
 @media (max-width: 1900px) {
   .people-cards__item {
     flex: 0 1 25%;

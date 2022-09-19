@@ -73,16 +73,16 @@
 		};
 
 		self.loc = {
-			more: 'More',
-			search: 'Search',
-			zoomin: 'Zoom in',
-			zoomout: 'Zoom out',
-			resetzoom: 'Reset zoom',
-			levelup: 'Level up',
-			leveldown: 'Level down',
-			clearsearch: 'Clear search',
-			closepopup: 'Close popup',
-			clearfilter: 'Clear filter',
+			more: 'Подробнее',
+			search: 'Поиск',
+			zoomin: 'Приблизить',
+			zoomout: 'Отдалить',
+			resetzoom: 'Сбросить приближение',
+			levelup: 'Уровень выше',
+			leveldown: 'Уровень ниже',
+			clearsearch: 'Очистить поиск',
+			closepopup: 'Закрыть',
+			clearfilter: 'Очистить фильтр',
 			iconfile: 'mapplic/images/icons.svg'
 		}
 
@@ -99,7 +99,7 @@
 
 			// trigger event
 			self.el.trigger('mapload', self);
-			
+
 			// scope
 			if (self.o.scope) self.scope = $(self.o.scope);
 			else self.scope = self.el;
@@ -198,7 +198,7 @@
 					s.el.removeClass('mapplic-tooltip-bottom');
 					ty = "-100%";
 				}
-			
+
 				// horizontal
 				var rleft = s.el.offset().left - self.container.el.offset().left;
 				if (rleft < s.wrap.outerWidth() / 2) {
@@ -218,9 +218,22 @@
 				if (location) {
 					var s = this;
 
-					this.el.attr('data-location', location.id);
+					var is_employee=location.id.startsWith("employee_");
+
+					if(is_employee){
+						this.el.attr('data-location', location.targetid);
+						location.zoom=self.o.employeeszoom;
+					}
+					else{
+						this.el.attr('data-location', location.id);
+					}
 
 					this.location = location;
+
+					/*if(is_employee){
+						this.location.id = location.targetid;
+					}*/
+
 					if (self.hovertip) self.hovertip.hide();
 
 					if (location.image) {
@@ -240,13 +253,64 @@
 					else this.desc.empty();
 					this.content[0].scrollTop = 0;
 
+
+					if(is_employee){
+						this.pin = $('.mapplic-pin[data-location="' + location.targetid + '"]');
+					}
+					else{
+						this.pin = $('.mapplic-pin[data-location="' + location.id + '"]');
+					}
 					// shift
-					this.pin = $('.mapplic-pin[data-location="' + location.id + '"]');
 					if (this.pin.length == 0) {
 						this.shift = 20;
 					}
 					else this.shift = Math.abs(parseFloat(this.pin.css('margin-top'))) + 20;
-				
+
+
+
+					if(is_employee){//вероятно на основе этого можнос сделать универсальный автоматический расчёт xy и для прочих вещей
+
+						var matrix_match = this.image.closest('.mapplic-map').css('transform').match(/matrix\((.*?)\)/);
+
+
+						var matrixTransformArray = matrix_match[1].replace(' ', '').split(',');
+						var matrixTransform = {
+							a: matrixTransformArray[0],//Изменение масштаба по горизонтали. Значение больше 1 расширяет элемент, меньше 1, наоборот, сжимает.
+							b: matrixTransformArray[1],//Наклон по вертикали. Положительное значение наклоняет вверх, отрицательное вниз.
+							c: matrixTransformArray[2],//Наклон по горизонтали. Положительное значение наклоняет влево, отрицательное вправо.
+							d: matrixTransformArray[3],//Изменение масштаба по вертикали. Значение больше 1 расширяет элемент, меньше 1 — сжимает.
+							tx: matrixTransformArray[4],//Смещение по горизонтали в пикселях. Положительное значение сдвигает элемент вправо на заданное число пикселей, отрицательное значение сдвигает влево.
+							ty: matrixTransformArray[5],//Смещение по вертикали в пикселях. При положительном значении элемент опускается на заданное число пикселей вниз или вверх при отрицательном значении.
+						};
+
+						var zoomkoeff= 1 / matrixTransform.a;
+
+
+
+						var $target=$("#"+this.location.targetid);
+						var svgOfThisLayer=$target.closest('svg');
+						var targetOffset=$target.offset();
+						var svgOffset=svgOfThisLayer.offset();
+
+
+						var percentW=svgOfThisLayer.width()/100;
+						var percentH=svgOfThisLayer.height()/100;
+
+
+						this.location.x=((targetOffset.left
+							-svgOffset.left)
+						*zoomkoeff/percentW+$target.width()/2/percentW)/100;
+
+
+						this.location.y=((targetOffset.top-svgOffset.top)*zoomkoeff/percentH)/100;
+						location.x=this.location.x;
+						location.y=this.location.y;
+
+
+					}
+
+
+
 					// making it visible
 					this.el.stop().css({opacity: 1}).show();
 					setTimeout(function() {s.body.focus() }, 600);
@@ -268,6 +332,8 @@
 						left: (this.location.x * 100) + '%',
 						top: (this.location.y * 100) + '%'
 					});
+
+
 					this.drop = this.el.outerHeight() + this.shift;
 					if (self.o.smartip) this.repos({ data: { s: this}});
 				}
@@ -278,6 +344,8 @@
 					zoom = location.zoom ? parseFloat(location.zoom)/self.o.maxscale : 1;
 
 				ry = (self.container.el.height()/2 + this.drop/2) / self.container.el.height();
+				console.log('this.zoom');
+				console.log(location);
 				self.moveTo(location.x, location.y, zoom, 600, ry);
 			}
 
@@ -306,7 +374,7 @@
 				if (self.o.hovertipdesc) this.desc = $('<div></div>').addClass('mapplic-tooltip-description').appendTo(this.wrap);
 				this.triangle = $('<div></div>').addClass('mapplic-tooltip-triangle').appendTo(this.wrap);
 
-				// events 
+				// events
 				// markers + old svg
 				$(self.map).on('mouseover', '.mapplic-pin', function() {
 					var id = $(this).data('location');
@@ -353,7 +421,7 @@
 					s.el.removeClass('mapplic-tooltip-bottom');
 					ty = "-100%";
 				}
-			
+
 				// horizontal
 				var rleft = s.el.offset().left - self.container.el.offset().left;
 				if (rleft < s.wrap.outerWidth() / 2) {
@@ -442,7 +510,7 @@
 						}
 					}
 				});
-
+				console.log('lightbox.show');
 				// zoom
 				var zoom = location.zoom ? parseFloat(location.zoom) : 1;
 				if (self.o.zoom) self.moveTo(location.x, location.y, zoom, 600);
@@ -459,7 +527,7 @@
 					items: { src: location.image },
 					type: 'image',
 					removalDelay: 300,
-					mainClass: 'mfp-fade',	
+					mainClass: 'mfp-fade',
 					callbacks: {
 						beforeClose: function() {
 							s.hide();
@@ -492,7 +560,7 @@
 				this.initial = $(self.o.external + ' > *:not(.mapplic-external-content)');
 
 				$(self.o.external).append(this.el);
-				
+
 				return this;
 			}
 
@@ -691,7 +759,7 @@
 			this.toggle = function(group, state) {
 				$('*[id="' + group + '"]', self.map).toggle(state);
 				$('*[data-category*="' + group + '"]', self.map).each(function() {
-					var attr = $(this).attr('data-category'); 
+					var attr = $(this).attr('data-category');
 					if (attr == group) $(this).toggle(state);
 					else { // multi-group support
 						var groups = attr.split(','),
@@ -713,7 +781,7 @@
 					if (title) $('<span></span>').addClass('mapplic-legend-label').text(group.title).appendTo(toggle);
 					if (group.switchoff == 'true') input.prop('checked', false);
 					if (group.color) circle.css('background-color', group.color);
-					
+
 					input.change(function() {
 						$('.mapplic-toggle > input[data-group="' + group.id + '"]', self.el).prop('checked', this.checked);
 						s.toggle(group.id, this.checked);
@@ -989,7 +1057,7 @@
 					$(this).data('sort', s.normalizeString(self.l[$(this).data('location')][attribute]));
 				});
 				this.sort(dir, order);
-			}			
+			}
 		}
 
 		// sidebar
@@ -1008,7 +1076,7 @@
 				this.el = $('<div></div>').addClass('mapplic-sidebar').appendTo(self.el);
 
 				if (self.o.filtersopened) this.el.addClass('mapplic-sidebar-header-opened');
-				
+
 				if (self.o.sidebartoggle) {
 					self.el.addClass('mapplic-dynamic-sidebar');
 
@@ -1167,11 +1235,11 @@
 							if (!category.about) title.addClass('mapplic-margin');
 							else $('<span></span>').addClass('mapplic-about').html(category.about).appendTo(link);
 							category.count = $('<span></span>').text('(0)').addClass('mapplic-list-count').appendTo(title);
-							
+
 							var toggle = self.legend.newToggle(category)
 							if (toggle) toggle.appendTo(item);
 
-							
+
 							link.on('click', function(e) {
 								e.preventDefault();
 								if (category.nr < 1 && toggle) $('> input', toggle).trigger('click');
@@ -1189,9 +1257,9 @@
 
 					if (add) {
 						s.el.addClass('mapplic-sidebar-filterable');
-						
+
 						//$('<h5></h5>').text('CATEGORIES').appendTo(s.filter);
-						
+
 						list.appendTo(s.filter);
 					}
 				}
@@ -1277,7 +1345,7 @@
 		// clear button
 		function ClearButton() {
 			this.el = null;
-			
+
 			this.init = function() {
 				this.el = $('<button></button>').text(self.loc.resetzoom).append(getIcon('icon-reset')).addClass('mapplic-button mapplic-clear-button').appendTo(self.container.el);
 
@@ -1301,7 +1369,7 @@
 		// zoom buttons
 		function ZoomButtons() {
 			this.el = null;
-		
+
 			this.init = function() {
 				this.el = $('<div></div>').addClass('mapplic-zoom-buttons').appendTo(self.container.el);
 
@@ -1478,7 +1546,7 @@
 				}
 
 				if (self.o.customcss) css += self.o.customcss;
-				
+
 				var style = $('<style></style>').html(css).appendTo('body');
 			}
 
@@ -1522,7 +1590,7 @@
 			this.getHeight = function(v) {
 				var val = v.toString().replace('px', '');
 
-				if ((val == 'auto') && (self.container.el))  val = self.container.el.width() * self.contentHeight / self.contentWidth; 
+				if ((val == 'auto') && (self.container.el))  val = self.container.el.width() * self.contentHeight / self.contentWidth;
 				else if (val.slice(-1) == '%') val = $(window).height() * val.replace('%', '') / 100;
 
 				return val;
@@ -1608,14 +1676,14 @@
 
 						s.position.x = mouse.x;
 						s.position.y = mouse.y;
-						
+
 						velocity.x = previous.x - pre.x;
 						velocity.y = previous.y - pre.y;
 					}
 					else {
 						s.position.x += velocity.x;
 						s.position.y += velocity.y;
-						
+
 						velocity.x *= friction;
 						velocity.y *= friction;
 
@@ -1635,7 +1703,7 @@
 				$('.mapplic-map-image', self.map).on('mousedown', function(e) {
 					self.dragging = false;
 					self.map.addClass('mapplic-dragging');
-					
+
 					s.stopMomentum();
 					var initial = {
 						x: e.pageX - self.x,
@@ -1652,7 +1720,7 @@
 						mouse.x = normalizeX(e.pageX - initial.x);
 						mouse.y = normalizeY(e.pageY - initial.y);
 					});
-				
+
 					$(document).on('mouseup.mapplic', function() {
 						$(document).off('mouseup.mapplic');
 						self.map.off('mousemove');
@@ -1678,7 +1746,7 @@
 						self.dragging = false;
 
 						s.stopMomentum();
-						
+
 						init1 = {
 							x: eo.touches[0].pageX - self.x,
 							y: eo.touches[0].pageY - self.y
@@ -1899,7 +1967,7 @@
 							});
 							break;
 
-						// others 
+						// others
 						default:
 							alert('File type ' + extension + ' is not supported!');
 					}
@@ -1994,7 +2062,7 @@
 			self.legend.applyToggles();
 
 			// CSV support
-			if (self.o.csv) { 
+			if (self.o.csv) {
 				if (typeof Papa === 'undefined') {
 					console.warn('CSV parser missing. Please make sure the library is loaded.');
 				}
@@ -2178,7 +2246,11 @@
 			var layer = $('.mapplic-layer[data-floor="' + target + '"]', self.map);
 
 			// target layer is already active
-			if (layer.hasClass('mapplic-visible')) return;
+			if (layer.hasClass('mapplic-visible')){
+				self.el.trigger('levelswitched', target);
+				return;
+
+			}
 
 			// show target layer
 			layer.removeClass('mapplic-hidden');
@@ -2186,9 +2258,9 @@
 			setTimeout(function() {
 				var old = $('.mapplic-layer.mapplic-visible', self.map).removeClass('mapplic-visible');
 				layer.addClass('mapplic-visible');
-				
+
 				clearTimeout(levelTimeout);
-				levelTimeout = setTimeout(function() { 
+				levelTimeout = setTimeout(function() {
 					$('.mapplic-layer:not([data-floor="' + target + '"])', self.map).addClass('mapplic-hidden');
 				}, 300);
 
@@ -2273,6 +2345,7 @@
 		}
 
 		self.addLocation = function(location, levelid) {
+
 			// jump if location ID exists
 			if (self.l[location.id]) return true;
 
@@ -2297,7 +2370,7 @@
 				(location.category && self.g[location.category] && self.g[location.category].style) ||
 				(location.category && location.category[0] && self.g[location.category[0]] && self.g[location.category[0]].style) ||
 				self.o.defaultstyle || false;
-			
+
 			if (fill) location.color = fill;
 			else if (location.styled) location.color = location.styled.base;
 
@@ -2378,7 +2451,7 @@
 			if (location.styled) marker.addClass(location.styled);
 			if (location.color && location.pin.indexOf('pin-text') > -1) marker.css('color', location.color);
 			else if (location.color) marker.css({'background-color': location.color, 'border-color': location.color });
-			
+
 			location.el = marker;
 			return marker;
 		}
@@ -2445,7 +2518,7 @@
 					self.hideLocation();
 					self.switchLevel(location.level);
 					self.container.revealChild(location);
-					if (self.o.zoom) self.bboxZoom(location.el); 
+					if (self.o.zoom) self.bboxZoom(location.el);
 					break;
 				case 'external':
 					self.hideLocation();
@@ -2476,6 +2549,13 @@
 
 			// active state
 			$('.mapplic-active', self.scope).removeClass('mapplic-active');
+			console.log('нашел');
+			console.log(location);
+			var is_employee=location.id.startsWith("employee_");
+
+			if(is_employee){
+				location.el=$('#'+location.targetid);
+			}
 			if (location.el) location.el.addClass('mapplic-active');
 			if (location.list) location.list.addClass('mapplic-active');
 
@@ -2513,7 +2593,7 @@
 					location.x = pos.x;
 					location.y = pos.y;
 				}
-				
+
 				var top = location.y * 100,
 					left = location.x * 100;
 				location.el.css({'top': top + '%', 'left': left + '%'});
