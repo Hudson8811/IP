@@ -1,10 +1,22 @@
 header.header 
 	.header__container 
+		.header__logo 
+			a(href="").header__logo-link
+				img(src="img/svg/logo.svg", alt="alt")
 		.header__search 
 			.header__search--icon 
 				img(src="img/svg/search.svg", alt="alt")
 			.header__search--input 
 				input(type="text" placeholder='Поиск по сайту')
+		.header__btn-menu 
+			svg(width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+				rect(x='1' y='1' width='14' height='14' rx='2' stroke='black')
+				line(x1='10.5' y1='1' x2='10.5' y2='15' stroke='black')
+				path(d='M5 10L7 8.02299L5 6' stroke='black')
+		.header__btn-sidebar
+			span 
+			span 
+			span 
 		button.header__man 
 			span NameS
 			img(src="img/svg/man.svg", alt="alt")

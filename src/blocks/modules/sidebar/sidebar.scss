@@ -5,18 +5,39 @@
 	z-index: 9;
 	top: 190px;
 	right: 96px;
+	@media (max-width: 768px){
+		width: 100%;
+		top: -110%;
+		right: 0;
+		transition: all 0.3s ease 0s;
+		&.js-active-sidebar {
+			top: 0;
+		}
+	}
 	&__container {
 		padding: 30px 25px 31px;
-
+		@media (max-width: 768px){
+			height: 100vh;
+			overflow: auto;
+			padding: 80px 20px 54px;
+			&::-webkit-scrollbar {
+				width: 0;
+			}
+		}
 	}
 
 		&__calendar {
 			display: flex;
+			@media (max-width: 768px){
+				justify-content: space-between;
+			}
 			&-wrapper {
 				border-bottom: 1px solid #000000;
-				padding-bottom: 20px;
-
-			}
+				padding-bottom: 20px;	
+				@media (max-width: 768px){
+					padding-top: 44px;
+				}
+			}	
 			&:hover{
 				.sidebar__calendar-img {
 					background: #CFEDFF;
