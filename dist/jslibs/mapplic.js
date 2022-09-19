@@ -1519,14 +1519,16 @@
 
 						if (s.hover) {
 							css += '.' + s.class + '.mapplic-highlight:not(g), g.' + s.class + '.mapplic-highlight > *, .' + s.class + '.mapplic-clickable:not(g):hover, g.' + s.class + '.mapplic-clickable:hover > * { ';
-							$.each(s.hover, function(prop, val) { css += prop + ': ' + val + '; ' });
+							/*$.each(s.hover, function(prop, val) { css += prop + ': ' + val + '; ' });*/
 							css += '}\n';
 
 							css += '.' + s.class + '.mapplic-pin.mapplic-highlight, .' + s.class + '.mapplic-pin:hover {\n';
+							/*
+							//!! OFF CSS
 							$.each(s.hover, function(prop, val) {
 								css += '	background-color: ' + val + ';\n';
 								css += '	border-color: ' + val + ';\n';
-							});
+							});*/
 							css += '}\n\n';
 						}
 

@@ -36,6 +36,26 @@
 			"id": "shredder",
 			"title": "Шредер",
 			"hide": "true"
+		},
+		{
+			"id": "tea",
+			"title": "Чай",
+			"hide": "true"
+		},
+		{
+			"id": "womantoilet",
+			"title": "Женский туалет",
+			"hide": "true"
+		},
+		{
+			"id": "mantoilet",
+			"title": "Мужской туалет",
+			"hide": "true"
+		},
+		{
+			"id": "wc",
+			"title": "WC",
+			"hide": "true"
 		}
 	],
 	"levels": [{
@@ -147,6 +167,62 @@
 					"y": "0.253",
 					"hide": "true"
 				},
+				{
+					"id": "_l1_f2_o_tea1",
+					"title": "Чай",
+					"category": "tea",
+					"hide": "true",
+					"x": "0.2619",
+					"y": "0.535"
+				},
+				{
+					"id": "_l1_f2_o_womantoilet1",
+					"title": "Женский туалет",
+					"category": "womantoilet",
+					"hide": "true",
+					"x": "0.2619",
+					"y": "0.5975"
+				},
+				{
+					"id": "_l1_f2_o_mantoilet1",
+					"title": "Мужской туалет",
+					"category": "mantoilet",
+					"hide": "true",
+					"x": "0.3068",
+					"y": "0.69"
+				},
+				{
+					"id": "_l1_f2_o_tea2",
+					"title": "Чай",
+					"category": "tea",
+					"hide": "true",
+					"x": "0.6071",
+					"y": "0.69"
+				},
+				{
+					"id": "_l1_f2_o__l1_f2_o_womantoilet2",
+					"title": "Женский туалет",
+					"category": "womantoilet",
+					"hide": "true",
+					"x": "0.6358",
+					"y": "0.69"
+				},
+				{
+					"id": "_l1_f2_o_wc1",
+					"title": "WC",
+					"category": "wc",
+					"hide": "true",
+					"x": "0.716",
+					"y": "0.523"
+				},
+				{
+					"id": "_l1_f2_o_tea3",
+					"title": "Чай",
+					"category": "tea",
+					"hide": "true",
+					"x": "0.716",
+					"y": "0.463"
+				},
 
 				{
 					"id": "employee_3508",
@@ -171,3 +247,4 @@
 		}
 	]
 }
+
