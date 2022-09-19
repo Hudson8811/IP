@@ -11,6 +11,16 @@
 		width: 300px;
 		flex: 0 0 300px;
 	}
+	@media (max-width: 768px){
+		flex: 1 1 100%;
+		width: 100%;
+		transition: all 0.3s ease 0s;
+		position: fixed;
+		top: -110%;
+		&.js-active-menu {
+			top: 0%;
+		}
+	}
 	&__wrapper {
 		position: fixed;
 		top: 0;
@@ -20,6 +30,13 @@
 		width: 395px;
 		@media (max-width: 1600px) {
 			width: 300px;
+		}
+		@media (max-width: 768px){
+			position: relative;
+			width: 100%;
+			top: -110%;
+			transition: all 0.3s ease 0s;
+			background-color: #ffffff;
 		}
 		&::-webkit-scrollbar {
 			width: 0;
@@ -31,10 +48,16 @@
 		@media (max-width: 1600px){
 			padding: 50px 20px 100px 40px;
 		}
+		@media (max-width: 768px){
+			padding: 80px 20px 44px;
+		}
 	}
 
 		&__logo {
 			display: flex;
+			@media (max-width: 768px){
+				display: none;
+			}
 			img {
 				width: 64px;
 				height: 32px;
@@ -58,7 +81,10 @@
 	
 		&__list {
 			margin-top: 94px;
-
+			@media (max-width: 768px){
+				margin: 0;
+				padding-top: 20px;
+			}
 		}
 	
 		&__item {
