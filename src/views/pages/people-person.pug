@@ -6,6 +6,7 @@ block variables
 block content
 	.wrapper
 		include ../../blocks/modules/header/header
+		include ../../blocks/modules/sidebar/sidebar
 
 		include ../../blocks/modules/sidebar-icons/sidebar-icons
 		.page
@@ -14,7 +15,7 @@ block content
 				.content__container
 					.people(style='display:flex; flex-direction:column;height:100%;')
 						.people__title.general-title Сотрудники бюро
-						.people__header(style='padding-bottom: 40px')
+						.people__header.people__header-mobile-hide(style='padding-bottom: 40px')
 							.people__header--search.my-search
 								.people__header--icon.my-search--icon
 									img(src="img/svg/search-orange.svg", alt="alt")
@@ -32,6 +33,10 @@ block content
 						.people__person.person
 							.person__container
 								.person__row
+									.person__body-mobile
+										.person__name Юлия Чекмарева
+										.person__position советник, руководитель практики Private Clients
+										.person__city Москва
 									.person__img
 										img(src="img/man-big.jpg", alt="alt")
 									.person__body

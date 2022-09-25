@@ -45,7 +45,10 @@ body {
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
-	&.js-overflow-active {
+	&.js-overflow-active-sidebar {
+		overflow: hidden;
+	}
+	&.js-overflow-active-menu {
 		overflow: hidden;
 	}
 }
@@ -121,11 +124,19 @@ h6 {
 			flex-direction: column;
 			//max-width: calc(100% - 95px);
 			max-width: calc(100% - 395px);
+			@media (max-width: 768px){
+				max-width: 100%;
+			}
 			&__container {
 				flex: 1 1 auto;
 				background-color: #ffffff;
 				margin: 190px 95px 0 30px;
 				padding: 64px 110px 103px 110px;
+				@media (max-width: 768px){
+					margin: 0;
+					margin-top: 80px;
+					padding: 31px 20px 52px;
+				}
 			}
 		}
 	}
@@ -137,7 +148,10 @@ h6 {
 	font-size: 32px;
 	line-height: 40px;
 	color: #000000;
-
+	@media (max-width: 768px){
+		font-size: 24px;
+		line-height: 30px;
+	}
 }
 .menu__item--click {
 	&.active-menu {

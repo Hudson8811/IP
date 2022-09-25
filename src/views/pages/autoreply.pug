@@ -6,6 +6,7 @@ block variables
 block content
 	.wrapper
 		include ../../blocks/modules/header/header
+		include ../../blocks/modules/sidebar/sidebar
 
 		include ../../blocks/modules/sidebar-icons/sidebar-icons
 		.page
@@ -18,6 +19,8 @@ block content
 
 
 							.autoreply__title.general-title Автоответ на время отпуска
+							.instruction-mobile
+								|инсткукция по созданию 
 							p.autoreply__text Короткая инструкция будет тут. Писмо формируется автоматичевки: текст письма стандартный, данный сотрудника подтягиваются из базы данных (имя фамилия, телефон, email и тд) Изначально текст будет серым (50% black), без возможности править. Возможность внести корректировки появляется уже после создания подписи. При выборе пунка он становиться черным (100% black). После того, как все пункты были выбраны кнопка создать становится активной. После нажатия кнопки создать  становиться активной кнопка скопировать (при этом кнопка создать становиться неактивной (30% black), а также текст письма становится доступным к редактированию (100% black). В сформированное письмо можно добавить еще один номер телефона, например, или еще какие данные.
 								br
 								|Ссылка на подробную инструкцию со скринами (в раздел IT??)
@@ -69,13 +72,14 @@ block content
 												input#autoreplySelect3.autoreply__item--input(type='radio' name='autoreplySelect')
 												label.autoreply__item--label.autoreply__item--label-eng(for='autoreplySelect3')
 													span английский
+								.autoreply__btn.autoreply__btn-mobile создать
 								.autoreply__right
 									textarea
 										|Тут будет стандартный текст для ответа на время отпуска. Писмо формируется автоматичевки: текст письма стандартный, данный сотрудника подтягиваются из базы данных (имя фамилия, телефон, email и тд
 							.autoreply__footer
 								.autoreply__empty
 								.autoreply__btns
-									.autoreply__btn создать
+									.autoreply__btn.autoreply__btn-desktop создать
 									.autoreply__btn(disabled) скопировать
 								.autoreply__reset
 									img(src="img/svg/autoreply/shape.svg", alt="alt")

@@ -27,14 +27,16 @@ $(document).ready(function () {
   $('.header__btn-menu').click(function (e) {
     $('.header__btn-menu').toggleClass('js-active-btn-menu');
     $('.menu').toggleClass('js-active-menu');
-    $('body').toggleClass('js-overflow-active');
+    $('body').toggleClass('js-overflow-active-menu');
+    $('body').removeClass('js-overflow-active-sidebar');
     $('.header__btn-sidebar').removeClass('js-active-btn-sidebar');
     $('.sidebar').removeClass('js-active-sidebar');
   });
   $('.header__btn-sidebar').click(function (e) {
     $('.header__btn-sidebar').toggleClass('js-active-btn-sidebar');
     $('.sidebar').toggleClass('js-active-sidebar');
-    $('body').toggleClass('js-overflow-active');
+    $('body').toggleClass('js-overflow-active-sidebar');
+    $('body').removeClass('js-overflow-active-menu');
     $('.header__btn-menu').removeClass('js-active-btn-menu');
     $('.menu').removeClass('js-active-menu');
   });
@@ -85,7 +87,13 @@ $(document).ready(function () {
   \***********************************************/
 /***/ (function() {
 
+$(document).ready(function () {
+  var news = $('.news');
 
+  if (news.hasClass('news-active')) {
+    $('.sidebar').addClass('sidebar-shown');
+  }
+});
 
 /***/ }),
 
@@ -317,6 +325,11 @@ $(document).ready(function () {
     massage_icon.classList.add('active');
   }
 
+  $(document).ready(function () {
+    $('.instruction-mobile').click(function (event) {
+      $(this).toggleClass('active').next().slideToggle(300);
+    });
+  });
   var signature = document.querySelector('.signature');
   var signature_icon = document.querySelector('.signature-icon');
 

@@ -100,7 +100,7 @@
 			}
 		}
 
-		&__btn-menu {
+		&__btn-sidebar {
 			display: none;
 			@media (max-width: 768px){
 				display: block;
@@ -120,7 +120,7 @@
 				width: 14px;
 				height: 14px;
 			}
-			&.js-active-btn-menu {
+			&.js-active-btn-sidebar {
 				background-color: #F04E00;
 				svg {
 					rect, line, path {
@@ -129,7 +129,7 @@
 				}
 			}
 		}
-		&__btn-sidebar {
+		&__btn-menu {
 			display: none;
 			@media (max-width: 768px){
 				display: block;
@@ -158,7 +158,7 @@
 					transform: translate(-50%, 5.5px);
 				}
 			}
-			&.js-active-btn-sidebar {
+			&.js-active-btn-menu {
 				background-color: #F04E00;
 				span {
 					background-color: white;

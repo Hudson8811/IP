@@ -37,6 +37,7 @@
 				line-height: 23px;
 				color: #000000;
 				@media (max-width: 768px){
+					margin-left: 14px;
 					width: 122px;
 					font-size: 14px;
 					line-height: 18px;
@@ -111,7 +112,7 @@
 		line-height: 22px;
 		color: #000000;
 		@media (max-width: 768px){
-			
+			margin-top: 10px;
 		}
 	}
 	input::placeholder {
@@ -208,7 +209,13 @@
 			color: #000000;
 			font-size: 14px;
 			line-height: 20px;
+			br {
+				display: none;
+			}
 			@media (max-width: 768px){
+				br {
+					display: block;
+				}
 			}
 			&:not(:first-child) {
 				margin-top: 20px;

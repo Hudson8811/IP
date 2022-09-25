@@ -7,6 +7,10 @@
 		margin-top: 28px;
 		margin-bottom: -30px;
 		margin-left: -30px;
+		@media (max-width: 768px){
+			margin: 0;
+			margin-top: 20px;
+		}
 	}
 
 	&__btn {
@@ -30,7 +34,15 @@
 		padding: 12px 10px;
 
 		max-width: 410px;//для десктопа пойдёт. При адаптиве это корректировать
-
+		@media (max-width: 768px){
+			min-width: 100%;
+			margin: 0;
+			margin-top: 20px;
+			justify-content: flex-start;
+			padding: 0 30px 0 20px;
+			font-size: 14px;
+			line-height: 26px;
+		}
 		&--long{
 			min-width: 410px;
 			flex-grow: 0;
@@ -40,6 +52,12 @@
 		&--with-arrow{
 			padding-right: 35px;
 			padding-left: 35px;
+			&-mobile {
+				display: none;
+				@media (max-width: 768px){
+					display: block;
+				}
+			}
 		}
 
 		span {
@@ -90,6 +108,12 @@
 			transition: all 0.3s ease 0s;
 			transform: translate(0, -50%);
 			background: url('../img/svg/arrow-btn.svg') 0 0 / 100% 100% no-repeat;
+			&-mobile {
+				display: none;
+				@media (max-width: 768px){
+					display: block;
+				}
+			}
 		}
 
 		&.active {
@@ -111,13 +135,18 @@
 	&__info {
 		margin-top: 57px;
 		color: #000000 !important;
-
+		@media (max-width: 768px){
+			margin-top: 50px;
+		}
 		&--item {
 			width: 505px;
 			max-width: 100%;
 
 			&+.offices__info--item{
 				margin-top: 80px;
+				@media (max-width: 768px){
+					margin-top: 60px;
+				}
 			}
 
 			a,

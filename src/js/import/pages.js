@@ -23,7 +23,11 @@ $(document).ready(function () {
 	if (autoreply) {
 		massage_icon.classList.add('active')
 	}
-
+	$(document).ready(function() {
+		$('.instruction-mobile').click(function(event) {
+			$(this).toggleClass('active').next().slideToggle(300);
+		});
+	}); 
 	const signature = document.querySelector('.signature');
 	const signature_icon = document.querySelector('.signature-icon');
 	if (signature) {

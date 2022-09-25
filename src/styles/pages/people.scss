@@ -3,7 +3,11 @@
 	position: relative;
 	flex: 0 1 345px;
 	margin-left: 37px;
-
+	@media (max-width: 768px){
+		margin: 0;
+		margin-top: 15px;
+		order: -1;
+	}
 
 		&.active {
 			.select1--title {
@@ -43,8 +47,15 @@ font-family: 'Styrene A LC Web';
 	padding-bottom: 5px;
 	border-bottom: 2px solid #CFEDFF;
 	color: #000000;
-		cursor: pointer;
-
+		cursor: pointer;		
+		@media (max-width: 768px){
+			border: none;
+			padding: 8px 0;
+			display: flex;
+			span {
+				flex: 1 1 auto;
+			}
+		}
 		&::before,
 		&::after {
 			content: "";
@@ -62,7 +73,9 @@ font-family: 'Styrene A LC Web';
 			background-color: #333333;
 
 			transform: translate(-4px, -50%) rotate(45deg);
-
+			@media (max-width: 768px){
+				left: 25px;
+			}
 		}
 
 		&::after {
@@ -93,7 +106,9 @@ font-family: 'Styrene A LC Web';
 		opacity: 0;
 		z-index: 8;
 		padding-bottom: 30px;
-
+		@media (max-width: 768px){
+			left: 20px;
+		}
 	}
 
 	&--input {
@@ -142,6 +157,11 @@ font-family: 'Styrene A LC Web';
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 26px;
+	@media (max-width: 768px){
+		margin: 0;
+		order: -1;
+		border-bottom: 2px solid #CFEDFF;
+	}
 		&.active {
 			.select-c1--title {
 				&::before {
@@ -180,7 +200,14 @@ font-family: 'Styrene A LC Web';
 		border-bottom: 2px solid #CFEDFF;
 		color: #000000;
 		cursor: pointer;
-
+		@media (max-width: 768px){
+			border: none;
+			padding: 8px 0;
+			display: flex;
+			span {
+				flex: 1 1 auto;
+			}
+		}
 
 		&::before,
 		&::after {
@@ -199,7 +226,9 @@ font-family: 'Styrene A LC Web';
 			background-color: #333333;
 
 			transform: translate(-4px, -50%) rotate(45deg);
-
+			@media (max-width: 768px){
+				left: 25px;
+			}
 
 		}
 
@@ -224,6 +253,7 @@ font-family: 'Styrene A LC Web';
 		display: flex;
 		flex-direction: column;
 		width: 225px;
+		max-width: 100%;
 		padding: 27px 0;
 		background: #CFEDFF;
 
@@ -231,7 +261,9 @@ font-family: 'Styrene A LC Web';
 
 		opacity: 0;
 		z-index: 8;
-
+		@media (max-width: 768px){
+			left: 20px;
+		}
 	}
 
 	&--input {
@@ -277,10 +309,17 @@ font-family: 'Styrene A LC Web';
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 37px;
-
+	@media (max-width: 768px){
+		flex-wrap: wrap;
+		>* {
+			flex: 1 1 100%;
+		}
+	}
 	&--search {
 		flex: 0 1 410px;
-
+		@media (max-width: 768px){
+			margin-top: 30px;
+		}
 	}
 
 	&--icon {}
@@ -292,11 +331,23 @@ font-family: 'Styrene A LC Web';
 		}
 	}
 
-	&--select {}
+	&--select {
+		@media (max-width: 768px){
+			margin: 0 -20px;
+			padding: 0 20px;
+			border-top: 2px solid #CFEDFF;
+			&::before,&::after{
+				left: 25px;
+			}
+		}
+	}
 
 	.select1--content {
 		padding-top: 21px;
-
+		max-width: 100%;
+		@media (max-width: 768px){
+			max-width: calc(100% - 20px);
+		}
 		&__wrapper {
 			margin-top: 20px;
 			display: flex;
@@ -338,6 +389,9 @@ font-family: 'Styrene A LC Web';
 		display: flex;
 		justify-content: flex-end;
 		margin-left: 15px;
+		@media (max-width: 768px){
+			display: none;
+		}
 	}
 
 		&--btn {
@@ -640,6 +694,34 @@ font-family: 'Styrene A LC Web';
 		align-items: center;
 		min-height: 34px;
 		margin-top: 20px;
+		@media (max-width: 768px){
+			flex-wrap: wrap;
+			margin: 0 -20px;
+			padding: 25px 20px 35px;
+			border-top: 2px solid #CFEDFF;
+			
+			&:first-child{
+				display: none;
+			}
+			&:last-child{
+				border-bottom: 2px solid #CFEDFF;
+			}
+			&.active {
+				background-color: #E1F3FD;
+			}
+		}
+		@media (max-width: 768px){
+			td {
+				flex: 1 1 100%!important;
+				margin: 0!important;
+				&:nth-child(3), &:nth-child(4), &:nth-child(6){
+					display: none;
+				}
+				&:not(:first-child) {
+					margin-top: 14px;
+				}
+			}
+		}
 		>* {
 			&:not(:first-child) {
 				margin-left: 5px;
@@ -776,26 +858,44 @@ font-family: 'Styrene A LC Web';
 	}
 }
 
-
+.people__header-mobile-hide {
+	@media (max-width: 768px){
+		display: none;
+	}
+}
 .person {
 	margin: 0 -110px -103px;
 	padding-top: 30px;
 	padding-bottom: 52px;
 	background: #E1F3FD;
 	flex: 1 1 auto;
+	@media (max-width: 768px){
+		padding: 0;
+		margin: 0;
+	}
 	&__container {
 		padding: 90px 110px 100px;
 		background-color: #ffffff;
+		@media (max-width: 768px){
+			padding: 40px 0 0;
+		}
 	}
 
 		&__row {
 			display: flex;
+			@media (max-width: 768px){
+				flex-wrap: wrap;
+			}
 		}
 
 		&__img {
 			position: relative;
 			flex: 0 0 410px;
 			align-self: flex-start;
+			@media (max-width: 768px){
+				flex: 1 1 100%;
+				margin-top: 40px;
+			}
 			&::before{
 				content: '';
 				display: block;
@@ -816,6 +916,12 @@ font-family: 'Styrene A LC Web';
 			margin-left: 76px;
 			display: flex;
 			flex-wrap: wrap;
+			@media (max-width: 768px){
+				flex: 1 1 100%;
+				margin-top: 40px;
+				margin-left: 0;
+			}
+			
 		}
 
 		&__name {
@@ -826,6 +932,9 @@ font-family: 'Styrene A LC Web';
 			line-height: 60px;
 			color: #000000;
 			flex: 1 1 100%;
+			@media (max-width: 768px){
+				display: none;
+			}
 		}
 
 		&__position {
@@ -837,6 +946,9 @@ font-family: 'Styrene A LC Web';
 			line-height: 24px;
 			color: #000000;
 			flex: 1 1 100%;
+			@media (max-width: 768px){
+				display: none;
+			}
 		}
 
 		&__city {
@@ -848,6 +960,9 @@ font-family: 'Styrene A LC Web';
 			line-height: 24px;
 			color: #F04E00;
 			flex: 1 1 100%;
+			@media (max-width: 768px){
+				display: none;
+			}
 		}
 
 		&__contacts {
@@ -856,7 +971,12 @@ font-family: 'Styrene A LC Web';
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
-
+			@media (max-width: 768px){
+				margin: 0;
+			}
+			@media (max-width: 450px){
+				flex-wrap: wrap;
+			}
 			a {
 				display: flex;
 				align-items: center;
@@ -889,7 +1009,9 @@ font-family: 'Styrene A LC Web';
 			}
 			&--left {
 				left: 290px;
-
+				@media (max-width: 450px){
+					flex: 1 1 100%;
+				}
 			}
 
 				&--item {
@@ -926,7 +1048,10 @@ font-family: 'Styrene A LC Web';
 					margin-left: 118px; */
 					display: flex;
 					align-items: center;
-
+					@media (max-width: 450px){
+						flex: 1 1 100%;
+						margin-top: 25px;
+					}
 					span {
 						font-family: 'Styrene A LC Web';
 						font-style: normal;
@@ -947,6 +1072,25 @@ font-family: 'Styrene A LC Web';
 					}
 				}
 		}
+
+
+		.person__body-mobile {
+			display: none;
+	
+				@media (max-width: 768px) {
+					display: block;
+				
+					.person__name,
+					.person__position,
+					.person__city {
+						display: block !important;
+					}
+					.person__name {
+						font-size: 30px;
+						line-height: 38px;
+					}
+				}
+			}
 }
 .fancybox__button--zoom, .fancybox__button--fullscreen {
 	display: none!important;
